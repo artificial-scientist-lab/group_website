@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" role="img" aria-label="CR">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#132033"/>
+      <stop offset="100%" stop-color="#254265"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#g)"/>
+  <rect x="24" y="24" width="552" height="552" fill="none" stroke="#58b5ff" stroke-opacity="0.45" stroke-width="3"/>
+  <text x="50%" y="52%" text-anchor="middle" dominant-baseline="middle" fill="#dff4ff" font-size="190" font-family="'IBM Plex Mono', monospace" font-weight="700">CR</text>
+</svg>

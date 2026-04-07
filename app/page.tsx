@@ -38,7 +38,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Mario Krenn",
     role: "Professor",
-    focus: "AI-augmented scientific discovery, quantum experiment design, and machine creativity in science.",
+    focus: "Excited about the future of AI-augmented ideas and concepts in science, and in general about the acceleration of science and technology through artificial intelligence.",
     image: "/team/mario-krenn.png",
     links: [
       { label: "Website", href: "https://mariokrenn.wordpress.com/" },
@@ -46,9 +46,23 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
+    name: "Michael Mergner",
+    role: "Group Admin",
+    focus: "Supporting the group's day-to-day operations, coordination, and administration.",
+    image: "/team/michael-mergner.svg",
+    links: [],
+  },
+  {
+    name: "Marcello Armezzani",
+    role: "PhD student",
+    focus: "Fascinated by the innovations that AI can bring to the study of physics, both in its experimental applications and especially in its epistemological foundations. Other more or less related interests include: philosophy of science, postmodern novels, playing and (nowadays mostly) watching rugby.",
+    image: "/team/marcello-armezzani.jpg",
+    links: [],
+  },
+  {
     name: "Sören Arlt",
     role: "PhD student",
-    focus: "Computer-inspired physics and interpretable approaches to AI-driven discovery.",
+    focus: "I enjoy thinking about computer-inspired physics and other interesting things. I like going on adventures in nature as well as learning new skills (some can be useful, one is riding a unicycle).",
     image: "/team/soeren-arlt.jpeg",
     links: [
       { label: "GitHub", href: "https://github.com/soerenarlt" },
@@ -56,9 +70,16 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
+    name: "Soham Basu",
+    role: "PhD student",
+    focus: "AI-assisted exploration and optimization in physics-inspired computational systems.",
+    image: "/team/soham-basu.svg",
+    links: [],
+  },
+  {
     name: "Tareq Jaouni",
     role: "PhD student",
-    focus: "Joint student with University of Ottawa, exploring novel AI-generated ideas in physics.",
+    focus: "Intrigued by what sort of novel ideas in physics can be concocted by an artificial scientist. Primary interests include food, cycling, coding, Pok\u00e9mon, reading out loud, and role-playing.",
     image: "/team/tareq-jaouni.jpg",
     links: [{ label: "GitHub", href: "https://github.com/TareqJ1000" }],
   },
@@ -73,13 +94,6 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: "Marcello Armezzani",
-    role: "PhD student",
-    focus: "AI methods for physics, with interest in experimental applications and scientific concepts.",
-    image: "/team/marcello-armezzani.jpg",
-    links: [],
-  },
-  {
     name: "Pontus Lindgren",
     role: "PhD student",
     focus: "Research on machine learning methods for scientific discovery workflows.",
@@ -87,10 +101,10 @@ const teamMembers: TeamMember[] = [
     links: [],
   },
   {
-    name: "Soham Basu",
+    name: "Carlos Ruiz Gonz\u00e1lez",
     role: "PhD student",
-    focus: "AI-assisted exploration and optimization in physics-inspired computational systems.",
-    image: "/team/soham-basu.svg",
+    focus: "Always curious about unexpected phenomena and applications from Quantum Physics. Also interested in Social Sciences, Music, Cooking, Science Fiction, and, of course, Artificial Intelligence. At some point I expect to beat Mario at Go.",
+    image: "/team/carlos-ruiz-gonzalez.svg",
     links: [],
   },
   {
@@ -101,6 +115,13 @@ const teamMembers: TeamMember[] = [
     links: [],
   },
   {
+    name: "Lalit Chaudhary",
+    role: "Master student",
+    focus: "Machine learning for scientific reasoning and discovery support systems.",
+    image: "/team/lalit-chaudhary.svg",
+    links: [],
+  },
+  {
     name: "Priya Kanagasabapathi",
     role: "Master student",
     focus: "Interpretable ML and deep learning for scientific applications.",
@@ -108,10 +129,10 @@ const teamMembers: TeamMember[] = [
     links: [{ label: "GitHub", href: "https://github.com/priya-ks1703" }],
   },
   {
-    name: "Lalit Chaudhary",
-    role: "Master student",
-    focus: "Machine learning for scientific reasoning and discovery support systems.",
-    image: "/team/lalit-chaudhary.svg",
+    name: "Raphael Jontofsohn",
+    role: "Bachelor student",
+    focus: "Undergraduate contributor to computational tools for AI in science.",
+    image: "/team/raphael-jontofsohn.svg",
     links: [],
   },
   {
@@ -121,13 +142,6 @@ const teamMembers: TeamMember[] = [
     image: "/team/laurin-sefa.svg",
     links: [],
   },
-  {
-    name: "Raphael Jontofsohn",
-    role: "Bachelor student",
-    focus: "Undergraduate contributor to computational tools for AI in science.",
-    image: "/team/raphael-jontofsohn.svg",
-    links: [],
-  },
 ];
 
 const alumniMembers = [
@@ -135,6 +149,8 @@ const alumniMembers = [
   "Philipp S. Schmidt",
   "Juilee Kulkarni",
   "Jan Petermann",
+  "Xuemei Gu",
+  "Carla Rodriguez",
 ];
 
 const recentPapers: Paper[] = [
