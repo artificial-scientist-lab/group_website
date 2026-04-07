@@ -680,12 +680,20 @@ export default function Home() {
               <div className="mt-5 grid gap-4 lg:grid-cols-2">
                 {groupPhotos.map((photo) => (
                   <article key={photo.date} className="modern-card overflow-hidden">
-                    <img
-                      src={photo.image}
-                      alt={`Artificial Scientist Lab group picture from ${photo.date}`}
-                      loading="lazy"
-                      className="h-64 w-full object-cover sm:h-72"
-                    />
+                    <a
+                      href={photo.image}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open full-size group picture from ${photo.date}`}
+                      className="block"
+                    >
+                      <img
+                        src={photo.image}
+                        alt={`Artificial Scientist Lab group picture from ${photo.date}`}
+                        loading="lazy"
+                        className="h-64 w-full object-cover sm:h-72"
+                      />
+                    </a>
                     <div className="p-4">
                       <p className="text-xs uppercase tracking-[0.18em] opacity-70">{photo.date}</p>
                       <p className="mt-3 text-sm leading-relaxed opacity-90">{photo.names.join(", ")}</p>
