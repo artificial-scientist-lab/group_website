@@ -365,15 +365,15 @@ const coreChallenges: CoreChallenge[] = [
     text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world? We have explored this question in numerous domains:",
     links: [
       {
-        label: "AI-designed quantum experiments",
+        label: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
         href: "https://quantum-journal.org/papers/q-2023-12-12-1204/",
       },
       {
-        label: "AI-designed microscopes",
+        label: "Automated discovery of experimental designs in super-resolution microscopy with XLuminA",
         href: "https://www.nature.com/articles/s41467-024-54696-y",
       },
       {
-        label: "AI-designed gravitational wave detectors",
+        label: "Digital Discovery of Interferometric Gravitational Wave Detectors",
         href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
       },
     ],
@@ -383,11 +383,11 @@ const coreChallenges: CoreChallenge[] = [
     text: "If an AI discovers solutions that are better than all human solutions, it needs to contain new tricks and ideas that we could learn from. Here are some examples where it worked successfully and where we made progress in simplifying the understanding:",
     links: [
       {
-        label: "Understanding from Code",
+        label: "Meta-designing quantum experiments with language models",
         href: "https://www.nature.com/articles/s42256-025-01153-0",
       },
       {
-        label: "New concept in quantum optics",
+        label: "Emulating multiparticle emitters with pair-sources: digital discovery of a quantum optics building block",
         href: "https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta",
       },
     ],
@@ -397,15 +397,15 @@ const coreChallenges: CoreChallenge[] = [
     text: "How can we use millions of scientific papers to create personalized, interesting, and high-impact ideas?",
     links: [
       {
-        label: "Science4Cast",
+        label: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network",
         href: "https://www.nature.com/articles/s42256-023-00735-0",
       },
       {
-        label: "Impact4Cast",
+        label: "Forecasting high-impact research topics via machine learning on evolving knowledge graphs",
         href: "https://iopscience.iop.org/article/10.1088/2632-2153/add6ef",
       },
       {
-        label: "SciMuse",
+        label: "Interesting Scientific Idea Generation using Knowledge Graphs and LLMs: Evaluations with 100 Research Group Leaders",
         href: "https://arxiv.org/abs/2405.17044",
       },
     ],
@@ -415,11 +415,11 @@ const coreChallenges: CoreChallenge[] = [
     text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example on scientific understanding?",
     links: [
       {
-        label: "AI-Mandel",
+        label: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
         href: "https://arxiv.org/abs/2511.11752",
       },
       {
-        label: "Scientific Understanding and AI",
+        label: "On scientific understanding with artificial intelligence",
         href: "https://www.nature.com/articles/s42254-022-00518-3",
       },
     ],
@@ -642,7 +642,7 @@ export default function Home() {
                           href={link.href}
                           target="_blank"
                           rel="noreferrer"
-                          className="chip-link"
+                          className="chip-link max-w-full break-words whitespace-normal text-left leading-relaxed"
                         >
                           {link.label}
                         </a>
