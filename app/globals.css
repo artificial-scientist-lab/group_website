@@ -334,6 +334,54 @@ body {
     0 8px 18px -10px rgba(42, 42, 42, calc(0.2 + var(--morph) * 0.12));
 }
 
+.frontier-link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.frontier-link-list li + li {
+  margin-top: 0.55rem;
+}
+
+.frontier-link {
+  display: block;
+  width: 100%;
+  padding-left: 0.8rem;
+  border-left: 2px solid
+    rgba(
+      calc(102 - var(--morph) * 18),
+      calc(112 + var(--morph) * 44),
+      calc(132 + var(--morph) * 82),
+      calc(0.34 + var(--morph) * 0.28)
+    );
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  line-height: 1.55;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.frontier-link:hover,
+.frontier-link:focus-visible {
+  border-left-color: rgba(116, 235, 255, 0.88);
+  color: rgba(
+    calc(28 + var(--morph) * 172),
+    calc(58 + var(--morph) * 180),
+    calc(84 + var(--morph) * 171),
+    1
+  );
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+  transform: translateX(2px);
+}
+
+.frontier-link:focus,
+.frontier-link:focus-visible {
+  outline: none;
+}
+
 .team-card {
   border-color: rgba(
     calc(128 - var(--morph) * 34),

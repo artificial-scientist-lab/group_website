@@ -635,19 +635,20 @@ export default function Home() {
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
                   {challenge.links?.length ? (
-                    <div className="mt-4 flex flex-wrap gap-2 pt-1 text-xs">
+                    <ul className="frontier-link-list mt-4 pt-1 text-xs">
                       {challenge.links.map((link) => (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="chip-link max-w-full break-words whitespace-normal text-left leading-relaxed"
-                        >
-                          {link.label}
-                        </a>
+                        <li key={link.href}>
+                          <a
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="frontier-link"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   ) : null}
                 </article>
               ))}
