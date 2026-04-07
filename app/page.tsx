@@ -124,7 +124,7 @@ const teamMembers: TeamMember[] = [
     name: "Carlos Ruiz Gonz\u00e1lez",
     role: "PhD student",
     focus: "Always curious about unexpected phenomena and applications from Quantum Physics. Also interested in Social Sciences, Music, Cooking, Science Fiction, and, of course, Artificial Intelligence. At some point I expect to beat Mario at Go.",
-    image: "/team/carlos-ruiz-gonzalez.svg",
+    image: "/team/carlos-ruiz-gonzalez.jpg",
     links: [],
   },
   {
@@ -643,6 +643,9 @@ export default function Home() {
                       <p className="text-sm font-semibold leading-relaxed">{alumnus.name}</p>
                       <p className="mt-2 text-xs uppercase tracking-[0.18em] opacity-70">{alumnus.role}</p>
                       <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
+                      {alumnus.thesis ? (
+                        <p className="mt-3 text-sm leading-relaxed opacity-90">{`Thesis: ${alumnus.thesis.title}`}</p>
+                      ) : null}
                       {alumnus.current ? (
                         <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
                       ) : null}
@@ -652,7 +655,7 @@ export default function Home() {
                           download={alumnus.thesis.downloadName}
                           className="chip-link mt-3 inline-flex text-xs leading-relaxed"
                         >
-                          {`Download Thesis: ${alumnus.thesis.title}`}
+                          Download Thesis
                         </a>
                       ) : null}
                       {alumnus.links?.length ? (
