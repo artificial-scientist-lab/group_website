@@ -26,6 +26,12 @@ type AlumniMember = {
   };
 };
 
+type GroupPhoto = {
+  date: string;
+  image: string;
+  names: string[];
+};
+
 type Paper = {
   date: string;
   title: string;
@@ -219,6 +225,29 @@ const alumniMembers: AlumniMember[] = [
       href: "/theses/jan-petermann-bachelor-thesis.pdf",
       downloadName: "jan-petermann-bachelor-thesis.pdf",
     },
+  },
+];
+
+const groupPhotos: GroupPhoto[] = [
+  {
+    date: "May 2025",
+    image: "/group-pictures/may-2025.jpg",
+    names: ["Tareq", "Marcello", "Sören", "Priya", "Jonathan", "Carlos", "Xuemei", "Carla", "Mario"],
+  },
+  {
+    date: "October 2023",
+    image: "/group-pictures/october-2023.jpg",
+    names: ["Xuemei", "Sören", "Olek", "Carla", "Carlos", "Philipp", "Mario"],
+  },
+  {
+    date: "July 2022",
+    image: "/group-pictures/july-2022.jpg",
+    names: ["Mario", "Carla", "Juilee", "Carlos", "Sören", "Jan", "Burak", "Tareq"],
+  },
+  {
+    date: "March 2022",
+    image: "/group-pictures/march-2022.jpg",
+    names: ["Mario", "Carlos", "Juilee", "Sören"],
   },
 ];
 
@@ -618,16 +647,13 @@ export default function Home() {
                         <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
                       ) : null}
                       {alumnus.thesis ? (
-                        <>
-                          <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.thesis.title}</p>
-                          <a
-                            href={alumnus.thesis.href}
-                            download={alumnus.thesis.downloadName}
-                            className="chip-link mt-3 inline-flex text-xs"
-                          >
-                            Download Thesis
-                          </a>
-                        </>
+                        <a
+                          href={alumnus.thesis.href}
+                          download={alumnus.thesis.downloadName}
+                          className="chip-link mt-3 inline-flex text-xs leading-relaxed"
+                        >
+                          {`Download Thesis: ${alumnus.thesis.title}`}
+                        </a>
                       ) : null}
                       {alumnus.links?.length ? (
                         <div className="mt-3 flex flex-wrap gap-2 text-xs">
@@ -647,6 +673,26 @@ export default function Home() {
                     </li>
                   ))}
               </ul>
+            </div>
+            <div className="mt-8 border-t border-current/15 pt-6">
+              <p className="section-kicker">Archive</p>
+              <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Group Pictures</h3>
+              <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                {groupPhotos.map((photo) => (
+                  <article key={photo.date} className="modern-card overflow-hidden">
+                    <img
+                      src={photo.image}
+                      alt={`Artificial Scientist Lab group picture from ${photo.date}`}
+                      loading="lazy"
+                      className="h-64 w-full object-cover sm:h-72"
+                    />
+                    <div className="p-4">
+                      <p className="text-xs uppercase tracking-[0.18em] opacity-70">{photo.date}</p>
+                      <p className="mt-3 text-sm leading-relaxed opacity-90">{photo.names.join(", ")}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </section>
 
