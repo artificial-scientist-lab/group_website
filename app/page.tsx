@@ -12,6 +12,13 @@ type TeamMember = {
   links: { label: string; href: string }[];
 };
 
+type AlumniMember = {
+  name: string;
+  role: string;
+  period: string;
+  leftAt: string;
+};
+
 type Paper = {
   date: string;
   title: string;
@@ -48,7 +55,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Michael Mergner",
     role: "Group Admin",
-    focus: "Supporting the group's day-to-day operations, coordination, and administration.",
+    focus: "",
     image: "/team/michael-mergner.svg",
     links: [],
   },
@@ -72,7 +79,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Soham Basu",
     role: "PhD student",
-    focus: "AI-assisted exploration and optimization in physics-inspired computational systems.",
+    focus: "",
     image: "/team/soham-basu.svg",
     links: [],
   },
@@ -96,7 +103,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Pontus Lindgren",
     role: "PhD student",
-    focus: "Research on machine learning methods for scientific discovery workflows.",
+    focus: "",
     image: "/team/pontus-lindgren.svg",
     links: [],
   },
@@ -110,14 +117,14 @@ const teamMembers: TeamMember[] = [
   {
     name: "Carlo Wenig",
     role: "PhD student",
-    focus: "Algorithmic tools for interpretable, high-impact scientific discovery.",
+    focus: "",
     image: "/team/carlo-wenig.svg",
     links: [],
   },
   {
     name: "Lalit Chaudhary",
     role: "Master student",
-    focus: "Machine learning for scientific reasoning and discovery support systems.",
+    focus: "",
     image: "/team/lalit-chaudhary.svg",
     links: [],
   },
@@ -131,26 +138,56 @@ const teamMembers: TeamMember[] = [
   {
     name: "Raphael Jontofsohn",
     role: "Bachelor student",
-    focus: "Undergraduate contributor to computational tools for AI in science.",
+    focus: "",
     image: "/team/raphael-jontofsohn.svg",
     links: [],
   },
   {
     name: "Laurin Sefa",
     role: "Bachelor student",
-    focus: "Undergraduate research support in AI-driven physics workflows.",
+    focus: "",
     image: "/team/laurin-sefa.svg",
     links: [],
   },
 ];
 
-const alumniMembers = [
-  "Lode Vermeulen",
-  "Philipp S. Schmidt",
-  "Juilee Kulkarni",
-  "Jan Petermann",
-  "Xuemei Gu",
-  "Carla Rodriguez",
+const alumniMembers: AlumniMember[] = [
+  {
+    name: "Carla Rodriguez",
+    role: "Postdoctoral researcher",
+    period: "July 2022 - April 2025",
+    leftAt: "2025-04",
+  },
+  {
+    name: "Xuemei Gu",
+    role: "Alexander-von-Humboldt Postdoctoral Fellow",
+    period: "October 2022 - April 2025",
+    leftAt: "2025-04",
+  },
+  {
+    name: "Lode Vermeulen",
+    role: "External bachelor student",
+    period: "March 2024 - July 2024",
+    leftAt: "2024-07",
+  },
+  {
+    name: "Philipp S. Schmidt",
+    role: "Master student",
+    period: "March 2023 - March 2024",
+    leftAt: "2024-03",
+  },
+  {
+    name: "Juilee Kulkarni",
+    role: "Master student",
+    period: "December 2021 - December 2022",
+    leftAt: "2022-12",
+  },
+  {
+    name: "Jan Petermann",
+    role: "Bachelor student",
+    period: "July 2022 - November 2022",
+    leftAt: "2022-11",
+  },
 ];
 
 const recentPapers: Paper[] = [
@@ -512,7 +549,9 @@ export default function Home() {
                   <div className="flex grow flex-col p-4">
                     <h3 className="text-base font-semibold leading-tight">{member.name}</h3>
                     <p className="mt-1 text-xs uppercase tracking-[0.18em] opacity-70">{member.role}</p>
-                    <p className="mt-3 text-sm leading-relaxed opacity-90">{member.focus}</p>
+                    {member.focus ? (
+                      <p className="mt-3 text-sm leading-relaxed opacity-90">{member.focus}</p>
+                    ) : null}
                     {member.links.length > 0 ? (
                       <div className="mt-auto flex flex-wrap gap-2 pt-3 text-xs">
                         {member.links.map((link) => (
@@ -536,11 +575,15 @@ export default function Home() {
               <p className="section-kicker">Former Members</p>
               <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Alumni</h3>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {alumniMembers.map((alumnus) => (
-                  <li key={alumnus} className="modern-card p-4 text-sm font-semibold leading-relaxed">
-                    {alumnus}
-                  </li>
-                ))}
+                {[...alumniMembers]
+                  .sort((a, b) => b.leftAt.localeCompare(a.leftAt) || a.name.localeCompare(b.name))
+                  .map((alumnus) => (
+                    <li key={alumnus.name} className="modern-card p-4">
+                      <p className="text-sm font-semibold leading-relaxed">{alumnus.name}</p>
+                      <p className="mt-2 text-xs uppercase tracking-[0.18em] opacity-70">{alumnus.role}</p>
+                      <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
+                    </li>
+                  ))}
               </ul>
             </div>
           </section>
