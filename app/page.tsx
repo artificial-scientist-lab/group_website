@@ -632,10 +632,10 @@ export default function Home() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {coreChallenges.map((challenge) => (
                 <article key={challenge.title} className="modern-card frontier-card flex h-full flex-col p-5">
-                  <h3 className="text-lg font-semibold">{challenge.title}</h3>
+                  <h3 className="text-center text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
                   {challenge.links?.length ? (
-                    <ul className="frontier-link-list mt-6 text-xs">
+                    <ul className="frontier-link-list text-xs">
                       {challenge.links.map((link) => (
                         <li key={link.href}>
                           <a
