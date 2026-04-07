@@ -362,7 +362,7 @@ const githubProjects: Project[] = [
 const coreChallenges: CoreChallenge[] = [
   {
     title: "AI-designed experiments",
-    text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world? We have explored this question in numerous domains:",
+    text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world?",
     links: [
       {
         label: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
@@ -635,7 +635,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
                   {challenge.links?.length ? (
-                    <ul className="frontier-link-list mt-4 pt-1 text-xs">
+                    <ul className="frontier-link-list mt-6 text-xs">
                       {challenge.links.map((link) => (
                         <li key={link.href}>
                           <a
