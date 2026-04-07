@@ -46,6 +46,12 @@ type Project = {
   href: string;
 };
 
+type CoreChallenge = {
+  title: string;
+  text: string;
+  links?: { label: string; href: string }[];
+};
+
 type CookieChoice = "essential" | "all";
 
 type CookieConsentRecord = {
@@ -353,22 +359,70 @@ const githubProjects: Project[] = [
   },
 ];
 
-const coreChallenges = [
+const coreChallenges: CoreChallenge[] = [
   {
-    title: "Search Spaces",
-    text: "The engineering of expressive experiment search spaces, that host interesting experimental phenomena and can be efficiently explored by algorithms.",
+    title: "AI-designed experiments",
+    text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world? We have explored this question in numerous domains:",
+    links: [
+      {
+        label: "AI-designed quantum experiments",
+        href: "https://quantum-journal.org/papers/q-2023-12-12-1204/",
+      },
+      {
+        label: "AI-designed microscopes",
+        href: "https://www.nature.com/articles/s41467-024-54696-y",
+      },
+      {
+        label: "AI-designed gravitational wave detectors",
+        href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
+      },
+    ],
   },
   {
-    title: "Physics Simulators",
-    text: "The implementation of high-performance physics simulators that efficiently map design candidates from the search space to experimental outcomes.",
+    title: "Understanding AI-solutions",
+    text: "If an AI discovers solutions that are better than all human solutions, it needs to contain new tricks and ideas that we could learn from. Here are some examples where it worked successfully and where we made progress in simplifying the understanding:",
+    links: [
+      {
+        label: "Understanding from Code",
+        href: "https://www.nature.com/articles/s42256-025-01153-0",
+      },
+      {
+        label: "New concept in quantum optics",
+        href: "https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta",
+      },
+    ],
   },
   {
-    title: "Objective Functions",
-    text: "The automated, creative formulation of new experiment ideas and objective functions.",
+    title: "Scientific Ideas from AI",
+    text: "How can we use millions of scientific papers to create personalized, interesting, and high-impact ideas?",
+    links: [
+      {
+        label: "Science4Cast",
+        href: "https://www.nature.com/articles/s42256-023-00735-0",
+      },
+      {
+        label: "Impact4Cast",
+        href: "https://iopscience.iop.org/article/10.1088/2632-2153/add6ef",
+      },
+      {
+        label: "SciMuse",
+        href: "https://arxiv.org/abs/2405.17044",
+      },
+    ],
   },
   {
-    title: "AI-Exploration",
-    text: "The development of algorithms that navigate the search space and discover surprising, useful, and human-understandable designs.",
+    title: "Autonomous Science and Philosophical Implications",
+    text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example on scientific understanding?",
+    links: [
+      {
+        label: "AI-Mandel",
+        href: "https://arxiv.org/abs/2511.11752",
+      },
+      {
+        label: "Scientific Understanding and AI",
+        href: "https://www.nature.com/articles/s42254-022-00518-3",
+      },
+    ],
   },
 ];
 
@@ -572,14 +626,29 @@ export default function Home() {
           </p>
           <div className="hero-focus mt-8">
             <p className="section-lede">
-              We are a research group at the University of Tübingen, working on intelligent algorithms that design powerful physics experiments outside of human experience
-              and intuition. Our work is organized around four frontiers:
+              We are a research group at the University of Tübingen, developing intelligent algorithms for conceptual contributions in physics.
+              Our work is organized around four pillars:
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {coreChallenges.map((challenge) => (
-                <article key={challenge.title} className="modern-card frontier-card p-5">
+                <article key={challenge.title} className="modern-card frontier-card flex h-full flex-col p-5">
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                  {challenge.links?.length ? (
+                    <div className="mt-4 flex flex-wrap gap-2 pt-1 text-xs">
+                      {challenge.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="chip-link"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
                 </article>
               ))}
             </div>
@@ -643,11 +712,11 @@ export default function Home() {
                       <p className="text-sm font-semibold leading-relaxed">{alumnus.name}</p>
                       <p className="mt-2 text-xs uppercase tracking-[0.18em] opacity-70">{alumnus.role}</p>
                       <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
-                      {alumnus.thesis ? (
-                        <p className="mt-3 text-sm leading-relaxed opacity-90">{`Thesis: ${alumnus.thesis.title}`}</p>
-                      ) : null}
                       {alumnus.current ? (
                         <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
+                      ) : null}
+                      {alumnus.thesis ? (
+                        <p className="mt-3 text-sm leading-relaxed opacity-90">{`Thesis: ${alumnus.thesis.title}`}</p>
                       ) : null}
                       {alumnus.thesis ? (
                         <a
