@@ -17,6 +17,8 @@ type AlumniMember = {
   role: string;
   period: string;
   leftAt: string;
+  current?: string;
+  links?: { label: string; href: string }[];
 };
 
 type Paper = {
@@ -157,12 +159,16 @@ const alumniMembers: AlumniMember[] = [
     role: "Postdoctoral researcher",
     period: "July 2022 - April 2025",
     leftAt: "2025-04",
+    current: "Currently: AI Scientist at HHMI (Janelia, Washington DC)",
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/carla-rodriguez-46398b183/" }],
   },
   {
     name: "Xuemei Gu",
     role: "Alexander-von-Humboldt Postdoctoral Fellow",
-    period: "October 2022 - April 2025",
-    leftAt: "2025-04",
+    period: "August 2022 - January 2025",
+    leftAt: "2025-01",
+    current: "Currently: Junior Research Group Leader (University of Jena)",
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/xuemei-gu-11a51888/" }],
   },
   {
     name: "Lode Vermeulen",
@@ -582,6 +588,24 @@ export default function Home() {
                       <p className="text-sm font-semibold leading-relaxed">{alumnus.name}</p>
                       <p className="mt-2 text-xs uppercase tracking-[0.18em] opacity-70">{alumnus.role}</p>
                       <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
+                      {alumnus.current ? (
+                        <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
+                      ) : null}
+                      {alumnus.links?.length ? (
+                        <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                          {alumnus.links.map((link) => (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="chip-link"
+                            >
+                              {link.label}
+                            </a>
+                          ))}
+                        </div>
+                      ) : null}
                     </li>
                   ))}
               </ul>
