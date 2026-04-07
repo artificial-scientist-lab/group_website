@@ -19,6 +19,11 @@ type AlumniMember = {
   leftAt: string;
   current?: string;
   links?: { label: string; href: string }[];
+  thesis?: {
+    title: string;
+    href: string;
+    downloadName: string;
+  };
 };
 
 type Paper = {
@@ -175,24 +180,45 @@ const alumniMembers: AlumniMember[] = [
     role: "External bachelor student",
     period: "March 2024 - July 2024",
     leftAt: "2024-07",
+    thesis: {
+      title: "Formal Verification of Mathematics Behind Quantum Optics Experiments",
+      href: "/theses/lode-vermeulen-bachelor-thesis.pdf",
+      downloadName: "lode-vermeulen-bachelor-thesis.pdf",
+    },
   },
   {
     name: "Philipp S. Schmidt",
     role: "Master student",
     period: "March 2023 - March 2024",
     leftAt: "2024-03",
+    current: "Currently: PhD student at University of Heidelberg",
+    thesis: {
+      title: "Interpretable Representations of Artificially Discovered Experiments in Quantum Optics via Virtual Reality",
+      href: "/theses/philipp-s-schmidt-master-thesis.pdf",
+      downloadName: "philipp-s-schmidt-master-thesis.pdf",
+    },
   },
   {
     name: "Juilee Kulkarni",
     role: "Master student",
     period: "December 2021 - December 2022",
     leftAt: "2022-12",
+    thesis: {
+      title: "Prediction of future research trends in Optics using Semantic Analysis and Artificial Neural Networks",
+      href: "/theses/juilee-kulkarni-master-thesis.pdf",
+      downloadName: "juilee-kulkarni-master-thesis.pdf",
+    },
   },
   {
     name: "Jan Petermann",
     role: "Bachelor student",
     period: "July 2022 - November 2022",
     leftAt: "2022-11",
+    thesis: {
+      title: "Digital Discovery of Experimental Setups for Creating Highly-Entangled Quantum States",
+      href: "/theses/jan-petermann-bachelor-thesis.pdf",
+      downloadName: "jan-petermann-bachelor-thesis.pdf",
+    },
   },
 ];
 
@@ -590,6 +616,18 @@ export default function Home() {
                       <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
                       {alumnus.current ? (
                         <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
+                      ) : null}
+                      {alumnus.thesis ? (
+                        <>
+                          <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.thesis.title}</p>
+                          <a
+                            href={alumnus.thesis.href}
+                            download={alumnus.thesis.downloadName}
+                            className="chip-link mt-3 inline-flex text-xs"
+                          >
+                            Download Thesis
+                          </a>
+                        </>
                       ) : null}
                       {alumnus.links?.length ? (
                         <div className="mt-3 flex flex-wrap gap-2 text-xs">
