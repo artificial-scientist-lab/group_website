@@ -144,7 +144,7 @@ const teamMembers: TeamMember[] = [
     name: "Lalit Chaudhary",
     role: "Master student",
     focus: "",
-    image: "/team/lalit-chaudhary.svg",
+    image: "/team/lalit-chaudhary.jpg",
     links: [],
   },
   {
@@ -158,7 +158,7 @@ const teamMembers: TeamMember[] = [
     name: "Raphael Jontofsohn",
     role: "Bachelor student",
     focus: "",
-    image: "/team/raphael-jontofsohn.svg",
+    image: "/team/raphael-jontofsohn.jpg",
     links: [],
   },
   {
