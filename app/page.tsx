@@ -637,25 +637,33 @@ const coreChallenges: CoreChallenge[] = [
     },
     researchDetails: {
       beforeImage: (
-        <p>
-          We can split this question into four pillars: extremely large and complex search spaces, fast and
-          reliable simulators, meaningful objective functions, and clever AI-exploration algorithms.
-        </p>
+        <>
+          <p>
+            Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously
+            large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional
+            experimental ideas that can lead to new ways to explore the world?
+          </p>
+          <p>
+            We can split this question into four pillars: extremely large and complex search spaces, fast and
+            reliable simulators, meaningful objective functions, and clever AI-exploration algorithms.
+          </p>
+        </>
       ),
       afterImage: (
         <>
           <p>
-            We started using AI for the design of physics experiments in 2014, published in 2016 in{" "}
+            <strong>AI-designed Quantum Experiments: </strong>
+            We started using AI for the design of physics experiments in 2014, published in{" "}
             <a
               href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
               target="_blank"
               rel="noreferrer"
               className="challenge-inline-link"
             >
-              Phys. Rev. Lett.
+              2016
             </a>
             , where our first program Melvin discovered numerous new experiments for high-dimensional multipartite
-            quantum entanglement experiments, several of which were later built in laboratories:{" "}
+            quantum entanglement, several of which were later built in laboratories:{" "}
             <a
               href="https://www.nature.com/articles/s41566-018-0257-6"
               target="_blank"
@@ -681,6 +689,34 @@ const coreChallenges: CoreChallenge[] = [
               className="challenge-inline-link"
             >
               Phys. Rev. Lett. 2017
+            </a>
+            . These solutions contained surprising results, and we were able to conceptually understand several of
+            them, for example an entirely new way to create photonic quantum entanglement denoted as{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.080401"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Entanglement by Path Identity
+            </a>
+            , as well as a new bridge between quantum optics and graph theory{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.240403"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              [link]
+            </a>{" "}
+            that has led to the discovery of new interference effects{" "}
+            <a
+              href="https://www.pnas.org/doi/10.1073/pnas.1815884116"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              [link]
             </a>
             .
           </p>
