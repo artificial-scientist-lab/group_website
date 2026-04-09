@@ -74,7 +74,7 @@ const teamMembers: TeamMember[] = [
     name: "Michael Mergner",
     role: "Group Admin",
     focus: "",
-    image: "/team/michael-mergner.svg",
+    image: "/team/michael-mergner.jpg",
     links: [],
   },
   {
@@ -104,7 +104,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Tareq Jaouni",
     role: "PhD student",
-    focus: "Intrigued by what sort of novel ideas in physics can be concocted by an artificial scientist. Primary interests include food, cycling, coding, Pok\u00e9mon, reading out loud, and role-playing.",
+    focus: "Joint PhD student with Dr. Ebrahim Karimi's Structured Quantum Optics group at the University of Ottawa. Intrigued by what sort of novel ideas in physics can be concocted by an artificial scientist. Primary interests include food, cycling, coding, Pok\u00e9mon, reading out loud, and role-playing.",
     image: "/team/tareq-jaouni.jpg",
     links: [{ label: "GitHub", href: "https://github.com/TareqJ1000" }],
   },
