@@ -48,6 +48,10 @@ type Project = {
 type CoreChallenge = {
   title: string;
   text: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
   links?: { label: string; href: string }[];
 };
 
@@ -256,56 +260,272 @@ const groupPhotos: GroupPhoto[] = [
   },
 ];
 
-const recentPapers: Paper[] = [
+const publications: Paper[] = [
   {
     date: "2026",
-    title: "Meta-designing quantum experiments with language models",
-    venue: "Nature Machine Intelligence",
-    href: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=jzG7GC8AAAAJ&citation_for_view=jzG7GC8AAAAJ:YlPif8NxrbYC",
+    title: "Meta-Designing Quantum Experiments with Language Models",
+    venue: "Nature Machine Intelligence 8, 148",
+    href: "https://www.nature.com/articles/s42256-025-01153-0",
   },
   {
-    date: "2025-11",
+    date: "2025",
     title: "Neural surrogates for designing gravitational wave detectors",
-    venue: "arXiv",
+    venue: "arXiv:2511.19364",
     href: "https://arxiv.org/abs/2511.19364",
   },
   {
-    date: "2025-11",
+    date: "2025",
     title: "Analytical Fock Representation of Two-Mode Squeezing for Quantum Interference",
-    venue: "arXiv",
+    venue: "arXiv:2511.16529",
     href: "https://arxiv.org/abs/2511.16529",
   },
   {
-    date: "2025-11",
+    date: "2025",
     title: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
-    venue: "arXiv",
+    venue: "arXiv:2511.11752",
     href: "https://arxiv.org/abs/2511.11752",
   },
   {
-    date: "2025-11",
+    date: "2025",
     title: "Automated Discovery of Non-local Photonic Gates",
-    venue: "arXiv",
+    venue: "arXiv:2511.04648",
     href: "https://arxiv.org/abs/2511.04648",
   },
   {
-    date: "2025-10",
+    date: "2025",
     title: "Automated discovery of high-dimensional multipartite entanglement with photons that never interacted",
-    venue: "arXiv",
+    venue: "arXiv:2510.10707",
     href: "https://arxiv.org/abs/2510.10707",
   },
   {
-    date: "2025-08",
+    date: "2025",
+    title: "Quantum computing and artificial intelligence: status and perspectives",
+    venue: "arXiv:2505.23860",
+    href: "https://arxiv.org/abs/2505.23860",
+  },
+  {
+    date: "2025",
+    title: "Tutorial: Hong-Ou-Mandel interference with Structured Photons",
+    venue: "Nanophotonics 14 (23), 4163",
+    href: "https://www.degruyterbrill.com/document/doi/10.1515/nanoph-2025-0034/html",
+  },
+  {
+    date: "2025",
     title: "Violation of Bell inequality with unentangled photons",
-    venue: "Science Advances",
+    venue: "Science Advances 11, eadr1794",
     href: "https://www.science.org/doi/10.1126/sciadv.adr1794",
   },
   {
-    date: "2025-05",
-    title: "Quantum computing and artificial intelligence: status and perspectives",
-    venue: "arXiv",
-    href: "https://arxiv.org/abs/2505.23860",
+    date: "2025",
+    title: "Forecasting high-impact research topics via machine learning on evolving knowledge graphs",
+    venue: "Machine Learning: Science and Technology 6 (2), 025041",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/add6ef",
+  },
+  {
+    date: "2025",
+    title: "Digital Discovery of interferometric Gravitational Wave Detectors",
+    venue: "Phys. Rev. X 15, 021012",
+    href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
+  },
+  {
+    date: "2025",
+    title: "Discovering emergent connections in quantum physics research via dynamic word embeddings",
+    venue: "Machine Learning: Science and Technology 6, 015029",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/adb00a",
+  },
+  {
+    date: "2025",
+    title: "Predicting atmospheric turbulence for secure quantum communications in free space",
+    venue: "Optics Express 33 (5), 10759",
+    href: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-33-5-10759&id=568775",
+  },
+  {
+    date: "2024",
+    title: "Generation and human-expert evaluation of interesting research ideas using knowledge graphs and large language models",
+    venue: "arXiv:2405.17044",
+    href: "https://arxiv.org/abs/2405.17044",
+  },
+  {
+    date: "2024",
+    title: "Automated discovery of experimental designs in super-resolution microscopy with XLuminA",
+    venue: "Nature Comm. 15, 10658",
+    href: "https://www.nature.com/articles/s41467-024-54696-y",
+  },
+  {
+    date: "2024",
+    title: "Entangling Independent Particles by Path Identity",
+    venue: "Phys. Rev. Lett. 133, 233601",
+    href: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.233601",
+  },
+  {
+    date: "2024",
+    title: "Emulating Multiparticle Emitters with Pair-Sources: Digital Discovery of a Quantum Optics Building Block",
+    venue: "Quantum Science and Technology 10 (1), 015042",
+    href: "https://iopscience.iop.org/article/10.1088/2058-9565/ad904f",
+  },
+  {
+    date: "2024",
+    title: "Virtual Reality for Understanding Artificial-Intelligence-driven Scientific Discovery with an Application in Quantum Optics",
+    venue: "Machine Learning: Science and Technology 5 (3), 035045",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ad5fdb",
+  },
+  {
+    date: "2024",
+    title: "Quantum interference between distant creation processes",
+    venue: "Phys. Rev. Research 6, 013294",
+    href: "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.6.013294",
+  },
+  {
+    date: "2024",
+    title: "Deep Quantum Graph Dreaming: Deciphering Neural Network Insights into Quantum Experiments",
+    venue: "Machine Learning: Science and Technology 5 (1), 015029",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ad2628",
+  },
+  {
+    date: "2023",
+    title: "Experimental Solutions to the High-Dimensional Mean King's Problem",
+    venue: "Optica Quantum 1 (2), 49",
+    href: "https://doi.org/10.1364/OPTICAQ.502451",
+  },
+  {
+    date: "2023",
+    title: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
+    venue: "Quantum 7, 1204",
+    href: "https://quantum-journal.org/papers/q-2023-12-12-1204/",
+  },
+  {
+    date: "2023",
+    title: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network",
+    venue: "Nature Machine Intelligence 5 (11), 1326",
+    href: "https://www.nature.com/articles/s42256-023-00735-0",
+  },
+  {
+    date: "2023",
+    title: "Roadmap on structured waves",
+    venue: "Journal of Optics 25, 103001",
+    href: "https://iopscience.iop.org/article/10.1088/2040-8986/acea92/meta",
+  },
+  {
+    date: "2023",
+    title: "Recent advances in the Self-Referencing Embedding Strings (SELFIES) library",
+    venue: "Digital Discovery 2, 897",
+    href: "https://pubs.rsc.org/en/content/articlelanding/2023/DD/D3DD00044C",
+  },
+  {
+    date: "2023",
+    title: "Multiphoton non-local quantum interference controlled by an undetected photon",
+    venue: "Nature Communications 14, 1480",
+    href: "https://www.nature.com/articles/s41467-023-37228-y",
+  },
+  {
+    date: "2023",
+    title: "On-chip quantum interference between the origins of a multi-photon state",
+    venue: "Optica 10 (1), 105-109",
+    href: "https://doi.org/10.1364/OPTICA.474750",
+  },
+  {
+    date: "2023",
+    title: "Artificial Intelligence and Machine Learning for Quantum Technologies",
+    venue: "Phys. Rev. A 107, 010101",
+    href: "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.010101",
+  },
+  {
+    date: "2022",
+    title: "SELFIES and the future of molecular string representations",
+    venue: "Cell Patterns 3 (10), 100588",
+    href: "https://www.cell.com/patterns/fulltext/S2666-3899(22)00206-9",
+  },
+  {
+    date: "2022",
+    title: "On scientific understanding with artificial intelligence",
+    venue: "Nature Review Physics 4, 761",
+    href: "https://www.nature.com/articles/s42254-022-00518-3",
+  },
+  {
+    date: "2022",
+    title: "Design of quantum optical experiments with logic artificial intelligence",
+    venue: "Quantum 6, 836",
+    href: "https://quantum-journal.org/papers/q-2022-10-13-836/",
+  },
+  {
+    date: "2022",
+    title: "Curiosity in exploring chemical spaces: intrinsic rewards for molecular reinforcement learning",
+    venue: "Machine Learning: Science and Technology 3 (3), 035008",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ac7ddc",
+  },
+  {
+    date: "2022",
+    title: "Quantum indistinguishability by path identity and with undetected photons",
+    venue: "Rev. Mod. Phys. 94, 025007",
+    href: "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.94.025007",
+  },
+  {
+    date: "2022",
+    title: "Learning interpretable representations of entanglement in quantum optics experiments using deep generative models",
+    venue: "Nature Machine Intelligence 4, 544",
+    href: "https://www.nature.com/articles/s42256-022-00493-5",
+  },
+  {
+    date: "2022",
+    title: "Experimental high-dimensional Greenberger-Horne-Zeilinger entanglement with superconducting transmon qutrits",
+    venue: "Phys. Rev. Applied 17, 024062",
+    href: "https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.17.024062",
+  },
+  {
+    date: "2021",
+    title: "Quantum Optical Experiments Modeled by Long Short-Term Memory",
+    venue: "Photonics 8 (12), 535",
+    href: "https://www.mdpi.com/2304-6732/8/12/535",
+  },
+  {
+    date: "2021",
+    title: "Conceptual understanding through efficient automated design of quantum optical experiments",
+    venue: "Phys. Rev. X 11 (3), 031044",
+    href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.11.031044",
+  },
+  {
+    date: "2021",
+    title: "Deep Molecular Dreaming: Inverse machine learning for de-novo molecular design and interpretability with surjective representations",
+    venue: "Machine Learning: Science and Technology 2 (3), 03LT02",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ac09d6",
+  },
+  {
+    date: "2021",
+    title: "Quantum Computer-Aided design of Quantum Optics Hardware",
+    venue: "Quantum Science and Technology 6 (3), 035010",
+    href: "https://iopscience.iop.org/article/10.1088/2058-9565/abfc94",
+  },
+  {
+    date: "2021",
+    title: "Scientific intuition inspired by machine learning-generated hypotheses",
+    venue: "Machine Learning: Science and Technology 2 (2), 025027",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/abda08/meta",
+  },
+  {
+    date: "2021",
+    title: "Beyond generative models: superfast traversal, optimization, novelty, exploration and discovery (STONED) algorithm for molecules using SELFIES",
+    venue: "Chemical Sciences 12 (20), 7079",
+    href: "https://pubs.rsc.org/en/content/articlelanding/2021/SC/D1SC00231G#!divAbstract",
+  },
+  {
+    date: "2021",
+    title: "Data-Driven Strategies for Accelerated Materials Design",
+    venue: "Accounts of Chemical Research 54 (4), 849-860",
+    href: "https://pubs.acs.org/doi/10.1021/acs.accounts.0c00785",
   },
 ];
+
+const publicationsByYear = publications.reduce<Array<{ year: string; papers: Paper[] }>>((groups, paper) => {
+  const previousGroup = groups[groups.length - 1];
+
+  if (!previousGroup || previousGroup.year !== paper.date) {
+    groups.push({ year: paper.date, papers: [paper] });
+    return groups;
+  }
+
+  previousGroup.papers.push(paper);
+  return groups;
+}, []);
 
 const githubProjects: Project[] = [
   {
@@ -362,6 +582,10 @@ const coreChallenges: CoreChallenge[] = [
   {
     title: "AI-designed experiments",
     text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world?",
+    image: {
+      src: "/research/ai-designed-experiments-workflow.png",
+      alt: "Diagram showing a workflow for AI-designed experiments with search space, physics simulator, objective function, and AI exploration.",
+    },
     links: [
       {
         label: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
@@ -753,6 +977,16 @@ export default function Home() {
                 <article key={challenge.title} className="modern-card frontier-card flex flex-col p-5">
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                  {challenge.image ? (
+                    <figure className="challenge-figure mt-4">
+                      <img
+                        src={challenge.image.src}
+                        alt={challenge.image.alt}
+                        loading="lazy"
+                        className="challenge-figure-image"
+                      />
+                    </figure>
+                  ) : null}
                   {challenge.links?.length ? (
                     <ul className="frontier-link-list text-xs">
                       {challenge.links.map((link) => (
@@ -777,54 +1011,47 @@ export default function Home() {
           <section className="journal-surface p-6 sm:p-8" id="publications">
             <p className="section-kicker">Papers</p>
             <h2 className="section-title">Publications</h2>
-            <ul className="mt-5 space-y-3">
-              {recentPapers.map((paper) => (
-                <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
-                  <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
-                    <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">
-                      {paper.date} • {paper.venue}
-                    </p>
-                    <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
-                  </a>
-                </li>
+            <div className="mt-5 space-y-8">
+              {publicationsByYear.map((yearGroup) => (
+                <section
+                  key={yearGroup.year}
+                  className="border-t border-current/15 pt-6 first:border-t-0 first:pt-0"
+                  aria-labelledby={`publications-${yearGroup.year}`}
+                >
+                  <h3 id={`publications-${yearGroup.year}`} className="font-journal text-3xl leading-none sm:text-4xl">
+                    {yearGroup.year}
+                  </h3>
+                  <ul className="mt-5 space-y-3">
+                    {yearGroup.papers.map((paper) => (
+                      <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
+                        <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
+                          <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">{paper.venue}</p>
+                          <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               ))}
-            </ul>
+            </div>
           </section>
 
           <section className="journal-surface p-6 sm:p-8" id="repositories">
             <p className="section-kicker">Code</p>
             <h2 className="section-title">Open-Source Repositories</h2>
-              <ul className="hidden">
-                {recentPapers.map((paper) => (
-                  <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
-                    <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
-                      <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">
-                        {paper.date} • {paper.venue}
-                      </p>
-                      <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            <div>
-              <p className="hidden">Code</p>
-              <h2 className="hidden">GitHub Projects</h2>
-              <ul className="mt-5 space-y-3">
-                {githubProjects.map((project) => (
-                  <li key={project.name} className="modern-card interactive-card overflow-hidden">
-                    <a href={project.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="interactive-card-title text-base font-semibold underline-offset-4">{project.name}</p>
-                        <span className="rounded-full border border-current/25 px-2 py-0.5 font-mono text-xs">
-                          ★ {project.stars}
-                        </span>
-                      </div>
-                      <p className="mt-2 text-sm leading-relaxed opacity-90">{project.description}</p>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="mt-5 space-y-3">
+              {githubProjects.map((project) => (
+                <li key={project.name} className="modern-card interactive-card overflow-hidden">
+                  <a href={project.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="interactive-card-title text-base font-semibold underline-offset-4">{project.name}</p>
+                      <span className="rounded-full border border-current/25 px-2 py-0.5 font-mono text-xs">* {project.stars}</span>
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed opacity-90">{project.description}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="journal-surface p-6 sm:p-8" id="positions">
