@@ -747,7 +747,7 @@ export default function Home() {
 
           <section className="journal-surface p-6 sm:p-8" id="research">
             <p className="section-kicker">Research</p>
-            <h2 className="section-title">Four Pillars</h2>
+            <h2 className="section-title">The Science in the Artificial Scientist Lab</h2>
             <div className="mt-5 space-y-4">
               {coreChallenges.map((challenge) => (
                 <article key={challenge.title} className="modern-card frontier-card flex flex-col p-5">
@@ -774,19 +774,27 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="journal-surface p-6 sm:p-8" aria-label="Transition">
-            <h2 className="section-title text-center">Towards De-novo Design of Physics Experiments with AI</h2>
+          <section className="journal-surface p-6 sm:p-8" id="publications">
+            <p className="section-kicker">Papers</p>
+            <h2 className="section-title">Publications</h2>
+            <ul className="mt-5 space-y-3">
+              {recentPapers.map((paper) => (
+                <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
+                  <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
+                    <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">
+                      {paper.date} • {paper.venue}
+                    </p>
+                    <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
 
-          <section className="grid gap-6 lg:grid-cols-2">
-            <article className="journal-surface p-6 sm:p-8">
-              <div className="flex items-end justify-between gap-4">
-                <div>
-                  <p className="section-kicker">Papers</p>
-                  <h2 className="section-title">Recent Publications</h2>
-                </div>
-              </div>
-              <ul className="mt-5 space-y-3">
+          <section className="journal-surface p-6 sm:p-8" id="repositories">
+            <p className="section-kicker">Code</p>
+            <h2 className="section-title">Open-Source Repositories</h2>
+              <ul className="hidden">
                 {recentPapers.map((paper) => (
                   <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
                     <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
@@ -798,11 +806,9 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </article>
-
-            <article className="journal-surface p-6 sm:p-8">
-              <p className="section-kicker">Code</p>
-              <h2 className="section-title">GitHub Projects</h2>
+            <div>
+              <p className="hidden">Code</p>
+              <h2 className="hidden">GitHub Projects</h2>
               <ul className="mt-5 space-y-3">
                 {githubProjects.map((project) => (
                   <li key={project.name} className="modern-card interactive-card overflow-hidden">
@@ -818,7 +824,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </div>
           </section>
 
           <section className="journal-surface p-6 sm:p-8" id="positions">
