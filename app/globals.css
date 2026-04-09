@@ -403,6 +403,31 @@ body {
   background: rgba(255, 252, 246, 0.92);
 }
 
+.challenge-detail-copy {
+  display: grid;
+  gap: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  opacity: 0.92;
+}
+
+.challenge-detail-copy > * {
+  margin: 0;
+}
+
+.challenge-inline-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+  transition: opacity 180ms ease;
+}
+
+.challenge-inline-link:hover,
+.challenge-inline-link:focus-visible {
+  opacity: 0.72;
+}
+
 .team-card {
   border-color: rgba(
     calc(128 - var(--morph) * 34),

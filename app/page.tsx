@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type TeamMember = {
   name: string;
@@ -51,6 +51,10 @@ type CoreChallenge = {
   image?: {
     src: string;
     alt: string;
+  };
+  researchDetails?: {
+    beforeImage?: ReactNode;
+    afterImage?: ReactNode;
   };
   links?: { label: string; href: string }[];
 };
@@ -631,6 +635,83 @@ const coreChallenges: CoreChallenge[] = [
       src: "/research/ai-designed-experiments-workflow.png",
       alt: "Diagram showing a workflow for AI-designed experiments with search space, physics simulator, objective function, and AI exploration.",
     },
+    researchDetails: {
+      beforeImage: (
+        <p>
+          We can split this question into four pillars: extremely large and complex search spaces, fast and
+          reliable simulators, meaningful objective functions, and clever AI-exploration algorithms.
+        </p>
+      ),
+      afterImage: (
+        <>
+          <p>
+            We started using AI for the design of physics experiments in 2014, published in 2016 in{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Phys. Rev. Lett.
+            </a>
+            , where our first program Melvin discovered numerous new experiments for high-dimensional multipartite
+            quantum entanglement experiments, several of which were later built in laboratories:{" "}
+            <a
+              href="https://www.nature.com/articles/s41566-018-0257-6"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Nature Photonics 2018
+            </a>
+            ,{" "}
+            <a
+              href="https://www.nature.com/articles/nphoton.2016.12"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Nature Photonics 2016
+            </a>
+            , and{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.180510"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Phys. Rev. Lett. 2017
+            </a>
+            .
+          </p>
+          <p>
+            Since then we have developed many further methods.{" "}
+            <a
+              href="https://quantum-journal.org/papers/q-2023-12-12-1204/"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              PyTheus
+            </a>{" "}
+            is an algorithm for designing vastly diverse quantum experiments, for quantum state generation, the
+            design of single- and multi-photon transformations, and new communication protocols. One surprising new
+            discovery, a new way to entangle independent photons, has been experimentally implemented by the
+            experimental group of Xiaosong Ma in Nanjing, China, a former PhD colleague of Mario from Anton
+            Zeilinger&apos;s lab:{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.233601"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Phys. Rev. Lett. 2024
+            </a>
+            .
+          </p>
+        </>
+      ),
+    },
     links: [
       {
         label: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
@@ -1022,6 +1103,9 @@ export default function Home() {
                 <article key={challenge.title} className="modern-card frontier-card flex flex-col p-5">
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                  {challenge.researchDetails?.beforeImage ? (
+                    <div className="challenge-detail-copy mt-4">{challenge.researchDetails.beforeImage}</div>
+                  ) : null}
                   {challenge.image ? (
                     <figure className="challenge-figure mt-4">
                       <img
@@ -1031,6 +1115,9 @@ export default function Home() {
                         className="challenge-figure-image"
                       />
                     </figure>
+                  ) : null}
+                  {challenge.researchDetails?.afterImage ? (
+                    <div className="challenge-detail-copy mt-4">{challenge.researchDetails.afterImage}</div>
                   ) : null}
                   {challenge.links?.length ? (
                     <ul className="frontier-link-list text-xs">
