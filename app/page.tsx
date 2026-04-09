@@ -137,7 +137,7 @@ const teamMembers: TeamMember[] = [
     name: "Carlo Wenig",
     role: "PhD student",
     focus: "",
-    image: "/team/carlo-wenig.svg",
+    image: "/team/carlo-wenig.jpg",
     links: [],
   },
   {
