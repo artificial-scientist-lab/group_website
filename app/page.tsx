@@ -700,23 +700,22 @@ const coreChallenges: CoreChallenge[] = [
             >
               Entanglement by Path Identity
             </a>
-            , as well as a new bridge between quantum optics and graph theory{" "}
             <a
               href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.240403"
               target="_blank"
               rel="noreferrer"
               className="challenge-inline-link"
             >
-              [link]
+              new bridge between quantum optics and graph theory
             </a>{" "}
-            that has led to the discovery of new interference effects{" "}
+            that has led to the{" "}
             <a
               href="https://www.pnas.org/doi/10.1073/pnas.1815884116"
               target="_blank"
               rel="noreferrer"
               className="challenge-inline-link"
             >
-              [link]
+              discovery of new interference effects
             </a>
             .
           </p>
@@ -730,7 +729,8 @@ const coreChallenges: CoreChallenge[] = [
             >
               PyTheus
             </a>{" "}
-            is an algorithm for designing vastly diverse quantum experiments, for quantum state generation, the
+            (spearheaded by Carlos Ruiz Gonz\u00e1lez and S\u00f6ren Arlt) is an algorithm for designing vastly
+            diverse quantum experiments, for quantum state generation, the
             design of single- and multi-photon transformations, and new communication protocols. One surprising new
             discovery, a new way to entangle independent photons, has been experimentally implemented by the
             experimental group of Xiaosong Ma in Nanjing, China, a former PhD colleague of Mario from Anton
@@ -744,6 +744,56 @@ const coreChallenges: CoreChallenge[] = [
               Phys. Rev. Lett. 2024
             </a>
             .
+          </p>
+          <p>
+            <strong>AI-designed microscopes: </strong>
+            Driven by human ingenuity and creativity, the discovery of super-resolution techniques, which circumvent
+            the classical diffraction limit of light, represents a leap in optical microscopy. However, the vast
+            space encompassing all possible experimental configurations suggests that some powerful concepts and
+            techniques might have not been discovered yet, and might never be with a human-driven direct design
+            approach. Thus, AI-based exploration techniques could provide enormous benefit, by exploring this space
+            in a fast, unbiased way. We developed XLuminA (spearheaded by Carla Rodriguez), an open-source computational framework developed using
+            JAX, a high-performance computing library in Python. XLuminA speeds up simulation by 4 orders of
+            magnitude, which thus allows exploration of the space of possible microscope concepts much faster than
+            before.
+          </p>
+          <p>
+            <strong>AI-designed Gravitational Wave Detectors: </strong>
+            Gravitational waves are created by some of the most extreme events in the universe, such as the
+            collision of black holes or the explosion of stars. These ripples of space-time then propagate through
+            space towards Earth. When they reach us, they are extremely faint signals. It took 100 years since
+            their prediction by Einstein to detect them. That became possible in 2016 through the international
+            LIGO collaboration. The experiment built by LIGO is an interferometric system based on
+            Michelson&apos;s interferometer, designed by ingenious human scientists. The question is: did humans
+            find the best way to measure gravitational waves, or do there exist new experiments that are practical
+            and significantly more sensitive? Together with Rana Adhikari and Yehonathan Drori from the Caltech
+            LIGO Lab, we explore this question using AI. We indeed discovered more than 50 blueprints that, at
+            least theoretically,{" "}
+            <a
+              href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              outperform the previous best-performing setups
+            </a>
+            . We spent months exploring the best-performing solutions, and while we were able to extract simple
+            conceptual cores from some of them, we were not able to understand the big picture behind most of the
+            solutions. This indicates an important challenge for the future of AI for scientific discovery.
+          </p>
+          <p>
+            Similar to the microscopy case, we took the original simulator for gravitational-wave optics, Finesse,
+            developed by the group of Andreas Freise, and reproduced the crucial core in JAX, which gave an
+            enormous speed-up. The simulator,{" "}
+            <a
+              href="https://github.com/artificial-scientist-lab/Differometor"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Differometor
+            </a>
+            , has been developed by Jonathan Klimesch.
           </p>
         </>
       ),
