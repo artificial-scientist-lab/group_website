@@ -671,6 +671,34 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-8 border-t border-current/15 pt-6">
+              <p className="section-kicker">What do we work on?</p>
+              <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Research</h3>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {coreChallenges.map((challenge) => (
+                  <article key={challenge.title} className="modern-card frontier-card flex h-full flex-col p-5">
+                    <h4 className="text-center text-lg font-semibold">{challenge.title}</h4>
+                    <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                    {challenge.links?.length ? (
+                      <ul className="frontier-link-list text-xs">
+                        {challenge.links.map((link) => (
+                          <li key={link.href}>
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="frontier-link"
+                            >
+                              {link.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="mt-8 border-t border-current/15 pt-6">
               <p className="section-kicker">Former Members</p>
               <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Alumni</h3>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
