@@ -527,6 +527,51 @@ const publicationsByYear = publications.reduce<Array<{ year: string; papers: Pap
   return groups;
 }, []);
 
+const publicationAuthorsByTitle: Record<string, string> = {
+  "Meta-Designing Quantum Experiments with Language Models": "Arlt, Duan, Li, Xie, Wu, Krenn",
+  "Neural surrogates for designing gravitational wave detectors": "Ruiz-Gonzalez, Arlt, Lehner, Berzins, Drori, Adhikari, Brandstetter, Krenn",
+  "Analytical Fock Representation of Two-Mode Squeezing for Quantum Interference": "Gu, Ruiz-Gonzalez, Krenn",
+  "Towards autonomous quantum physics research using LLM agents with access to intelligent tools": "Arlt, Gu, Krenn",
+  "Automated Discovery of Non-local Photonic Gates": "Arlt, Krenn, Gu",
+  "Automated discovery of high-dimensional multipartite entanglement with photons that never interacted": "Arlt, Krenn, Gu",
+  "Quantum computing and artificial intelligence: status and perspectives": "Acampora, Ambainis, Ares, Banchi, Bhardwaj, Binosi, Briggs, Calarco, Dunjko, Eisert, Ezratty, Erker, Fedele, Gil-Fuster, Garttner, Granath, Heyl, Kerenidis, Klusch, Frisk Kockum, Kueng, Krenn, Lassig, Macaluso, Maniscalco, Marquardt, Michielsen, Munoz-Gil, Mussig, Poulsen Nautrup, van Nieuwenburg, Orus, Schmiedmayer, Schmitt, Slusallek, Vicentini, Weitenberg, Wilhelm",
+  "Tutorial: Hong-Ou-Mandel interference with Structured Photons": "Jaouni, Gu, Krenn, D'Errico, Karimi",
+  "Violation of Bell inequality with unentangled photons": "Wang, Hou, Qian, Chen, Krenn, Aspelmeyer, Zeilinger, Zhu, Ma",
+  "Forecasting high-impact research topics via machine learning on evolving knowledge graphs": "Gu, Krenn",
+  "Digital Discovery of interferometric Gravitational Wave Detectors": "Krenn, Drori, Adhikari",
+  "Discovering emergent connections in quantum physics research via dynamic word embeddings": "Frohnert, Gu, Krenn, van Nieuwenburg",
+  "Predicting atmospheric turbulence for secure quantum communications in free space": "Jaouni, Scarfe, Bouchard, Krenn, Heshami, Di Colandrea, Karimi",
+  "Generation and human-expert evaluation of interesting research ideas using knowledge graphs and large language models": "Gu, Krenn",
+  "Automated discovery of experimental designs in super-resolution microscopy with XLuminA": "Rodriguez, Arlt, Moeckl, Krenn",
+  "Entangling Independent Particles by Path Identity": "Wang, Hou, Qian, Chen, Krenn, Zhu, Ma",
+  "Emulating Multiparticle Emitters with Pair-Sources: Digital Discovery of a Quantum Optics Building Block": "Arlt, Ruiz-Gonzalez, Krenn",
+  "Virtual Reality for Understanding Artificial-Intelligence-driven Scientific Discovery with an Application in Quantum Optics": "Schmidt, Arlt, Ruiz-Gonzalez, Gu, Rodriguez, Krenn",
+  "Quantum interference between distant creation processes": "Pseiner, Erhard, Krenn",
+  "Deep Quantum Graph Dreaming: Deciphering Neural Network Insights into Quantum Experiments": "Jaouni, Arlt, Ruiz-Gonzalez, Karimi, Gu, Krenn",
+  "Experimental Solutions to the High-Dimensional Mean King's Problem": "Jaouni, Gao, Arlt, Krenn, Karimi",
+  "Digital Discovery of 100 diverse Quantum Experiments with PyTheus": "Ruiz-Gonzalez, Arlt, Petermann, Sayyad, Jaouni, Karimi, Tischler, Gu, Krenn",
+  "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network": "Krenn, Buffoni, Coutinho, Eppel, Foster, Gritsevskiy, Lee, Lu, Moutinho, Sanjabi, Sonthalia, Tran, Valente, Xie, Yu, Kopp",
+  "Roadmap on structured waves": "Bliokh, Karimi, Padgett, Alonso, Dennis, Dudley, Forbes, Zahedpour, Hancock, Milchberg, Rotter, Nori, Ozdemir, Bender, Cao, Corkum, Hernandez-Garcia, Ren, Kivshar, Silveirinha, Engheta, Rauschenbeutel, Schneeweiss, Volz, Leykam, Smirnova, Rong, Wang, Hasman, Picardi, Zayats, Rodriguez-Fortuno, Yang, Ren, Khanikaev, Alu, Brasselet, Shats, Verbeeck, Schattschneider, Sarenac, Cory, Pushin, Birk, Gorlach, Kaminer, Cardano, Marrucci, Krenn, Marquardt",
+  "Recent advances in the Self-Referencing Embedding Strings (SELFIES) library": "Lo, Pollice, Nigam, White, Krenn, Aspuru-Guzik",
+  "Multiphoton non-local quantum interference controlled by an undetected photon": "Qian, Wang, Chen, Hou, Krenn, Zhu, Ma",
+  "On-chip quantum interference between the origins of a multi-photon state": "Feng, Zhang, Liu, Cheng, Guo, Dai, Guo, Krenn, Ren",
+  "Artificial Intelligence and Machine Learning for Quantum Technologies": "Krenn, Landgraf, Foesel, Marquardt",
+  "SELFIES and the future of molecular string representations": "Krenn, Ai, Barthel, Carson, Frei, Frey, Friederich, Gaudin, Gayle, Jablonka, Lameiro, Lemm, Lo, Moosavi, Napoles-Duarte, Nigam, Pollice, Rajan, Schatzschneider, Schwaller, Skreta, Smit, Strieth-Kalthoff, Sun, Tom, von Rudorff, Wang, White, Young, Yu, Aspuru-Guzik",
+  "On scientific understanding with artificial intelligence": "Krenn, Pollice, Guo, Aldeghi, Cervera-Lierta, Friederich, dos Passos Gomes, Haese, Jinich, Nigam, Yao, Aspuru-Guzik",
+  "Design of quantum optical experiments with logic artificial intelligence": "Cervera-Lierta, Krenn, Aspuru-Guzik",
+  "Curiosity in exploring chemical spaces: intrinsic rewards for molecular reinforcement learning": "Thiede, Krenn, Nigam, Aspuru-Guzik",
+  "Quantum indistinguishability by path identity and with undetected photons": "Hochrainer, Lahiri, Erhard, Krenn, Zeilinger",
+  "Learning interpretable representations of entanglement in quantum optics experiments using deep generative models": "Flam-Shepherd, Wu, Gu, Cervera-Lierta, Krenn, Aspuru-Guzik",
+  "Experimental high-dimensional Greenberger-Horne-Zeilinger entanglement with superconducting transmon qutrits": "Cervera-Lierta, Krenn, Aspuru-Guzik, Galda",
+  "Quantum Optical Experiments Modeled by Long Short-Term Memory": "Adler, Erhard, Krenn, Brandstetter, Kofler, Hochreiter",
+  "Conceptual understanding through efficient automated design of quantum optical experiments": "Krenn, Kottmann, Tischler, Aspuru-Guzik",
+  "Deep Molecular Dreaming: Inverse machine learning for de-novo molecular design and interpretability with surjective representations": "Shen, Krenn, Eppel, Aspuru-Guzik",
+  "Quantum Computer-Aided design of Quantum Optics Hardware": "Kottmann, Krenn, Kyaw, Alperin-Lea, Aspuru-Guzik",
+  "Scientific intuition inspired by machine learning-generated hypotheses": "Friederich, Krenn, Tamblyn, Aspuru-Guzik",
+  "Beyond generative models: superfast traversal, optimization, novelty, exploration and discovery (STONED) algorithm for molecules using SELFIES": "Nigam, Pollice, Krenn, dos Passos Gomes, Aspuru-Guzik",
+  "Data-Driven Strategies for Accelerated Materials Design": "Pollice, dos Passos Gomes, Aldeghi, Hickman, Krenn, Lavigne, Lindner-D'Addario, Nigam, Ser, Yao, Aspuru-Guzik",
+};
+
 const githubProjects: Project[] = [
   {
     name: "PyTheus",
@@ -1027,6 +1072,7 @@ export default function Home() {
                         <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
                           <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">{paper.venue}</p>
                           <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
+                          <p className="mt-2 text-sm leading-relaxed opacity-85">{publicationAuthorsByTitle[paper.title]}</p>
                         </a>
                       </li>
                     ))}
