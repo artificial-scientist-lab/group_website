@@ -1070,7 +1070,7 @@ export default function Home() {
                     {yearGroup.papers.map((paper) => (
                       <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
                         <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
-                          <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">{paper.venue}</p>
+                          <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">{`${paper.venue} (${paper.date})`}</p>
                           <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
                           <p className="mt-2 text-sm leading-relaxed opacity-85">{publicationAuthorsByTitle[paper.title]}</p>
                         </a>
