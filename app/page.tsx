@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef, useState } from "react";
-import type { CSSProperties } from "react";
 
 type TeamMember = {
   name: string;
@@ -431,7 +430,6 @@ const cookieConsentStorageKey = "asl_cookie_consent_v1";
 const cookieConsentMaxAgeMs = 1000 * 60 * 60 * 24 * 180;
 
 export default function Home() {
-  const [morph, setMorph] = useState(0);
   const [monthYear, setMonthYear] = useState("");
   const [cookieChoice, setCookieChoice] = useState<CookieChoice | null>(null);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -487,36 +485,6 @@ export default function Home() {
 
     return () => {
       window.cancelAnimationFrame(frameId);
-    };
-  }, []);
-
-  useEffect(() => {
-    const clamp01 = (value: number) => Math.min(Math.max(value, 0), 1);
-    const easeOut = (value: number) => 1 - Math.pow(1 - value, 2.4);
-
-    const onScroll = () => {
-      const teamSection = document.getElementById("team");
-
-      if (teamSection) {
-        const teamBottom = teamSection.getBoundingClientRect().bottom + window.scrollY;
-        const start = teamBottom - window.innerHeight * 0.44;
-        const transitionDistance = Math.max(window.innerHeight * 0.46, 280);
-        const rawProgress = (window.scrollY - start) / transitionDistance;
-        setMorph(easeOut(clamp01(rawProgress)));
-        return;
-      }
-
-      const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
-      setMorph(easeOut(clamp01(window.scrollY / (maxScroll * 0.75))));
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
@@ -611,7 +579,7 @@ export default function Home() {
   };
 
   return (
-    <div ref={siteRef} className="group-site" style={{ "--morph": morph.toFixed(4) } as CSSProperties}>
+    <div ref={siteRef} className="group-site">
       <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <header className="journal-surface journal-hero">
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
