@@ -752,7 +752,16 @@ const coreChallenges: CoreChallenge[] = [
             space encompassing all possible experimental configurations suggests that some powerful concepts and
             techniques might have not been discovered yet, and might never be with a human-driven direct design
             approach. Thus, AI-based exploration techniques could provide enormous benefit, by exploring this space
-            in a fast, unbiased way. We developed XLuminA (spearheaded by Carla Rodriguez), an open-source computational framework developed using
+            in a fast, unbiased way. We developed{" "}
+            <a
+              href="https://www.nature.com/articles/s41467-024-54696-y"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              XLuminA
+            </a>{" "}
+            (spearheaded by Carla Rodriguez), an open-source computational framework developed using
             JAX, a high-performance computing library in Python. XLuminA speeds up simulation by 4 orders of
             magnitude, which thus allows exploration of the space of possible microscope concepts much faster than
             before.
@@ -816,6 +825,65 @@ const coreChallenges: CoreChallenge[] = [
   {
     title: "Understanding AI-solutions",
     text: "If an AI discovers solutions that are better than all human solutions, it needs to contain new tricks and ideas that we could learn from. Here are some examples where it worked successfully and where we made progress in simplifying the understanding:",
+    image: {
+      src: "/research/understanding-ai-solutions-metadesign.png",
+      alt: "Diagram showing meta-designing a class of experiments with synthetic data, a language model, and generated general rules for designing experiments of arbitrary size.",
+    },
+    researchDetails: {
+      beforeImage: (
+        <p>
+          If an AI discovers solutions that are better than all human solutions, it needs to contain new tricks and
+          ideas that we could learn from. As scientists, we want to understand these new tricks and concepts
+          discovered by the machine.
+        </p>
+      ),
+      afterImage: (
+        <p>
+          The first time we faced this problem was in a case where our algorithm{" "}
+          <a
+            href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            Melvin
+          </a>{" "}
+          discovered new high-dimensional multipartite entangled systems that seemed to be more strongly entangled
+          than allowed. After analyzing the solutions for weeks, we found that it had discovered an entirely new
+          way to generate quantum entanglement in photonics. We described this technique as{" "}
+          <a
+            href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.080401"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            Entanglement by Path Identity
+          </a>
+          . In another instance, we investigated entanglement generation with{" "}
+          <a
+            href="https://quantum-journal.org/papers/q-2023-12-12-1204/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            PyTheus
+          </a>
+          . We discovered that PyTheus invented a new trick to generate high-dimensional entanglement: it
+          discovered a structure resembling a probabilistic multi-photon emitter just by building two-photon
+          emitters. When we understood this technique, we were immediately able to generalize it to other
+          situations. This new principle, spearheaded by Soeren Arlt, was published as{" "}
+          <a
+            href="https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            Emulating multiparticle emitters with pair-sources: digital discovery of a quantum optics building block
+          </a>
+          .
+        </p>
+      ),
+    },
     links: [
       {
         label: "Meta-designing quantum experiments with language models",
@@ -1188,10 +1256,11 @@ export default function Home() {
               {coreChallenges.map((challenge) => (
                 <article key={challenge.title} className="modern-card frontier-card flex flex-col p-5">
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
                   {challenge.researchDetails?.beforeImage ? (
-                    <div className="challenge-detail-copy mt-4">{challenge.researchDetails.beforeImage}</div>
-                  ) : null}
+                    <div className="challenge-detail-copy mt-3">{challenge.researchDetails.beforeImage}</div>
+                  ) : (
+                    <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                  )}
                   {challenge.image ? (
                     <figure className="challenge-figure mt-4">
                       <img
