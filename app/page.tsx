@@ -51,6 +51,7 @@ type CoreChallenge = {
   image?: {
     src: string;
     alt: string;
+    figureClassName?: string;
   };
   researchDetails?: {
     beforeImage?: ReactNode;
@@ -919,6 +920,7 @@ const coreChallenges: CoreChallenge[] = [
     image: {
       src: "/research/scientific-ideas-from-ai-scimuse.png",
       alt: "SciMuse diagram showing contributions from a large-scale knowledge graph, personalized research suggestions, expert evaluation, and scientific-interest prediction.",
+      figureClassName: "challenge-figure-compact",
     },
     researchDetails: {
       afterImage: (
@@ -1352,7 +1354,7 @@ export default function Home() {
                     <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
                   )}
                   {challenge.image ? (
-                    <figure className="challenge-figure mt-4">
+                    <figure className={`challenge-figure mt-4 ${challenge.image.figureClassName ?? ""}`.trim()}>
                       <img
                         src={challenge.image.src}
                         alt={challenge.image.alt}
