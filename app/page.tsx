@@ -1010,6 +1010,7 @@ const coreChallenges: CoreChallenge[] = [
     image: {
       src: "/research/autonomous-science-aimandel.png",
       alt: "Illustration related to autonomous science and philosophical implications in the Artificial Scientist Lab.",
+      figureClassName: "challenge-figure-compact",
     },
     researchDetails: {
       afterImage: (
