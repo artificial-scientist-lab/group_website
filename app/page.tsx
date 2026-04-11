@@ -916,6 +916,10 @@ const coreChallenges: CoreChallenge[] = [
   {
     title: "Scientific Ideas from AI",
     text: "How can we use millions of scientific papers to create personalized, interesting, and high-impact ideas?",
+    image: {
+      src: "/research/scientific-ideas-from-ai-scimuse.png",
+      alt: "SciMuse diagram showing contributions from a large-scale knowledge graph, personalized research suggestions, expert evaluation, and scientific-interest prediction.",
+    },
     links: [
       {
         label: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network",
