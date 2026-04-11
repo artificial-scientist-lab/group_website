@@ -1007,6 +1007,65 @@ const coreChallenges: CoreChallenge[] = [
   {
     title: "Autonomous Science and Philosophical Implications",
     text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example for scientific understanding?",
+    image: {
+      src: "/research/autonomous-science-aimandel.png",
+      alt: "Illustration related to autonomous science and philosophical implications in the Artificial Scientist Lab.",
+    },
+    researchDetails: {
+      afterImage: (
+        <>
+          <p>
+            We have developed{" "}
+            <a
+              href="https://arxiv.org/abs/2511.11752"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              AI-Mandel
+            </a>
+            , an agent system that can autonomously generate scientific ideas and then execute these ideas using
+            intelligent tools such as PyTheus. To demonstrate that it works, we used two outputs of AI-Mandel and
+            wrote scientific papers about their results:{" "}
+            <a
+              href="https://arxiv.org/abs/2511.04648"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Automated Discovery of Non-local Photonic Gates
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://arxiv.org/abs/2510.10707"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Automated discovery of high-dimensional multipartite entanglement with photons that never interacted
+            </a>
+            .
+          </p>
+          <p>
+            The quest to create artificial scientists comes with important questions about science itself. For
+            example, what should we do if we can no longer understand AI-generated solutions? What does it even
+            mean to &quot;understand&quot; in a scientific context? Addressing this question, we wrote a perspective paper
+            called{" "}
+            <a
+              href="https://www.nature.com/articles/s42254-022-00518-3"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              On scientific understanding with artificial intelligence
+            </a>
+            , based on dozens of comments from domain experts in biology, chemistry, physics, and AI research.
+            Specifically, the paper classifies algorithms into three categories, Computational Microscope,
+            Artificial Muse, and Agent of Understanding, and shows how AI can extend scientific understanding.
+          </p>
+        </>
+      ),
+    },
     links: [
       {
         label: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
