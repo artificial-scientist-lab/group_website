@@ -838,50 +838,68 @@ const coreChallenges: CoreChallenge[] = [
         </p>
       ),
       afterImage: (
-        <p>
-          The first time we faced this problem was in a case where our algorithm{" "}
-          <a
-            href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
-            target="_blank"
-            rel="noreferrer"
-            className="challenge-inline-link"
-          >
-            Melvin
-          </a>{" "}
-          discovered new high-dimensional multipartite entangled systems that seemed to be more strongly entangled
-          than allowed. After analyzing the solutions for weeks, we found that it had discovered an entirely new
-          way to generate quantum entanglement in photonics. We described this technique as{" "}
-          <a
-            href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.080401"
-            target="_blank"
-            rel="noreferrer"
-            className="challenge-inline-link"
-          >
-            Entanglement by Path Identity
-          </a>
-          . In another instance, we investigated entanglement generation with{" "}
-          <a
-            href="https://quantum-journal.org/papers/q-2023-12-12-1204/"
-            target="_blank"
-            rel="noreferrer"
-            className="challenge-inline-link"
-          >
-            PyTheus
-          </a>
-          . We discovered that PyTheus invented a new trick to generate high-dimensional entanglement: it
-          discovered a structure resembling a probabilistic multi-photon emitter just by building two-photon
-          emitters. When we understood this technique, we were immediately able to generalize it to other
-          situations. This new principle, spearheaded by Soeren Arlt, was published as{" "}
-          <a
-            href="https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta"
-            target="_blank"
-            rel="noreferrer"
-            className="challenge-inline-link"
-          >
-            Emulating multiparticle emitters with pair-sources: digital discovery of a quantum optics building block
-          </a>
-          .
-        </p>
+        <>
+          <p>
+            The first time we faced this problem was in a case where our algorithm{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Melvin
+            </a>{" "}
+            discovered new high-dimensional multipartite entangled systems that seemed to be more strongly entangled
+            than allowed. After analyzing the solutions for weeks, we found that it had discovered an entirely new
+            way to generate quantum entanglement in photonics. We described this technique as{" "}
+            <a
+              href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.080401"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Entanglement by Path Identity
+            </a>
+            . In another instance, we investigated entanglement generation with{" "}
+            <a
+              href="https://quantum-journal.org/papers/q-2023-12-12-1204/"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              PyTheus
+            </a>
+            . We discovered that PyTheus invented a new trick to generate high-dimensional entanglement: it
+            discovered a structure resembling a probabilistic multi-photon emitter just by building two-photon
+            emitters. When we understood this technique, we were immediately able to generalize it to other
+            situations. This new principle, spearheaded by Soeren Arlt, was published as{" "}
+            <a
+              href="https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Emulating multiparticle emitters with pair-sources: digital discovery of a quantum optics building block
+            </a>
+            .
+          </p>
+          <p>
+            A crucial step is the idea of{" "}
+            <a
+              href="https://www.nature.com/articles/s42256-025-01153-0"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Meta-Design
+            </a>{" "}
+            (see pic above, pioneered by Soeren Arlt). Here, instead of designing solutions for individual
+            questions and trying to understand them afterwards, we trained a language model that produces Python
+            code. The produced Python code solves whole classes of questions at once. Beautifully, instead of
+            having to analyze each solution independently, we can just look at the generated Python code, which
+            contains the main principle of a generalizable solution.
+          </p>
+        </>
       ),
     },
     links: [
