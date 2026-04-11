@@ -1,7 +1,14 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
+  type ReactNode,
+} from "react";
 
 type TeamMember = {
   name: string;
@@ -46,6 +53,7 @@ type Project = {
 };
 
 type CoreChallenge = {
+  sectionId: string;
   title: string;
   text: string;
   image?: {
@@ -630,6 +638,7 @@ const githubProjects: Project[] = [
 
 const coreChallenges: CoreChallenge[] = [
   {
+    sectionId: "research-ai-designed-experiments",
     title: "AI-designed experiments",
     text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world?",
     image: {
@@ -824,6 +833,7 @@ const coreChallenges: CoreChallenge[] = [
     ],
   },
   {
+    sectionId: "research-understanding-ai-solutions",
     title: "Understanding AI-solutions",
     text: "If an AI discovers solutions that outperform all human solutions, it must contain new tricks and ideas that we could learn from. Here are a few examples where this worked and where we made progress in understanding the underlying principles.",
     image: {
@@ -915,6 +925,7 @@ const coreChallenges: CoreChallenge[] = [
     ],
   },
   {
+    sectionId: "research-scientific-ideas-from-ai",
     title: "Scientific Ideas from AI",
     text: "How can we use millions of scientific papers to create personalized, interesting, and high-impact ideas?",
     image: {
@@ -1005,6 +1016,7 @@ const coreChallenges: CoreChallenge[] = [
     ],
   },
   {
+    sectionId: "research-autonomous-science-and-philosophical-implications",
     title: "Autonomous Science and Philosophical Implications",
     text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example for scientific understanding?",
     image: {
@@ -1233,6 +1245,37 @@ export default function Home() {
     setShowCookieBanner(false);
   };
 
+  const scrollToChallenge = (sectionId: string) => {
+    const target = document.getElementById(sectionId);
+    if (!target) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    target.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+    window.history.replaceState(null, "", `#${sectionId}`);
+  };
+
+  const handleChallengeCardClick = (event: ReactMouseEvent<HTMLElement>, sectionId: string) => {
+    if ((event.target as HTMLElement).closest("a")) {
+      return;
+    }
+
+    scrollToChallenge(sectionId);
+  };
+
+  const handleChallengeCardKeyDown = (event: ReactKeyboardEvent<HTMLElement>, sectionId: string) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    scrollToChallenge(sectionId);
+  };
+
   return (
     <div ref={siteRef} className="group-site">
       <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
@@ -1255,7 +1298,15 @@ export default function Home() {
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {coreChallenges.map((challenge) => (
-                <article key={challenge.title} className="modern-card frontier-card flex h-full flex-col p-5">
+                <article
+                  key={challenge.title}
+                  role="link"
+                  tabIndex={0}
+                  aria-label={`Jump to ${challenge.title} in the research section`}
+                  className="modern-card frontier-card frontier-card-jump flex h-full flex-col p-5"
+                  onClick={(event) => handleChallengeCardClick(event, challenge.sectionId)}
+                  onKeyDown={(event) => handleChallengeCardKeyDown(event, challenge.sectionId)}
+                >
                   <h3 className="text-center text-lg font-semibold">{challenge.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
                   {challenge.links?.length ? (
@@ -1406,7 +1457,11 @@ export default function Home() {
             <h2 className="section-title">The Science in the Artificial Scientist Lab</h2>
             <div className="mt-5 space-y-4">
               {coreChallenges.map((challenge) => (
-                <article key={challenge.title} className="modern-card frontier-card flex flex-col p-5">
+                <article
+                  key={challenge.title}
+                  id={challenge.sectionId}
+                  className="modern-card frontier-card research-card-anchor flex flex-col p-5"
+                >
                   <h3 className="text-lg font-semibold">{challenge.title}</h3>
                   {challenge.researchDetails?.beforeImage ? (
                     <div className="challenge-detail-copy mt-3">{challenge.researchDetails.beforeImage}</div>
