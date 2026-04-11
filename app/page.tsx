@@ -1511,6 +1511,24 @@ export default function Home() {
               Open Position Call
             </a>
           </section>
+
+          <section className="journal-surface p-6 sm:p-8" id="funding">
+            <h2 className="section-title">Funding</h2>
+            <p className="section-lede">
+              We acknowledge the European Research Council for awarding us an ERC Starting Grant in 2024 called
+              ArtDisQ (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance
+              Simulators), and we acknowledge the German Research Foundation (DFG) for funding through the
+              Excellence Cluster &quot;Machine Learning in Science&quot; at the University of Tübingen.
+            </p>
+            <figure className="challenge-figure challenge-figure-compact mt-5">
+              <img
+                src="/funding/funding.png"
+                alt="Funding logos and acknowledgements for the Artificial Scientist Lab."
+                loading="lazy"
+                className="challenge-figure-image"
+              />
+            </figure>
+          </section>
         </main>
       </div>
       {showCookieBanner ? (
