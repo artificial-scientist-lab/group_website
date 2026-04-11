@@ -327,7 +327,7 @@ const publications: Paper[] = [
   },
   {
     date: "2025",
-    title: "Digital Discovery of interferometric Gravitational Wave Detectors",
+    title: "Digital Discovery of Interferometric Gravitational Wave Detectors",
     venue: "Phys. Rev. X 15, 021012",
     href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
   },
@@ -542,7 +542,7 @@ const publicationAuthorsByTitle: Record<string, string> = {
   "Tutorial: Hong-Ou-Mandel interference with Structured Photons": "Jaouni, Gu, Krenn, D'Errico, Karimi",
   "Violation of Bell inequality with unentangled photons": "Wang, Hou, Qian, Chen, Krenn, Aspelmeyer, Zeilinger, Zhu, Ma",
   "Forecasting high-impact research topics via machine learning on evolving knowledge graphs": "Gu, Krenn",
-  "Digital Discovery of interferometric Gravitational Wave Detectors": "Krenn, Drori, Adhikari",
+  "Digital Discovery of Interferometric Gravitational Wave Detectors": "Krenn, Drori, Adhikari",
   "Discovering emergent connections in quantum physics research via dynamic word embeddings": "Frohnert, Gu, Krenn, van Nieuwenburg",
   "Predicting atmospheric turbulence for secure quantum communications in free space": "Jaouni, Scarfe, Bouchard, Krenn, Heshami, Di Colandrea, Karimi",
   "Generation and human-expert evaluation of interesting research ideas using knowledge graphs and large language models": "Gu, Krenn",
@@ -691,7 +691,7 @@ const coreChallenges: CoreChallenge[] = [
               Phys. Rev. Lett. 2017
             </a>
             . These solutions contained surprising results, and we were able to conceptually understand several of
-            them, for example an entirely new way to create photonic quantum entanglement denoted as{" "}
+            them, for example an entirely new way to create photonic quantum entanglement, denoted as{" "}
             <a
               href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.080401"
               target="_blank"
@@ -700,6 +700,7 @@ const coreChallenges: CoreChallenge[] = [
             >
               Entanglement by Path Identity
             </a>
+            , as well as a{" "}
             <a
               href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.240403"
               target="_blank"
@@ -708,7 +709,7 @@ const coreChallenges: CoreChallenge[] = [
             >
               new bridge between quantum optics and graph theory
             </a>{" "}
-            that has led to the{" "}
+            that led to the{" "}
             <a
               href="https://www.pnas.org/doi/10.1073/pnas.1815884116"
               target="_blank"
@@ -749,10 +750,10 @@ const coreChallenges: CoreChallenge[] = [
             <strong>AI-designed microscopes: </strong>
             Driven by human ingenuity and creativity, the discovery of super-resolution techniques, which circumvent
             the classical diffraction limit of light, represents a leap in optical microscopy. However, the vast
-            space encompassing all possible experimental configurations suggests that some powerful concepts and
-            techniques might have not been discovered yet, and might never be with a human-driven direct design
-            approach. Thus, AI-based exploration techniques could provide enormous benefit, by exploring this space
-            in a fast, unbiased way. We developed{" "}
+            space of possible experimental configurations suggests that some powerful concepts and techniques might
+            not have been discovered yet, and might never be discovered through a direct human design approach.
+            AI-based exploration techniques could therefore provide enormous benefits by exploring this space in a
+            fast, unbiased way. We developed{" "}
             <a
               href="https://www.nature.com/articles/s41467-024-54696-y"
               target="_blank"
@@ -761,10 +762,9 @@ const coreChallenges: CoreChallenge[] = [
             >
               XLuminA
             </a>{" "}
-            (spearheaded by Carla Rodriguez), an open-source computational framework developed using
-            JAX, a high-performance computing library in Python. XLuminA speeds up simulation by 4 orders of
-            magnitude, which thus allows exploration of the space of possible microscope concepts much faster than
-            before.
+            (spearheaded by Carla Rodriguez), an open-source computational framework built with JAX, a
+            high-performance computing library for Python. XLuminA speeds up simulation by four orders of
+            magnitude, allowing us to explore the space of possible microscope concepts much faster than before.
           </p>
           <p>
             <strong>AI-designed Gravitational Wave Detectors: </strong>
@@ -774,9 +774,9 @@ const coreChallenges: CoreChallenge[] = [
             their prediction by Einstein to detect them. That became possible in 2016 through the international
             LIGO collaboration. The experiment built by LIGO is an interferometric system based on
             Michelson&apos;s interferometer, designed by ingenious human scientists. The question is: did humans
-            find the best way to measure gravitational waves, or do there exist new experiments that are practical
-            and significantly more sensitive? Together with Rana Adhikari and Yehonathan Drori from the Caltech
-            LIGO Lab, we explore this question using AI. We indeed discovered more than 50 blueprints that, at
+            find the best way to measure gravitational waves, or are there practical new experiments that are
+            significantly more sensitive? Together with Rana Adhikari and Yehonathan Drori from the Caltech LIGO
+            Lab, we are exploring this question using AI. We discovered more than 50 blueprints that, at
             least theoretically,{" "}
             <a
               href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012"
@@ -784,15 +784,15 @@ const coreChallenges: CoreChallenge[] = [
               rel="noreferrer"
               className="challenge-inline-link"
             >
-              outperform the previous best-performing setups
+              outperform the best previous setups
             </a>
             . We spent months exploring the best-performing solutions, and while we were able to extract simple
-            conceptual cores from some of them, we were not able to understand the big picture behind most of the
-            solutions. This indicates an important challenge for the future of AI for scientific discovery.
+            conceptual cores from some of them, we were unable to understand the big picture behind most of the
+            solutions. This indicates an important challenge for the future of AI-driven scientific discovery.
           </p>
           <p>
             Similar to the microscopy case, we took the original simulator for gravitational-wave optics, Finesse,
-            developed by the group of Andreas Freise, and reproduced the crucial core in JAX, which gave an
+            developed by Andreas Freise&apos;s group, and reproduced its crucial core in JAX, which provided an
             enormous speed-up. The simulator,{" "}
             <a
               href="https://github.com/artificial-scientist-lab/Differometor"
@@ -802,7 +802,7 @@ const coreChallenges: CoreChallenge[] = [
             >
               Differometor
             </a>
-            , has been developed by Jonathan Klimesch.
+            , was developed by Jonathan Klimesch.
           </p>
         </>
       ),
@@ -824,7 +824,7 @@ const coreChallenges: CoreChallenge[] = [
   },
   {
     title: "Understanding AI-solutions",
-    text: "If an AI discovers solutions that are better than all human solutions, it needs to contain new tricks and ideas that we could learn from. Here are some examples where it worked successfully and where we made progress in simplifying the understanding:",
+    text: "If an AI discovers solutions that outperform all human solutions, it must contain new tricks and ideas that we could learn from. Here are a few examples where this worked and where we made progress in understanding the underlying principles.",
     image: {
       src: "/research/understanding-ai-solutions-metadesign.png",
       alt: "Diagram showing meta-designing a class of experiments with synthetic data, a language model, and generated general rules for designing experiments of arbitrary size.",
@@ -832,8 +832,8 @@ const coreChallenges: CoreChallenge[] = [
     researchDetails: {
       beforeImage: (
         <p>
-          If an AI discovers solutions that are better than all human solutions, it needs to contain new tricks and
-          ideas that we could learn from. As scientists, we want to understand these new tricks and concepts
+          If an AI discovers solutions that outperform all human solutions, it must contain new tricks and ideas
+          that we could learn from. As scientists, we want to understand these new tricks and concepts
           discovered by the machine.
         </p>
       ),
@@ -850,7 +850,7 @@ const coreChallenges: CoreChallenge[] = [
               Melvin
             </a>{" "}
             discovered new high-dimensional multipartite entangled systems that seemed to be more strongly entangled
-            than allowed. After analyzing the solutions for weeks, we found that it had discovered an entirely new
+            than previously thought possible. After analyzing the solutions for weeks, we found that it had discovered an entirely new
             way to generate quantum entanglement in photonics. We described this technique as{" "}
             <a
               href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.118.080401"
@@ -872,7 +872,7 @@ const coreChallenges: CoreChallenge[] = [
             . We discovered that PyTheus invented a new trick to generate high-dimensional entanglement: it
             discovered a structure resembling a probabilistic multi-photon emitter just by building two-photon
             emitters. When we understood this technique, we were immediately able to generalize it to other
-            situations. This new principle, spearheaded by Soeren Arlt, was published as{" "}
+            situations. This new principle, spearheaded by S\u00f6ren Arlt, was published as{" "}
             <a
               href="https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta"
               target="_blank"
@@ -893,11 +893,11 @@ const coreChallenges: CoreChallenge[] = [
             >
               Meta-Design
             </a>{" "}
-            (see pic above, pioneered by Soeren Arlt). Here, instead of designing solutions for individual
-            questions and trying to understand them afterwards, we trained a language model that produces Python
-            code. The produced Python code solves whole classes of questions at once. Beautifully, instead of
-            having to analyze each solution independently, we can just look at the generated Python code, which
-            contains the main principle of a generalizable solution.
+            (see the figure above, pioneered by S\u00f6ren Arlt). Here, instead of designing solutions for
+            individual questions and trying to understand them afterwards, we trained a language model that
+            produces Python code. The resulting Python code solves whole classes of questions at once. Instead of
+            having to analyze each solution independently, we can inspect the generated Python code, which contains
+            the main principle of a generalizable solution.
           </p>
         </>
       ),
@@ -920,6 +920,73 @@ const coreChallenges: CoreChallenge[] = [
       src: "/research/scientific-ideas-from-ai-scimuse.png",
       alt: "SciMuse diagram showing contributions from a large-scale knowledge graph, personalized research suggestions, expert evaluation, and scientific-interest prediction.",
     },
+    researchDetails: {
+      afterImage: (
+        <>
+          <p>
+            Inspired by the work of computational sociologists and network theorists, for example James Evans,
+            Jacob Foster, Albert-Laszlo Barabasi, and many others, who showed how to compress information from
+            millions of scientific papers into knowledge graphs and make quantitative statements about the research
+            community as a whole, we aimed to do the same for quantum physics. Thus, in 2020, we
+            developed{" "}
+            <a
+              href="https://www.pnas.org/doi/10.1073/pnas.1914370116"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              SemNet
+            </a>
+            , where we built a knowledge graph for quantum physics based on 650,000 papers written over 100 years.
+            This evolving knowledge graph allowed us to predict what researchers will work on in the future, based
+            on what they worked on in the past. The predictive performance was surprisingly high. Three years later,
+            we ran an AI competition called{" "}
+            <a
+              href="https://www.nature.com/articles/s42256-023-00735-0"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Science4Cast
+            </a>{" "}
+            on a closely related topic, the prediction of new topic combinations from a knowledge graph, with
+            similarly strong predictive performance.
+          </p>
+          <p>
+            An important question is whether one can also predict which research directions that have never been
+            investigated before will be of high impact in the future. For that, spearheaded by Xuemei Gu, we
+            developed{" "}
+            <a
+              href="https://iopscience.iop.org/article/10.1088/2632-2153/add6ef"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Impact4Cast
+            </a>
+            , a knowledge-graph system augmented with citation information, which uses supervised neural networks
+            to predict which future works will have high impact.
+          </p>
+          <p>
+            Ultimately, we are interested in whether these predictions could actually be useful. For that, we
+            launched the project{" "}
+            <a
+              href="https://arxiv.org/abs/2405.17044"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              SciMuse
+            </a>
+            : we performed a large-scale interdisciplinary evaluation of research ideas generated using connections
+            between knowledge graphs and LLMs and evaluated them with more than 100 research group leaders in the
+            Max Planck Society. Doing so produced a dataset of more than 4,500 human-expert-evaluated research
+            ideas, which we can use to predict the interest level of an idea before it is even fully defined. This
+            will be a crucial capability of future artificial scientists.
+          </p>
+        </>
+      ),
+    },
     links: [
       {
         label: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network",
@@ -937,7 +1004,7 @@ const coreChallenges: CoreChallenge[] = [
   },
   {
     title: "Autonomous Science and Philosophical Implications",
-    text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example on scientific understanding?",
+    text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example for scientific understanding?",
     links: [
       {
         label: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
@@ -1120,7 +1187,8 @@ export default function Home() {
           </p>
           <div className="hero-focus mt-8">
             <p className="section-lede">
-              We are a research group at the University of Tübingen, developing intelligent algorithms for conceptual contributions in physics.
+              We are a research group at the University of Tübingen, developing intelligent algorithms for
+              conceptual advances in physics.
               Our work is organized around four pillars:
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1367,7 +1435,7 @@ export default function Home() {
           <section className="journal-surface p-6 sm:p-8" id="positions">
             <div>
               <p className="section-kicker">Join Us</p>
-              <h2 className="section-title">Post-doc, PhD, Master, and Bachelor Positions</h2>
+              <h2 className="section-title">Postdoc, PhD, Master&apos;s, and Bachelor&apos;s Positions</h2>
             </div>
             <p className="section-lede">
               We welcome applicants and students who want to work on AI for physics discovery. Feel free to reach out to any of our team members if you are interested in a specific topic.

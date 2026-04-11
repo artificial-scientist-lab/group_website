@@ -22,7 +22,7 @@ const codeFont = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "Artificial Scientist Group",
-  description: "Machine learning in science group website with team, papers, and open-source projects.",
+  description: "Website of the Artificial Scientist Lab, featuring the team, publications, and open-source projects.",
 };
 
 export default function RootLayout({
