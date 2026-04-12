@@ -1103,8 +1103,10 @@ const sectionLinks = [
   { id: "positions", label: "Open positions" },
   { id: "funding", label: "Funding" },
 ] as const;
+type SectionLinkId = (typeof sectionLinks)[number]["id"];
 
 export default function Home() {
+  const [activeSectionId, setActiveSectionId] = useState<SectionLinkId | null>(null);
   const [monthYear, setMonthYear] = useState("");
   const [cookieChoice, setCookieChoice] = useState<CookieChoice | null>(null);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
@@ -1241,6 +1243,82 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const sections = sectionLinks
+      .map((link) => document.getElementById(link.id))
+      .filter((section): section is HTMLElement => section instanceof HTMLElement);
+
+    if (sections.length === 0) {
+      return;
+    }
+
+    const readScrollOffsetPx = () => {
+      const rootStyles = window.getComputedStyle(document.documentElement);
+      const offsetValue = rootStyles.getPropertyValue("--section-nav-offset").trim();
+      const rootFontSize = Number.parseFloat(rootStyles.fontSize) || 16;
+
+      if (offsetValue.endsWith("rem")) {
+        return Number.parseFloat(offsetValue) * rootFontSize;
+      }
+
+      if (offsetValue.endsWith("px")) {
+        return Number.parseFloat(offsetValue);
+      }
+
+      const numericOffset = Number.parseFloat(offsetValue);
+      return Number.isFinite(numericOffset) ? numericOffset : 0;
+    };
+
+    let frameId = 0;
+
+    const updateActiveSection = () => {
+      const marker = window.scrollY + readScrollOffsetPx() + 24;
+      const firstSectionTop = sections[0].getBoundingClientRect().top + window.scrollY;
+
+      if (marker < firstSectionTop) {
+        setActiveSectionId((current) => (current === null ? current : null));
+        frameId = 0;
+        return;
+      }
+
+      let nextActiveSection = sections[0].id as SectionLinkId;
+
+      for (const section of sections) {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        if (sectionTop <= marker) {
+          nextActiveSection = section.id as SectionLinkId;
+        } else {
+          break;
+        }
+      }
+
+      setActiveSectionId((current) => (current === nextActiveSection ? current : nextActiveSection));
+      frameId = 0;
+    };
+
+    const queueUpdate = () => {
+      if (frameId !== 0) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    queueUpdate();
+    window.addEventListener("scroll", queueUpdate, { passive: true });
+    window.addEventListener("resize", queueUpdate);
+    window.addEventListener("hashchange", queueUpdate);
+
+    return () => {
+      if (frameId !== 0) {
+        window.cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("scroll", queueUpdate);
+      window.removeEventListener("resize", queueUpdate);
+      window.removeEventListener("hashchange", queueUpdate);
+    };
+  }, []);
+
   const saveCookieChoice = (choice: CookieChoice) => {
     const record: CookieConsentRecord = {
       choice,
@@ -1293,7 +1371,12 @@ export default function Home() {
               <ul className="section-nav-list">
                 {sectionLinks.map((link) => (
                   <li key={link.id}>
-                    <a href={`#${link.id}`} className="section-nav-link">
+                    <a
+                      href={`#${link.id}`}
+                      className={`section-nav-link${activeSectionId === link.id ? " is-active" : ""}`}
+                      aria-current={activeSectionId === link.id ? "location" : undefined}
+                      onClick={() => setActiveSectionId(link.id)}
+                    >
                       {link.label}
                     </a>
                   </li>

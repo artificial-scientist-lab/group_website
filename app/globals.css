@@ -257,8 +257,31 @@ body {
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
-.section-nav-link:hover,
-.section-nav-link:focus-visible {
+.section-nav-link.is-active,
+.section-nav-link[aria-current="location"] {
+  transform: translateX(5px);
+  border-color: rgba(
+    calc(78 - var(--morph) * 10),
+    calc(116 + var(--morph) * 82),
+    calc(144 + var(--morph) * 112),
+    calc(0.44 + var(--morph) * 0.28)
+  );
+  background:
+    linear-gradient(
+      140deg,
+      rgba(255, 252, 246, calc(0.94 - var(--morph) * 0.18)) 0%,
+      rgba(232, 243, 250, calc(0.84 - var(--morph) * 0.22)) 100%
+    );
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow:
+    0 18px 28px -22px rgba(28, 22, 16, calc(0.42 - var(--morph) * 0.18)),
+    0 0 0 1px rgba(96, 196, 255, calc(0.12 + var(--morph) * 0.28)) inset,
+    0 0 calc(10px + var(--morph) * 16px) rgba(82, 176, 255, calc(0.08 + var(--morph) * 0.18));
+}
+
+.section-nav-link:hover:not(.is-active),
+.section-nav-link:focus-visible:not(.is-active) {
   outline: none;
   transform: translateX(3px);
   border-color: rgba(
