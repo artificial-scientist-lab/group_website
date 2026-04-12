@@ -1095,6 +1095,14 @@ const coreChallenges: CoreChallenge[] = [
 const positionCallUrl = "https://mariokrenn.wordpress.com/wp-content/uploads/2025/05/callkrenn202505-1.pdf";
 const cookieConsentStorageKey = "asl_cookie_consent_v1";
 const cookieConsentMaxAgeMs = 1000 * 60 * 60 * 24 * 180;
+const sectionLinks = [
+  { id: "team", label: "Team" },
+  { id: "research", label: "Research" },
+  { id: "publications", label: "Publications" },
+  { id: "repositories", label: "Software" },
+  { id: "positions", label: "Open positions" },
+  { id: "funding", label: "Funding" },
+] as const;
 
 export default function Home() {
   const [monthYear, setMonthYear] = useState("");
@@ -1279,7 +1287,23 @@ export default function Home() {
   return (
     <div ref={siteRef} className="group-site">
       <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-        <header className="journal-surface journal-hero">
+        <div className="page-layout">
+          <aside className="section-nav-shell">
+            <nav className="journal-surface section-nav" aria-label="Section navigation">
+              <ul className="section-nav-list">
+                {sectionLinks.map((link) => (
+                  <li key={link.id}>
+                    <a href={`#${link.id}`} className="section-nav-link">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+
+          <div className="page-layout-main">
+            <header className="journal-surface journal-hero">
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
             Proceedings of Machine Learning in Science II • Tübingen
             {monthYear ? ` • ${monthYear}` : ""}
@@ -1329,10 +1353,10 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </header>
+            </header>
 
-        <main className="mt-10 space-y-10">
-          <section className="journal-surface p-6 sm:p-8" id="team">
+            <main className="mt-10 space-y-10">
+              <section className="journal-surface site-section p-6 sm:p-8" id="team">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-kicker">Who are we?</p>
@@ -1452,7 +1476,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="journal-surface p-6 sm:p-8" id="research">
+              <section className="journal-surface site-section p-6 sm:p-8" id="research">
             <p className="section-kicker">Research</p>
             <h2 className="section-title">The Science in the Artificial Scientist Lab</h2>
             <div className="mt-5 space-y-4">
@@ -1502,7 +1526,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="journal-surface p-6 sm:p-8" id="publications">
+              <section className="journal-surface site-section p-6 sm:p-8" id="publications">
             <p className="section-kicker">Papers</p>
             <h2 className="section-title">Publications</h2>
             <div className="mt-5 space-y-8">
@@ -1531,7 +1555,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="journal-surface p-6 sm:p-8" id="repositories">
+              <section className="journal-surface site-section p-6 sm:p-8" id="repositories">
             <p className="section-kicker">Code</p>
             <h2 className="section-title">Open-Source Repositories</h2>
             <ul className="mt-5 space-y-3">
@@ -1549,7 +1573,7 @@ export default function Home() {
             </ul>
           </section>
 
-          <section className="journal-surface p-6 sm:p-8" id="positions">
+              <section className="journal-surface site-section p-6 sm:p-8" id="positions">
             <div>
               <p className="section-kicker">Join Us</p>
               <h2 className="section-title">Postdoc, PhD, Master&apos;s, and Bachelor&apos;s Positions</h2>
@@ -1567,7 +1591,7 @@ export default function Home() {
             </a>
           </section>
 
-          <section className="journal-surface p-6 sm:p-8" id="funding">
+              <section className="journal-surface site-section p-6 sm:p-8" id="funding">
             <h2 className="section-title">Funding</h2>
             <p className="section-lede">
               We acknowledge the European Research Council for awarding us an ERC Starting Grant in 2024 called
@@ -1584,7 +1608,9 @@ export default function Home() {
               />
             </figure>
           </section>
-        </main>
+            </main>
+          </div>
+        </div>
       </div>
       {showCookieBanner ? (
         <aside className="cookie-banner" aria-label="Cookie preferences" aria-live="polite">
