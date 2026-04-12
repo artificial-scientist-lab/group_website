@@ -1423,11 +1423,12 @@ export default function Home() {
               </p>
               <p className="section-lede">
                 We are excited about the potential of artificial intelligence-inspired and -augmented
-                science, and how we can use algorithms in a more &quot;creative&quot; way. To make progress, we
-                believe it will be important to learn what humans mean by crucial scientific concepts such
-                as surprise, creativity, understanding, and interest. We have created AIs for designing
-                quantum experiments and hardware, several of which were actually built in laboratories, as
-                well as systems for inspiring novel ideas for quantum technologies.
+                science, and how we can use algorithms in a more &quot;creative&quot; way. We are convinced that
+                intelligence is not sufficient to be a great scientist. There, to make progress, it will be
+                important to learn what humans mean by crucial scientific concepts such as surprise,
+                creativity, understanding, and interest. We have created AIs for designing quantum
+                experiments and hardware, several of which were actually built in laboratories, as well as
+                systems for inspiring novel ideas for quantum technologies.
               </p>
               <p className="section-lede">
                 Part of this research has recently been summarized in an article in{" "}
