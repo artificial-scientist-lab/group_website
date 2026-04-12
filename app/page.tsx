@@ -1092,7 +1092,7 @@ const coreChallenges: CoreChallenge[] = [
   },
 ];
 
-const positionCallUrl = "https://mariokrenn.wordpress.com/wp-content/uploads/2025/05/callkrenn202505-1.pdf";
+const positionCallUrl = "/positions/Call_ASL.pdf";
 const cookieConsentStorageKey = "asl_cookie_consent_v1";
 const cookieConsentMaxAgeMs = 1000 * 60 * 60 * 24 * 180;
 const sectionLinks = [
@@ -1315,11 +1315,86 @@ export default function Home() {
             AI for Conceptual Advances in Physics
           </p>
           <div className="hero-focus mt-8">
-            <p className="section-lede">
-              We are a research group at the University of Tübingen, developing intelligent algorithms for
-              conceptual advances in physics.
-              Our work is organized around four pillars:
-            </p>
+            <div className="mt-6 space-y-4">
+              <p className="section-lede">
+                The Artificial Scientist Lab is part of the Department for Computer Science at the{" "}
+                <a
+                  href="https://uni-tuebingen.de/en/faculties/faculty-of-science/departments/computer-science/department/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  University of Tübingen
+                </a>{" "}
+                since June 2025. Before, we were at the{" "}
+                <a
+                  href="https://mpl.mpg.de/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  Max Planck Institute for the Science of Light in Erlangen
+                </a>
+                , founded in September 2021.
+              </p>
+              <p className="section-lede">
+                We are excited about the potential of artificial intelligence-inspired and -augmented
+                science, and how we can use algorithms in a more &quot;creative&quot; way. To make progress, we
+                believe it will be important to learn what humans mean by crucial scientific concepts such
+                as surprise, creativity, understanding, and interest. We have created AIs for designing
+                quantum experiments and hardware, several of which were actually built in laboratories, as
+                well as systems for inspiring novel ideas for quantum technologies.
+              </p>
+              <p className="section-lede">
+                Part of this research has recently been summarized in an article in{" "}
+                <a
+                  href="https://www.scientificamerican.com/article/ai-designs-quantum-physics-experiments-beyond-what-any-human-has-conceived/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  Scientific American
+                </a>{" "}
+                (July 2021), a feature by the{" "}
+                <a
+                  href="https://www.nationalacademies.org/news/how-ai-is-shaping-scientific-discovery"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  National Academies
+                </a>{" "}
+                (November 6, 2023), a video interview with{" "}
+                <a
+                  href="https://www.youtube.com/watch?v=T_2ZoMNzqHQ"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  Quanta Magazine
+                </a>{" "}
+                (March 18, 2025) and in German in{" "}
+                <a
+                  href="https://www.derstandard.at/story/3000000215912/wie-die-ki-die-forschung-revolutioniert"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  derStandard
+                </a>{" "}
+                (May 2024) or{" "}
+                <a
+                  href="https://www.spiegel.de/wissenschaft/technik/kuenstliche-intelligenz-in-der-forschung-physiker-mario-krenn-baut-kuenstliche-wissenschaftler-a-18b1be08-941e-4870-83e1-e38ddc06c1ca"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  SPIEGEL
+                </a>{" "}
+                (Nov 2025).
+              </p>
+              <p className="section-lede">Our work is organized around four pillars:</p>
+            </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {coreChallenges.map((challenge) => (
                 <article
