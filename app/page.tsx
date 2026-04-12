@@ -1096,6 +1096,7 @@ const positionCallUrl = "/positions/Call_ASL.pdf";
 const cookieConsentStorageKey = "asl_cookie_consent_v1";
 const cookieConsentMaxAgeMs = 1000 * 60 * 60 * 24 * 180;
 const sectionLinks = [
+  { id: "artificial-scientist-lab", label: "Artificial Scientist Lab" },
   { id: "team", label: "Team" },
   { id: "research", label: "Research" },
   { id: "publications", label: "Publications" },
@@ -1386,7 +1387,7 @@ export default function Home() {
           </aside>
 
           <div className="page-layout-main">
-            <header className="journal-surface journal-hero">
+            <header id="artificial-scientist-lab" className="journal-surface journal-hero site-section">
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
             Proceedings of Machine Learning in Science II • Tübingen
             {monthYear ? ` • ${monthYear}` : ""}
@@ -1447,7 +1448,7 @@ export default function Home() {
                 >
                   National Academies
                 </a>{" "}
-                (November 6, 2023), a video interview with{" "}
+                (Nov 2023), a video interview with{" "}
                 <a
                   href="https://www.youtube.com/watch?v=T_2ZoMNzqHQ"
                   target="_blank"
@@ -1456,7 +1457,7 @@ export default function Home() {
                 >
                   Quanta Magazine
                 </a>{" "}
-                (March 18, 2025) and in German in{" "}
+                (March 2025) and in German in{" "}
                 <a
                   href="https://www.derstandard.at/story/3000000215912/wie-die-ki-die-forschung-revolutioniert"
                   target="_blank"
