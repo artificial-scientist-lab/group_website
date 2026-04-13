@@ -139,7 +139,7 @@ const teamMembers: TeamMember[] = [
     name: "Pontus Lindgren",
     role: "PhD student",
     focus: "Excited about discovering physics concepts using AI. A key challenge is how to turn simulated solutions into understanding. I am particularly interested in broadening the scope of AI discoveries. In my spare time I like to run outdoors, especially orienteering.",
-    image: "/team/pontus-lindgren.svg",
+    image: "/team/pontus-lindgren.jpg",
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/pontus-lindgren" }],
   },
   {
