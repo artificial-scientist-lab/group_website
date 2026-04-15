@@ -164,9 +164,10 @@ const teamMembers: TeamMember[] = [
   {
     name: "Lalit Chaudhary",
     role: "Master student",
-    focus: "",
+    focus: "LLM-based impact prediction of novel scientific ideas.",
     image: "/team/lalit-chaudhary.jpg",
-    links: [],
+    links: [{ label: "LinkedIn", href: "www.linkedin.com/in/chaudharyl" },
+            { label: "GitHub", href: "https://github.com/lalit3c" }],
   },
   {
     name: "Priya Kanagasabapathi",
