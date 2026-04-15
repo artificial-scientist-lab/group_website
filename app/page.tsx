@@ -272,7 +272,7 @@ const monthLabels = [
 
 const thesisEntries = [...alumniMembers]
   .filter((member): member is AlumniMember & { thesis: NonNullable<AlumniMember["thesis"]> } => Boolean(member.thesis))
-  .sort((a, b) => a.leftAt.localeCompare(b.leftAt) || a.name.localeCompare(b.name))
+  .sort((a, b) => b.leftAt.localeCompare(a.leftAt) || a.name.localeCompare(b.name))
   .map((member) => {
     const [year, month] = member.leftAt.split("-");
     const thesisLevel = member.role.toLowerCase().includes("master") ? "Master" : "Bachelor";
@@ -1811,11 +1811,12 @@ export default function Home() {
                   ))}
               </ul>
               <div className="mt-6">
-                <p className="text-sm font-semibold leading-relaxed">Thesis:</p>
+                <p className="section-kicker">Former Members</p>
+                <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Thesis</h3>
                 <ul className="mt-3 space-y-2">
                   {thesisEntries.map((entry) => (
                     <li key={`${entry.monthYear}-${entry.name}`} className="text-sm leading-relaxed opacity-90">
-                      {entry.monthYear}: {entry.name} ({entry.thesisLevel} thesis):{" "}
+                      <strong>{entry.monthYear}:</strong> {entry.name} ({entry.thesisLevel} thesis):{" "}
                       <a
                         href={entry.thesis.href}
                         download={entry.thesis.downloadName}
