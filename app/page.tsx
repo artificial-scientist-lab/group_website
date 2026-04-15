@@ -1102,6 +1102,24 @@ const cookieConsentStorageKey = "asl_cookie_consent_v1";
 const cookieConsentMaxAgeMs = 1000 * 60 * 60 * 24 * 180;
 const newsItems: NewsItem[] = [
   {
+    date: "13.04.2026",
+    content: (
+      <>
+        Congratulations to Priya for successfully defending the Master thesis on Fine-Tuning
+        Open-Source LLMs for Scientific Idea Generation.
+      </>
+    ),
+  },
+  {
+    date: "01.04.2026",
+    content: (
+      <>
+        We welcome Soham Basu and Carlo Wenig as new members of the Artificial Scientist Lab. We
+        wish them much success with their PhDs.
+      </>
+    ),
+  },
+  {
     date: "14.03.2026",
     content: (
       <>
@@ -1131,20 +1149,29 @@ const newsItems: NewsItem[] = [
     ),
   },
   {
-    date: "13.04.2026",
+    date: "24.02.2026",
     content: (
       <>
-        Congratulations to Priya for successfully defending the Master thesis on Fine-Tuning
-        Open-Source LLMs for Scientific Idea Generation.
-      </>
-    ),
-  },
-  {
-    date: "01.04.2026",
-    content: (
-      <>
-        We welcome Soham Basu and Carlo Wenig as new members of the Artificial Scientist Lab. We
-        wish them much success with their PhDs.
+        Paper published in Nature Machine Intelligence:{" "}
+        <a
+          href="https://www.nature.com/articles/s42256-025-01153-0"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          Meta-designing quantum experiments with language models
+        </a>
+        . When we use AI to design new physics experiments, the solutions are often extremely
+        complicated, and it can take days or weeks to understand them, if explanations can be found
+        at all. To get more scientific understanding from AI, we developed a meta-approach: a
+        language model that creates solutions for a whole class of experiments at once. For that,
+        our model writes Python code, and the Python code then creates classes of experiments. The
+        humans can then just read the Python code to understand the generalized principles behind
+        the solutions. Using this approach, we discovered numerous new general design principles of
+        quantum states in quantum optics. The work started 5 (!) years ago when I met Yuhuai
+        (Tony) Wu in Toronto, and at times it seemed so challenging that we were close to giving up
+        a few times. But S&ouml;ren Arlt, with the help of Tony, Haonan Duan, Felix Li, and Sang
+        Michael Xie, pushed it successfully over the finish line.
       </>
     ),
   },
