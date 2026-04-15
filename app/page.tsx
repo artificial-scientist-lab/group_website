@@ -1157,6 +1157,7 @@ const sectionLinks = [
   { id: "publications", label: "Publications" },
   { id: "repositories", label: "Software" },
   { id: "positions", label: "Join the Team" },
+  { id: "contact", label: "Contact" },
   { id: "funding", label: "Funding" },
 ] as const;
 type SectionLinkId = (typeof sectionLinks)[number]["id"];
@@ -1574,7 +1575,7 @@ export default function Home() {
               <section className="journal-surface site-section p-6 sm:p-8" id="news">
             <div>
               <p className="section-kicker">News</p>
-              <h2 className="section-title">News Panel</h2>
+              <h2 className="section-title">News from the Lab</h2>
             </div>
             <ul className="mt-6 space-y-4">
               {newsItems.map((item) => (
@@ -1830,6 +1831,30 @@ export default function Home() {
             >
               Open Position Call
             </a>
+          </section>
+
+              <section className="journal-surface site-section p-6 sm:p-8" id="contact">
+            <div>
+              <p className="section-kicker">Contact</p>
+              <h2 className="section-title">Contact</h2>
+            </div>
+            <div className="mt-4 space-y-4">
+              <p className="section-lede">
+                You can reach Mario via e-mail at{" "}
+                <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
+                  mario.krenn@uni-tuebingen.de
+                </a>
+                .
+              </p>
+              <p className="section-lede">
+                For organisational requests (or if Mario is slow in replying), please reach out to
+                Michael at{" "}
+                <a href="mailto:michael.mergner@uni-tuebingen.de" className="underline underline-offset-4">
+                  michael.mergner@uni-tuebingen.de
+                </a>
+                .
+              </p>
+            </div>
           </section>
 
               <section className="journal-surface site-section p-6 sm:p-8" id="funding">
