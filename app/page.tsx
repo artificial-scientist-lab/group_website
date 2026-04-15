@@ -1845,8 +1845,8 @@ export default function Home() {
                   e-Mail
                 </a>
                 .
-              </p>
-              <p className="section-lede">
+                <br />
+                <br />
                 For organisational requests (or if Mario is slow in replying), please reach out to{" "}
                 <a href="mailto:michael.mergner@uni-tuebingen.de" className="underline underline-offset-4">
                   Michael
