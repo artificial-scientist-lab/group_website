@@ -1840,17 +1840,16 @@ export default function Home() {
             </div>
             <div className="mt-4 space-y-4">
               <p className="section-lede">
-                You can reach Mario via e-mail at{" "}
+                You can reach Mario via{" "}
                 <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
-                  mario.krenn@uni-tuebingen.de
+                  e-Mail
                 </a>
                 .
               </p>
               <p className="section-lede">
-                For organisational requests (or if Mario is slow in replying), please reach out to
-                Michael at{" "}
+                For organisational requests (or if Mario is slow in replying), please reach out to{" "}
                 <a href="mailto:michael.mergner@uni-tuebingen.de" className="underline underline-offset-4">
-                  michael.mergner@uni-tuebingen.de
+                  Michael
                 </a>
                 .
               </p>
