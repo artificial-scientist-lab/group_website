@@ -255,6 +255,36 @@ const alumniMembers: AlumniMember[] = [
   },
 ];
 
+const monthLabels = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+] as const;
+
+const thesisEntries = [...alumniMembers]
+  .filter((member): member is AlumniMember & { thesis: NonNullable<AlumniMember["thesis"]> } => Boolean(member.thesis))
+  .sort((a, b) => a.leftAt.localeCompare(b.leftAt) || a.name.localeCompare(b.name))
+  .map((member) => {
+    const [year, month] = member.leftAt.split("-");
+    const thesisLevel = member.role.toLowerCase().includes("master") ? "Master" : "Bachelor";
+
+    return {
+      monthYear: `${monthLabels[Number(month) - 1]} ${year}`,
+      name: member.name,
+      thesisLevel,
+      thesis: member.thesis,
+    };
+  });
+
 const groupPhotos: GroupPhoto[] = [
   {
     date: "May 2025",
@@ -286,6 +316,12 @@ const publications: Paper[] = [
     href: "https://www.nature.com/articles/s42256-025-01153-0",
   },
   {
+    date: "2026",
+    title: "Automated Discovery of Non-local Photonic Gates",
+    venue: "Phys. Rev. Research (accepted)",
+    href: "https://journals.aps.org/prresearch/accepted/10.1103/f415-kgwr",
+  },
+  {
     date: "2025",
     title: "Neural surrogates for designing gravitational wave detectors",
     venue: "arXiv:2511.19364",
@@ -302,12 +338,6 @@ const publications: Paper[] = [
     title: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
     venue: "arXiv:2511.11752",
     href: "https://arxiv.org/abs/2511.11752",
-  },
-  {
-    date: "2025",
-    title: "Automated Discovery of Non-local Photonic Gates",
-    venue: "arXiv:2511.04648",
-    href: "https://arxiv.org/abs/2511.04648",
   },
   {
     date: "2025",
@@ -1780,6 +1810,23 @@ export default function Home() {
                     </li>
                   ))}
               </ul>
+              <div className="mt-6">
+                <p className="text-sm font-semibold leading-relaxed">Thesis:</p>
+                <ul className="mt-3 space-y-2">
+                  {thesisEntries.map((entry) => (
+                    <li key={`${entry.monthYear}-${entry.name}`} className="text-sm leading-relaxed opacity-90">
+                      {entry.monthYear}: {entry.name} ({entry.thesisLevel} thesis):{" "}
+                      <a
+                        href={entry.thesis.href}
+                        download={entry.thesis.downloadName}
+                        className="challenge-inline-link"
+                      >
+                        {entry.thesis.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div className="mt-8 border-t border-current/15 pt-6">
               <p className="section-kicker">Archive</p>
