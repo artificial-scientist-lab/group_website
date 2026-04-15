@@ -1964,7 +1964,7 @@ export default function Home() {
             <div className="mt-4 space-y-4">
               <p className="section-lede">
                 We welcome applicants and students who want to work on AI for physics discovery. We have open
-                postdoc and PhD positions (see call below)
+                postdoc and PhD positions (see call below).
               </p>
               <p className="section-lede">
                 For the students at the University of T&uuml;bingen, we are happy to supervise Master and
