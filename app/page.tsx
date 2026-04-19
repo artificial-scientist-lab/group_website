@@ -32,6 +32,14 @@ type AlumniMember = {
   };
 };
 
+type ThesisEntry = {
+  completedAt: string;
+  monthYear: string;
+  name: string;
+  thesisLevel: "Master" | "Bachelor";
+  thesis: NonNullable<AlumniMember["thesis"]>;
+};
+
 type GroupPhoto = {
   date: string;
   image: string;
@@ -120,7 +128,7 @@ const teamMembers: TeamMember[] = [
     name: "Soham Basu",
     role: "PhD student",
     focus: "",
-    image: "/team/soham-basu.svg",
+    image: "/team/soham-basu.jpeg",
     links: [],
   },
   {
@@ -186,7 +194,7 @@ const teamMembers: TeamMember[] = [
     name: "Laurin Sefa",
     role: "Bachelor student",
     focus: "",
-    image: "/team/laurin-sefa.svg",
+    image: "/team/laurin-sefa.jpg",
     links: [],
   },
 ];
@@ -270,20 +278,50 @@ const monthLabels = [
   "December",
 ] as const;
 
-const thesisEntries = [...alumniMembers]
-  .filter((member): member is AlumniMember & { thesis: NonNullable<AlumniMember["thesis"]> } => Boolean(member.thesis))
-  .sort((a, b) => b.leftAt.localeCompare(a.leftAt) || a.name.localeCompare(b.name))
-  .map((member) => {
-    const [year, month] = member.leftAt.split("-");
-    const thesisLevel = member.role.toLowerCase().includes("master") ? "Master" : "Bachelor";
+const thesisEntriesWithCompletion: ThesisEntry[] = [
+  ...alumniMembers
+    .filter(
+      (member): member is AlumniMember & { thesis: NonNullable<AlumniMember["thesis"]> } =>
+        Boolean(member.thesis)
+    )
+    .map((member): ThesisEntry => {
+      const [year, month] = member.leftAt.split("-");
+      const thesisLevel: ThesisEntry["thesisLevel"] = member.role
+        .toLowerCase()
+        .includes("master")
+        ? "Master"
+        : "Bachelor";
 
-    return {
-      monthYear: `${monthLabels[Number(month) - 1]} ${year}`,
-      name: member.name,
-      thesisLevel,
-      thesis: member.thesis,
-    };
-  });
+      return {
+        completedAt: member.leftAt,
+        monthYear: `${monthLabels[Number(month) - 1]} ${year}`,
+        name: member.name,
+        thesisLevel,
+        thesis: member.thesis,
+      };
+    }),
+  {
+    completedAt: "2025-02",
+    monthYear: "February 2025",
+    name: "Jonathan Klimesch",
+    thesisLevel: "Master",
+    thesis: {
+      title:
+        "Implementation of a Differentiable Interferometer Simulator for Gravitational Wave Detector Discovery",
+      href: "/theses/jonathan-klimesch-master-thesis.pdf",
+      downloadName: "jonathan-klimesch-master-thesis.pdf",
+    },
+  },
+];
+
+const thesisEntries: Omit<ThesisEntry, "completedAt">[] = [...thesisEntriesWithCompletion]
+  .sort((a, b) => b.completedAt.localeCompare(a.completedAt) || a.name.localeCompare(b.name))
+  .map((entry) => ({
+    monthYear: entry.monthYear,
+    name: entry.name,
+    thesisLevel: entry.thesisLevel,
+    thesis: entry.thesis,
+  }));
 
 const groupPhotos: GroupPhoto[] = [
   {
