@@ -181,7 +181,10 @@ const teamMembers: TeamMember[] = [
     role: "Master student",
     focus: "",
     image: "/team/lalit-chaudhary.jpg",
-    links: [],
+    links: [
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/chaudharyl" },
+      { label: "GitHub", href: "https://github.com/lalit3c" },
+    ],
   },
   {
     name: "Priya Kanagasabapathi",
@@ -1175,6 +1178,11 @@ const coreChallenges: CoreChallenge[] = [
 const positionCallUrl = "/positions/Call_ASL.pdf";
 const cookieConsentStorageKey = "asl_cookie_consent_v1";
 const cookieConsentMaxAgeMs = 1000 * 60 * 60 * 24 * 180;
+const newsDateSortValue = (date: string) => {
+  const [day, month, year] = date.split(".");
+  return Number(`${year}${month}${day}`);
+};
+
 const newsItems: NewsItem[] = [
   {
     date: "14.04.2026",
@@ -1278,6 +1286,18 @@ const newsItems: NewsItem[] = [
     ),
   },
   {
+    date: "06.03.2026",
+    content: (
+      <>
+        We just finished an exceptionally interesting workshop here in T&uuml;bingen with the
+        developers of FINESSE, the quasi-standard simulator for interferometric gravitational-wave
+        detectors used by most researchers at LIGO and Virgo. We had Andreas Freise, director of
+        the Einstein Telescope, and his team visiting, including Anne Green. Learned a lot, and
+        hope for many exciting future projects. Thank you for visiting!
+      </>
+    ),
+  },
+  {
     date: "24.02.2026",
     content: (
       <>
@@ -1324,10 +1344,10 @@ const newsItems: NewsItem[] = [
         levels, together of course with the Editorial Board, handling the papers. Anatole, who is
         steering the ship, has wonderful ideas on how to create a truly high-quality peer-review
         experience, and I can&apos;t wait to help. Please submit your best works to us!
-      </>
+      </> 
     ),
   },
-];
+].sort((a, b) => newsDateSortValue(b.date) - newsDateSortValue(a.date));
 const sectionLinks = [
   { id: "artificial-scientist-lab", label: "Artificial Scientist Lab" },
   { id: "news", label: "News" },
