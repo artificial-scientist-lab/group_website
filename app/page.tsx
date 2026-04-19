@@ -1300,7 +1300,7 @@ const newsItems: NewsItem[] = [
         >
           Andreas Freise
         </a>
-        , director of the Einstein Telescope, and his team visiting, including Anne Green. Learned
+        , director of the Einstein Telescope, and his team visiting, including Anna Green. Learned
         a lot, and hope for many exciting future projects. Thank you for visiting!
       </>
     ),
