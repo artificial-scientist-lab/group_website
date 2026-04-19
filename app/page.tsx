@@ -1291,9 +1291,17 @@ const newsItems: NewsItem[] = [
       <>
         We just finished an exceptionally interesting workshop here in T&uuml;bingen with the
         developers of FINESSE, the quasi-standard simulator for interferometric gravitational-wave
-        detectors used by most researchers at LIGO and Virgo. We had Andreas Freise, director of
-        the Einstein Telescope, and his team visiting, including Anne Green. Learned a lot, and
-        hope for many exciting future projects. Thank you for visiting!
+        detectors used by most researchers at LIGO and Virgo. We had{" "}
+        <a
+          href="https://vu.nl/en/stories/prof-dr-andreas-freise"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          Andreas Freise
+        </a>
+        , director of the Einstein Telescope, and his team visiting, including Anne Green. Learned
+        a lot, and hope for many exciting future projects. Thank you for visiting!
       </>
     ),
   },
