@@ -1865,9 +1865,6 @@ export default function Home() {
                         <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
                       ) : null}
                       {alumnus.thesis ? (
-                        <p className="mt-3 text-sm leading-relaxed opacity-90">{`Thesis: ${alumnus.thesis.title}`}</p>
-                      ) : null}
-                      {alumnus.thesis ? (
                         <a
                           href={alumnus.thesis.href}
                           download={alumnus.thesis.downloadName}
