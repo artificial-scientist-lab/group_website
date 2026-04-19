@@ -98,6 +98,8 @@ const teamMembers: TeamMember[] = [
     links: [
       { label: "Website", href: "https://mariokrenn.wordpress.com/" },
       { label: "GitHub", href: "https://github.com/MarioKrenn6240" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/mario-krenn-813b9512b" },
+      { label: "X", href: "https://x.com/MarioKrenn6240" },
     ],
   },
   {
