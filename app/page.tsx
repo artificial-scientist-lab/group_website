@@ -322,6 +322,17 @@ const thesisEntriesWithCompletion: ThesisEntry[] = [
       downloadName: "jonathan-klimesch-master-thesis.pdf",
     },
   },
+  {
+    completedAt: "2025-10",
+    monthYear: "October 2025",
+    name: "Marcello Armezzani",
+    thesisLevel: "Master",
+    thesis: {
+      title: "AI Rediscovery of Complex Quantum Networks",
+      href: "/theses/marcello-armezzani-master-thesis.pdf",
+      downloadName: "marcello-armezzani-master-thesis.pdf",
+    },
+  },
 ];
 
 const thesisEntries: Omit<ThesisEntry, "completedAt">[] = [...thesisEntriesWithCompletion]
