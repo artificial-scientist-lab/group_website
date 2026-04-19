@@ -127,9 +127,14 @@ const teamMembers: TeamMember[] = [
   {
     name: "Soham Basu",
     role: "PhD student",
-    focus: "",
+    focus:
+      "I am interested in developing efficient algorithms for exploration and optimization in large, complex search spaces, with a particular focus on Bayesian Optimization and Deep Learning-based approaches.",
     image: "/team/soham-basu.jpeg",
-    links: [],
+    links: [
+      { label: "Website", href: "https://sohambasu.me" },
+      { label: "GitHub", href: "https://github.com/Sohambasu07/" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/sohambasu07/" },
+    ],
   },
   {
     name: "Tareq Jaouni",
