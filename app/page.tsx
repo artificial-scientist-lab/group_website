@@ -387,15 +387,15 @@ const groupPhotos: GroupPhoto[] = [
 const publications: Paper[] = [
   {
     date: "2026",
-    title: "Meta-Designing Quantum Experiments with Language Models",
-    venue: "Nature Machine Intelligence 8, 148",
-    href: "https://www.nature.com/articles/s42256-025-01153-0",
-  },
-  {
-    date: "2026",
     title: "Automated Discovery of Non-local Photonic Gates",
     venue: "Phys. Rev. Research (accepted)",
     href: "https://journals.aps.org/prresearch/accepted/10.1103/f415-kgwr",
+  },
+  {
+    date: "2026",
+    title: "Meta-Designing Quantum Experiments with Language Models",
+    venue: "Nature Machine Intelligence 8, 148",
+    href: "https://www.nature.com/articles/s42256-025-01153-0",
   },
   {
     date: "2025",
