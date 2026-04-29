@@ -208,9 +208,13 @@ const teamMembers: TeamMember[] = [
   {
     name: "Laurin Sefa",
     role: "Bachelor student",
-    focus: "",
+    focus:
+      "Fascinated by and curious about the unintuitiveness and novelty of machine-designed concepts in AI-driven science discovery. Big fan of music, cooking, handball, my friends, philosophical talks, movies (especially Sci-Fi), and board games!",
     image: "/team/laurin-sefa.jpg",
-    links: [],
+    links: [
+      { label: "GitHub", href: "https://github.com/lohrynn" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/laurin-sefa-39b639315" },
+    ],
   },
   {
     name: "Felice Huck",
