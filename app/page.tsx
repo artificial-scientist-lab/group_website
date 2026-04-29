@@ -148,7 +148,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Jonathan Klimesch",
     role: "PhD student",
-    focus: "Interpretable AI for scientific problem solving and structured knowledge systems.",
+    focus:
+      "Interested in Differentiable Simulations and diverse AI algorithms for the discovery of novel, but human-understandable concepts for gravitational wave detectors.",
     image: "/team/jonathan-klimesch.jpg",
     links: [
       { label: "Website", href: "https://www.phylomatx.com/" },
