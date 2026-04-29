@@ -193,7 +193,10 @@ const teamMembers: TeamMember[] = [
     focus:
       "Interested in how agentic systems and large language models can support scientific discovery by generating, evaluating, and refining research ideas. I am especially curious about their role in accelerating creativity and reasoning in science.",
     image: "/team/priya-kanagasabapathi.jpeg",
-    links: [{ label: "GitHub", href: "https://github.com/priya-ks1703" }],
+    links: [
+      { label: "GitHub", href: "https://github.com/priya-ks1703" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/shanmugapriya-ks-634990199" },
+    ],
   },
   {
     name: "Raphael Jontofsohn",
