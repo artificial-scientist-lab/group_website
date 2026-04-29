@@ -851,7 +851,7 @@ const coreChallenges: CoreChallenge[] = [
             >
               PyTheus
             </a>{" "}
-            (spearheaded by Carlos Ruiz Gonz\u00e1lez and S\u00f6ren Arlt) is an algorithm for designing vastly
+            (spearheaded by Carlos Ruiz González and Sören Arlt) is an algorithm for designing vastly
             diverse quantum experiments, for quantum state generation, the
             design of single- and multi-photon transformations, and new communication protocols. One surprising new
             discovery, a new way to entangle independent photons, has been experimentally implemented by the
@@ -994,7 +994,7 @@ const coreChallenges: CoreChallenge[] = [
             . We discovered that PyTheus invented a new trick to generate high-dimensional entanglement: it
             discovered a structure resembling a probabilistic multi-photon emitter just by building two-photon
             emitters. When we understood this technique, we were immediately able to generalize it to other
-            situations. This new principle, spearheaded by S\u00f6ren Arlt, was published as{" "}
+            situations. This new principle, spearheaded by Sören Arlt, was published as{" "}
             <a
               href="https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta"
               target="_blank"
@@ -1015,7 +1015,7 @@ const coreChallenges: CoreChallenge[] = [
             >
               Meta-Design
             </a>{" "}
-            (see the figure above, pioneered by S\u00f6ren Arlt). Here, instead of designing solutions for
+            (see the figure above, pioneered by Sören Arlt). Here, instead of designing solutions for
             individual questions and trying to understand them afterwards, we trained a language model that
             produces Python code. The resulting Python code solves whole classes of questions at once. Instead of
             having to analyze each solution independently, we can inspect the generated Python code, which contains
