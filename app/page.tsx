@@ -732,7 +732,7 @@ const renderPublicationVenue = (paper: Paper) => {
       {volume ? (
         <>
           {" "}
-          (<strong className="publication-number">{volume}</strong>)
+          ({volume})
         </>
       ) : null}
       , {pages} ({paper.date})
