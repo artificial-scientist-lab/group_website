@@ -696,6 +696,50 @@ const publicationAuthorsByTitle: Record<string, string> = {
   "Data-Driven Strategies for Accelerated Materials Design": "Pollice, dos Passos Gomes, Aldeghi, Hickman, Krenn, Lavigne, Lindner-D'Addario, Nigam, Ser, Yao, Aspuru-Guzik",
 };
 
+const renderPublicationVenue = (paper: Paper) => {
+  const arxivMatch = paper.venue.match(/^arXiv:(.+)$/);
+
+  if (arxivMatch) {
+    return <>arXiv preprint {paper.venue}</>;
+  }
+
+  const acceptedMatch = paper.venue.match(/^(.+?)\s+\((accepted)\)$/);
+
+  if (acceptedMatch) {
+    return (
+      <>
+        <cite className="publication-journal">{acceptedMatch[1]}</cite> ({acceptedMatch[2]}) ({paper.date})
+      </>
+    );
+  }
+
+  const journalMatch = paper.venue.match(/^(.+?)\s+(\d+)(?:\s+\(([^)]+)\))?,\s*(.+)$/);
+
+  if (!journalMatch) {
+    return (
+      <>
+        {paper.venue} ({paper.date})
+      </>
+    );
+  }
+
+  const [, journal, issue, volume, pages] = journalMatch;
+
+  return (
+    <>
+      <cite className="publication-journal">{journal}</cite>{" "}
+      <strong className="publication-number">{issue}</strong>
+      {volume ? (
+        <>
+          {" "}
+          (<strong className="publication-number">{volume}</strong>)
+        </>
+      ) : null}
+      , {pages} ({paper.date})
+    </>
+  );
+};
+
 const githubProjects: Project[] = [
   {
     name: "PyTheus",
@@ -2040,13 +2084,13 @@ export default function Home() {
                   <h3 id={`publications-${yearGroup.year}`} className="font-journal text-3xl leading-none sm:text-4xl">
                     {yearGroup.year}
                   </h3>
-                  <ul className="mt-5 space-y-3">
+                  <ul className="publication-list mt-5">
                     {yearGroup.papers.map((paper) => (
-                      <li key={`${paper.date}-${paper.title}`} className="modern-card interactive-card overflow-hidden">
-                        <a href={paper.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
-                          <p className="text-xs font-medium uppercase tracking-[0.16em] opacity-70">{`${paper.venue} (${paper.date})`}</p>
-                          <p className="interactive-card-title mt-2 text-base leading-snug underline-offset-4">{paper.title}</p>
-                          <p className="mt-2 text-sm leading-relaxed opacity-85">{publicationAuthorsByTitle[paper.title]}</p>
+                      <li key={`${paper.date}-${paper.title}`} className="publication-item">
+                        <a href={paper.href} target="_blank" rel="noreferrer" className="publication-link">
+                          <p className="publication-title">{paper.title}</p>
+                          <p className="publication-authors">{publicationAuthorsByTitle[paper.title]}</p>
+                          <p className="publication-venue">{renderPublicationVenue(paper)}</p>
                         </a>
                       </li>
                     ))}
