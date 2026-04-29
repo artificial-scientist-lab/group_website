@@ -189,7 +189,8 @@ const teamMembers: TeamMember[] = [
   {
     name: "Priya Kanagasabapathi",
     role: "Master student",
-    focus: "Interpretable ML and deep learning for scientific applications.",
+    focus:
+      "Interested in how agentic systems and large language models can support scientific discovery by generating, evaluating, and refining research ideas. I am especially curious about their role in accelerating creativity and reasoning in science.",
     image: "/team/priya-kanagasabapathi.jpeg",
     links: [{ label: "GitHub", href: "https://github.com/priya-ks1703" }],
   },
