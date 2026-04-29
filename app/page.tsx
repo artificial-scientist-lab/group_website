@@ -1242,7 +1242,8 @@ const newsItems: NewsItem[] = [
     content: (
       <>
         Congratulations to Priya for successfully defending the Master thesis on Fine-Tuning
-        Open-Source LLMs for Scientific Idea Generation.
+        Open-Source LLMs for Scientific Idea Generation. Priya will continue her PhD in our group,
+        and we wish much success!
       </>
     ),
   },
@@ -1251,7 +1252,8 @@ const newsItems: NewsItem[] = [
     content: (
       <>
         We welcome Soham Basu and Carlo Wenig as new members of the Artificial Scientist Lab. We
-        wish them much success with their PhDs.
+        wish them much success with their PhDs. Also welcome to Felice Huck who starts as a research
+        intern on the intersection of psychology, AI and physics.
       </>
     ),
   },
@@ -1712,8 +1714,9 @@ export default function Home() {
                 We are excited about the potential of artificial intelligence-inspired and -augmented
                 science, and how we can use algorithms in a more &quot;creative&quot; way. We are convinced that
                 intelligence is not sufficient to be a great scientist. There, to make progress, it will be
-                important to learn what humans mean by crucial scientific concepts such as surprise,
-                creativity, understanding, and interest. We have created AIs for designing quantum
+                important to learn what humans mean by crucial scientific concepts such as{" "}
+                <strong>surprise</strong>, <strong>creativity</strong>, <strong>understanding</strong>, and{" "}
+                <strong>interest</strong>. We have created AIs for designing physics
                 experiments and hardware, several of which were actually built in laboratories, as well as
                 systems for inspiring novel ideas for quantum technologies.
               </p>
