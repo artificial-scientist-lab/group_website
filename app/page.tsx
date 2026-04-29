@@ -1213,6 +1213,23 @@ const newsDateSortValue = (date: string) => {
 
 const newsItems: NewsItem[] = [
   {
+    date: "29.04.2026",
+    content: (
+      <>
+        Mario&apos;s radio{" "}
+        <a
+          href="https://oe1.orf.at/programm/20260429/829692/Stumme-Entdeckerin"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          interview with ORF&apos;s Ö1
+        </a>{" "}
+        is published online, by Robert Czepel.
+      </>
+    ),
+  },
+  {
     date: "14.04.2026",
     content: (
       <>
