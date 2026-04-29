@@ -212,6 +212,14 @@ const teamMembers: TeamMember[] = [
     image: "/team/laurin-sefa.jpg",
     links: [],
   },
+  {
+    name: "Felice Huck",
+    role: "Research Intern",
+    focus:
+      "Interested in the intersection of psychology and AI, especially in understanding how humans explore and learn, and how this can help build more autonomous AI systems for scientific discovery. In my free time, I enjoy playing tennis.",
+    image: "/team/felice-huck.jpg",
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/felice-huck-11771b253/" }],
+  },
 ];
 
 const alumniMembers: AlumniMember[] = [
@@ -1680,25 +1688,25 @@ export default function Home() {
           <div className="hero-focus mt-8">
             <div className="mt-6 space-y-4">
               <p className="section-lede">
-                The Artificial Scientist Lab is part of the Department for Computer Science at the{" "}
+                The Artificial Scientist Lab is part of the{" "}
                 <a
                   href="https://uni-tuebingen.de/en/faculties/faculty-of-science/departments/computer-science/department/"
                   target="_blank"
                   rel="noreferrer"
                   className="challenge-inline-link"
                 >
-                  University of Tübingen
+                  Department for Computer Science at the University of Tübingen
                 </a>{" "}
-                since June 2025. Before, we were at the{" "}
+                since June 2025. We are part of the{" "}
                 <a
-                  href="https://mpl.mpg.de/"
+                  href="https://uni-tuebingen.de/en/research/core-research/cluster-of-excellence-machine-learning/home/"
                   target="_blank"
                   rel="noreferrer"
                   className="challenge-inline-link"
                 >
-                  Max Planck Institute for the Science of Light in Erlangen
+                  Excellence Cluster for Machine Learning in Science in Tübingen
                 </a>
-                , founded in September 2021.
+                .
               </p>
               <p className="section-lede">
                 We are excited about the potential of artificial intelligence-inspired and -augmented
