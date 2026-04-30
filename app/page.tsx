@@ -328,6 +328,17 @@ const thesisEntriesWithCompletion: ThesisEntry[] = [
       };
     }),
   {
+    completedAt: "2026-04",
+    monthYear: "April 2026",
+    name: "Priya Kanagasabapathi",
+    thesisLevel: "Master",
+    thesis: {
+      title: "Finetuning Open-Source LLMs for Scientific Idea Generation",
+      href: "/theses/priya-kanagasabapathi-master-thesis.pdf",
+      downloadName: "priya-kanagasabapathi-master-thesis.pdf",
+    },
+  },
+  {
     completedAt: "2025-02",
     monthYear: "February 2025",
     name: "Jonathan Klimesch",
