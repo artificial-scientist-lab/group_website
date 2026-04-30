@@ -1822,7 +1822,7 @@ export default function Home() {
                 >
                   derStandard
                 </a>{" "}
-                (May 2024) or{" "}
+                (May 2024),{" "}
                 <a
                   href="https://www.spiegel.de/wissenschaft/technik/kuenstliche-intelligenz-in-der-forschung-physiker-mario-krenn-baut-kuenstliche-wissenschaftler-a-18b1be08-941e-4870-83e1-e38ddc06c1ca"
                   target="_blank"
@@ -1831,7 +1831,16 @@ export default function Home() {
                 >
                   SPIEGEL
                 </a>{" "}
-                (Nov 2025).
+                (Nov 2025) or{" "}
+                <a
+                  href="https://oe1.orf.at/programm/20260429/829692/Stumme-Entdeckerin"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="challenge-inline-link"
+                >
+                  ORF Ö1
+                </a>{" "}
+                (April 2026).
               </p>
               <p className="section-lede">Our work is organized around four pillars:</p>
             </div>
