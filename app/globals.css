@@ -3,7 +3,7 @@
 :root {
   --background: #f7f0de;
   --foreground: #1d1710;
-  --section-nav-offset: 12rem;
+  --section-nav-offset: 1.5rem;
 }
 
 @theme inline {
@@ -214,6 +214,7 @@ body {
 }
 
 .section-nav-shell {
+  display: none;
   position: sticky;
   top: 0.9rem;
   z-index: 12;
@@ -335,6 +336,16 @@ body {
   border-bottom: 5px double currentColor;
 }
 
+.hero-kicker {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.hero-title,
+.hero-subtitle {
+  text-wrap: balance;
+}
+
 @media (min-width: 1024px) {
   :root {
     --section-nav-offset: 2.5rem;
@@ -347,9 +358,29 @@ body {
   }
 
   .section-nav-shell {
+    display: block;
     width: 100%;
     margin-inline: 0;
     top: 1.2rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-kicker {
+    letter-spacing: 0.16em;
+    line-height: 1.55;
+  }
+
+  .hero-title {
+    font-size: clamp(2.7rem, 15vw, 3.35rem);
+  }
+
+  .hero-title span {
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
   }
 }
 
@@ -399,6 +430,14 @@ body {
   line-height: 1.6;
   text-align: justify;
   opacity: 0.95;
+}
+
+@media (max-width: 639px) {
+  .section-lede {
+    text-align: left;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }
 
 .modern-card {

@@ -1753,14 +1753,16 @@ export default function Home() {
 
           <div className="page-layout-main">
             <header id="artificial-scientist-lab" className="journal-surface journal-hero site-section">
-          <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
+          <p className="hero-kicker text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
             Proceedings of Machine Learning in Science II • Tübingen
             {monthYear ? ` • ${monthYear}` : ""}
           </p>
-          <h1 className="mt-4 text-center font-journal text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
-            Artificial Scientist Lab
+          <h1 className="hero-title mt-4 text-center font-journal text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
+            <span>Artificial</span>{" "}
+            <span>Scientist</span>{" "}
+            <span>Lab</span>
           </h1>
-          <p className="mt-4 text-center font-journal text-xl italic sm:text-2xl">
+          <p className="hero-subtitle mt-4 text-center font-journal text-xl italic sm:text-2xl">
             AI for Conceptual Advances in Physics
           </p>
           <div className="hero-focus mt-8">
