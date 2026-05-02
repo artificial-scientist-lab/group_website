@@ -1474,7 +1474,6 @@ type SectionLinkId = (typeof sectionLinks)[number]["id"];
 export default function Home() {
   const [activeSectionId, setActiveSectionId] = useState<SectionLinkId | null>(null);
   const [monthYear, setMonthYear] = useState("");
-  const [cookieChoice, setCookieChoice] = useState<CookieChoice | null>(null);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
   const siteRef = useRef<HTMLDivElement | null>(null);
 
@@ -1498,7 +1497,6 @@ export default function Home() {
 
   useEffect(() => {
     const stored = window.localStorage.getItem(cookieConsentStorageKey);
-    let nextChoice: CookieChoice | null = null;
     let nextShowCookieBanner = true;
 
     if (stored) {
@@ -1510,7 +1508,6 @@ export default function Home() {
         const isFresh = Number.isFinite(updatedAtMs) && Date.now() - updatedAtMs <= cookieConsentMaxAgeMs;
 
         if (hasValidChoice && isFresh) {
-          nextChoice = choice;
           nextShowCookieBanner = false;
         } else {
           window.localStorage.removeItem(cookieConsentStorageKey);
@@ -1522,7 +1519,6 @@ export default function Home() {
     }
 
     const frameId = window.requestAnimationFrame(() => {
-      setCookieChoice(nextChoice);
       setShowCookieBanner(nextShowCookieBanner);
     });
 
@@ -1693,7 +1689,6 @@ export default function Home() {
     };
 
     window.localStorage.setItem(cookieConsentStorageKey, JSON.stringify(record));
-    setCookieChoice(choice);
     setShowCookieBanner(false);
   };
 
@@ -2226,10 +2221,6 @@ export default function Home() {
             </button>
           </div>
         </aside>
-      ) : cookieChoice ? (
-        <button type="button" className="cookie-settings-toggle" onClick={() => setShowCookieBanner(true)}>
-          Cookie settings
-        </button>
       ) : null}
     </div>
   );
