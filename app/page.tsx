@@ -1848,7 +1848,8 @@ export default function Home() {
                 >
                   ORF Ö1
                 </a>{" "}
-                (April 2026).
+                (April 2026). We are funded, among others, by an ERC StG 2024 called ArtDisQ
+                (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance Simulators).
               </p>
               <p className="section-lede">Our work is organized around four pillars:</p>
             </div>
