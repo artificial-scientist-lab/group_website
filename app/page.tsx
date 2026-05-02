@@ -1848,7 +1848,7 @@ export default function Home() {
                 >
                   ORF Ö1
                 </a>{" "}
-                (April 2026). We are funded, among others, by an ERC StG 2024 called ArtDisQ
+                (April 2026). We were awarded an ERC StG 2024 called <strong>ArtDisQ</strong>{" "}
                 (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance Simulators).
               </p>
               <p className="section-lede">Our work is organized around four pillars:</p>
@@ -2147,7 +2147,7 @@ export default function Home() {
                 postdoc and PhD positions (see call below).
               </p>
               <p className="section-lede">
-                For the students at the University of T&uuml;bingen, we are happy to supervise Master and
+                For the students at the <strong>University of T&uuml;bingen</strong>, we are happy to supervise Master and
                 Bachelor thesis and interships. Reach out to{" "}
                 <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
                   Mario
