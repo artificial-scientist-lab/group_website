@@ -1288,7 +1288,7 @@ const newsItems: NewsItem[] = [
           <em>Automated experimental design for high-probability entanglement generation</em>
         </a>
         . Here we are able to find higher-probability setups for the generation of entangled
-        states by taking the full{" "}
+        states by using a physical simulator that takes the full{" "}
         <a
           href="https://arxiv.org/abs/2511.16529"
           target="_blank"
