@@ -398,6 +398,12 @@ const groupPhotos: GroupPhoto[] = [
 const publications: Paper[] = [
   {
     date: "2026",
+    title: "Automated experimental design for high-probability entanglement generation",
+    venue: "arXiv:2605.02721",
+    href: "https://arxiv.org/abs/2605.02721",
+  },
+  {
+    date: "2026",
     title: "Automated Discovery of Non-local Photonic Gates",
     venue: "Phys. Rev. Research (accepted)",
     href: "https://journals.aps.org/prresearch/accepted/10.1103/f415-kgwr",
@@ -663,6 +669,7 @@ const publicationsByYear = publications.reduce<Array<{ year: string; papers: Pap
 }, []);
 
 const publicationAuthorsByTitle: Record<string, string> = {
+  "Automated experimental design for high-probability entanglement generation": "Ruiz-Gonzalez, Krenn, Gu",
   "Meta-Designing Quantum Experiments with Language Models": "Arlt, Duan, Li, Xie, Wu, Krenn",
   "Neural surrogates for designing gravitational wave detectors": "Ruiz-Gonzalez, Arlt, Lehner, Berzins, Drori, Adhikari, Brandstetter, Krenn",
   "Analytical Fock Representation of Two-Mode Squeezing for Quantum Interference": "Gu, Ruiz-Gonzalez, Krenn",
@@ -1267,6 +1274,33 @@ const newsDateSortValue = (date: string) => {
 };
 
 const newsItems: NewsItem[] = [
+  {
+    date: "05.05.2026",
+    content: (
+      <>
+        Congratulations to Carlos and Xuemei for the new preprint paper{" "}
+        <a
+          href="https://arxiv.org/abs/2605.02721"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <em>Automated experimental design for high-probability entanglement generation</em>
+        </a>
+        . Here we are able to find higher-probability setups for the generation of entangled
+        states by taking the full{" "}
+        <a
+          href="https://arxiv.org/abs/2511.16529"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          pair-production process
+        </a>{" "}
+        into account.
+      </>
+    ),
+  },
   {
     date: "29.04.2026",
     content: (
