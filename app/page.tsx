@@ -3,7 +3,7 @@
 
 import {
   useEffect,
-  useRef,
+  // useRef, // Disabled: only used by the JS-driven background-drift effect below, which is now turned off.
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
   type MouseEvent as ReactMouseEvent,
@@ -1582,7 +1582,11 @@ export default function Home() {
   const [activeSectionId, setActiveSectionId] = useState<SectionLinkId | null>(null);
   const [monthYear, setMonthYear] = useState("");
   const [showCookieBanner, setShowCookieBanner] = useState(false);
-  const siteRef = useRef<HTMLDivElement | null>(null);
+  // Disabled: this ref was only used by the JS-driven background-drift effect (commented out
+  // further down). The drift wasn't visible anyway, and writing four CSS variables every animation
+  // frame was forcing a full-viewport repaint of the .group-site::after pseudo-element on every
+  // frame, which was a major source of scroll lag.
+  // const siteRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const formatter = new Intl.DateTimeFormat("en-US", {
@@ -1634,83 +1638,100 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    const root = siteRef.current;
-    if (!root) {
-      return;
-    }
-
-    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
-    const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
-
-    const layers = [
-      { key: "--net1-pos", baseX: -30, baseY: 18, jitterX: 140, jitterY: 110 },
-      { key: "--net2-pos", baseX: 140, baseY: -70, jitterX: 170, jitterY: 130 },
-      { key: "--net3-pos", baseX: 54, baseY: 92, jitterX: 150, jitterY: 120 },
-      { key: "--net4-pos", baseX: 12, baseY: 16, jitterX: 90, jitterY: 80 },
-    ].map((layer) => ({
-      ...layer,
-      x: layer.baseX + randomInRange(-layer.jitterX * 0.45, layer.jitterX * 0.45),
-      y: layer.baseY + randomInRange(-layer.jitterY * 0.45, layer.jitterY * 0.45),
-      angle: randomInRange(0, Math.PI * 2),
-      speed: randomInRange(5, 11),
-      minSpeed: randomInRange(3, 5),
-      maxSpeed: randomInRange(10, 14),
-      turnRate: randomInRange(0.7, 1.5),
-    }));
-
-    const writePositions = () => {
-      for (const layer of layers) {
-        root.style.setProperty(layer.key, `${layer.x.toFixed(1)}px ${layer.y.toFixed(1)}px`);
-      }
-    };
-
-    writePositions();
-
-    let frameId = 0;
-    let lastFrameTime = performance.now();
-
-    const step = (now: number) => {
-      const dt = Math.min((now - lastFrameTime) / 1000, 0.045);
-      lastFrameTime = now;
-
-      for (const layer of layers) {
-        layer.angle += randomInRange(-1, 1) * layer.turnRate * dt;
-        layer.speed = clamp(layer.speed + randomInRange(-2.2, 2.2) * dt, layer.minSpeed, layer.maxSpeed);
-
-        layer.x += Math.cos(layer.angle) * layer.speed * dt;
-        layer.y += Math.sin(layer.angle) * layer.speed * dt;
-
-        const minX = layer.baseX - layer.jitterX;
-        const maxX = layer.baseX + layer.jitterX;
-        const minY = layer.baseY - layer.jitterY;
-        const maxY = layer.baseY + layer.jitterY;
-
-        if (layer.x < minX || layer.x > maxX) {
-          layer.x = clamp(layer.x, minX, maxX);
-          layer.angle = Math.PI - layer.angle + randomInRange(-0.28, 0.28);
-        }
-
-        if (layer.y < minY || layer.y > maxY) {
-          layer.y = clamp(layer.y, minY, maxY);
-          layer.angle = -layer.angle + randomInRange(-0.28, 0.28);
-        }
-      }
-
-      writePositions();
-      frameId = window.requestAnimationFrame(step);
-    };
-
-    frameId = window.requestAnimationFrame(step);
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-    };
-  }, []);
+  // ---------------------------------------------------------------------------
+  // DISABLED: JS-driven background drift effect.
+  //
+  // This useEffect ran a continuous requestAnimationFrame loop that updated four
+  // CSS variables (--net1-pos … --net4-pos) every frame. Those variables drove
+  // the background-position of .group-site::after — a fixed, full-viewport
+  // pseudo-element with seven stacked background layers, a CSS keyframe float,
+  // and a saturate/brightness filter. Writing CSS variables on every animation
+  // frame forced a full-viewport repaint of that pseudo-element, which was the
+  // single biggest source of scroll lag.
+  //
+  // The visual "drift" was barely perceptible (and Carlo confirmed he never
+  // noticed it), so the whole effect — together with the supporting CSS
+  // variables (see globals.css) and the siteRef/useRef plumbing — has been
+  // turned off. The static initial values for --net1-pos…--net4-pos have been
+  // inlined directly into the background-position list in globals.css.
+  // ---------------------------------------------------------------------------
+  // useEffect(() => {
+  //   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  //     return;
+  //   }
+  //
+  //   const root = siteRef.current;
+  //   if (!root) {
+  //     return;
+  //   }
+  //
+  //   const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+  //   const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+  //
+  //   const layers = [
+  //     { key: "--net1-pos", baseX: -30, baseY: 18, jitterX: 140, jitterY: 110 },
+  //     { key: "--net2-pos", baseX: 140, baseY: -70, jitterX: 170, jitterY: 130 },
+  //     { key: "--net3-pos", baseX: 54, baseY: 92, jitterX: 150, jitterY: 120 },
+  //     { key: "--net4-pos", baseX: 12, baseY: 16, jitterX: 90, jitterY: 80 },
+  //   ].map((layer) => ({
+  //     ...layer,
+  //     x: layer.baseX + randomInRange(-layer.jitterX * 0.45, layer.jitterX * 0.45),
+  //     y: layer.baseY + randomInRange(-layer.jitterY * 0.45, layer.jitterY * 0.45),
+  //     angle: randomInRange(0, Math.PI * 2),
+  //     speed: randomInRange(5, 11),
+  //     minSpeed: randomInRange(3, 5),
+  //     maxSpeed: randomInRange(10, 14),
+  //     turnRate: randomInRange(0.7, 1.5),
+  //   }));
+  //
+  //   const writePositions = () => {
+  //     for (const layer of layers) {
+  //       root.style.setProperty(layer.key, `${layer.x.toFixed(1)}px ${layer.y.toFixed(1)}px`);
+  //     }
+  //   };
+  //
+  //   writePositions();
+  //
+  //   let frameId = 0;
+  //   let lastFrameTime = performance.now();
+  //
+  //   const step = (now: number) => {
+  //     const dt = Math.min((now - lastFrameTime) / 1000, 0.045);
+  //     lastFrameTime = now;
+  //
+  //     for (const layer of layers) {
+  //       layer.angle += randomInRange(-1, 1) * layer.turnRate * dt;
+  //       layer.speed = clamp(layer.speed + randomInRange(-2.2, 2.2) * dt, layer.minSpeed, layer.maxSpeed);
+  //
+  //       layer.x += Math.cos(layer.angle) * layer.speed * dt;
+  //       layer.y += Math.sin(layer.angle) * layer.speed * dt;
+  //
+  //       const minX = layer.baseX - layer.jitterX;
+  //       const maxX = layer.baseX + layer.jitterX;
+  //       const minY = layer.baseY - layer.jitterY;
+  //       const maxY = layer.baseY + layer.jitterY;
+  //
+  //       if (layer.x < minX || layer.x > maxX) {
+  //         layer.x = clamp(layer.x, minX, maxX);
+  //         layer.angle = Math.PI - layer.angle + randomInRange(-0.28, 0.28);
+  //       }
+  //
+  //       if (layer.y < minY || layer.y > maxY) {
+  //         layer.y = clamp(layer.y, minY, maxY);
+  //         layer.angle = -layer.angle + randomInRange(-0.28, 0.28);
+  //       }
+  //     }
+  //
+  //     writePositions();
+  //     frameId = window.requestAnimationFrame(step);
+  //   };
+  //
+  //   frameId = window.requestAnimationFrame(step);
+  //
+  //   return () => {
+  //     window.cancelAnimationFrame(frameId);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const sections = sectionLinks
@@ -1831,7 +1852,9 @@ export default function Home() {
   };
 
   return (
-    <div ref={siteRef} className="group-site">
+    // Originally: <div ref={siteRef} className="group-site">. The ref is no longer attached
+    // because the JS-driven background-drift effect that consumed it is disabled above.
+    <div className="group-site">
       <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <div className="page-layout">
           <aside className="section-nav-shell">
