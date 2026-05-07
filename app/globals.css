@@ -48,15 +48,6 @@ body {
 .group-site {
   --morph: 0;
   --modern-accent: clamp(0, calc((var(--morph) - 0.62) / 0.38), 1);
-  /* Disabled: these custom properties were updated every animation frame by the
-     JS-driven background-drift effect in app/page.tsx. With that effect turned
-     off, the variables are no longer driven, so we have inlined their static
-     initial values directly into .group-site::after (see background-position
-     below) and removed the var() indirection. Kept here as a paper trail. */
-  /* --net1-pos: -30px 18px; */
-  /* --net2-pos: 140px -70px; */
-  /* --net3-pos: 54px 92px; */
-  /* --net4-pos: 12px 16px; */
   position: relative;
   min-height: 100vh;
   color: rgb(
@@ -64,152 +55,8 @@ body {
     calc(21 + var(--morph) * 207),
     calc(16 + var(--morph) * 224)
   );
-  background:
-    radial-gradient(
-      circle at 0% 0%,
-      rgba(
-          calc(255 - var(--morph) * 92),
-          calc(250 - var(--morph) * 102),
-          calc(238 - var(--morph) * 96),
-          calc(0.32 - var(--morph) * 0.28)
-        )
-        0%,
-      transparent 48%
-    ),
-    radial-gradient(
-      circle at 86% 12%,
-      rgba(
-          calc(226 - var(--morph) * 70),
-          calc(232 - var(--morph) * 72),
-          255,
-          calc(0.02 + var(--morph) * 0.12)
-        )
-        0%,
-      transparent 56%
-    ),
-    radial-gradient(
-      circle at 16% 84%,
-      rgba(
-          calc(236 - var(--morph) * 198),
-          calc(174 - var(--morph) * 78),
-          calc(122 + var(--morph) * 30),
-          calc(var(--morph) * 0.15)
-        )
-        0%,
-      transparent 40%
-    ),
-    linear-gradient(
-      180deg,
-      rgb(
-          calc(248 - var(--morph) * 228),
-          calc(241 - var(--morph) * 215),
-          calc(224 - var(--morph) * 186)
-        )
-        0%,
-      rgb(
-          calc(240 - var(--morph) * 226),
-          calc(232 - var(--morph) * 212),
-          calc(214 - var(--morph) * 184)
-        )
-        45%,
-      rgb(
-          calc(234 - var(--morph) * 224),
-          calc(226 - var(--morph) * 212),
-          calc(208 - var(--morph) * 184)
-        )
-        100%
-    );
 }
 
-.group-site::before,
-.group-site::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.group-site::before {
-  opacity: calc(0.24 - var(--morph) * 0.24);
-  mix-blend-mode: multiply;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(62, 43, 14, 0.07) 0,
-      rgba(62, 43, 14, 0.07) 1px,
-      transparent 1px,
-      transparent 25px
-    ),
-    radial-gradient(circle at 20% 10%, rgba(95, 68, 27, 0.12), transparent 35%);
-  background-repeat: repeat, no-repeat;
-  background-size: auto, auto;
-  background-position:
-    0 0,
-    20% 10%;
-  filter: sepia(0.2) contrast(1.02);
-}
-
-.group-site::after {
-  opacity: calc(0.02 + var(--morph) * 0.54);
-  background-image:
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20320%20220'%20fill%3D'none'%3E%3Cg%20stroke%3D'%2377c8ff'%20stroke-opacity%3D'.19'%20stroke-width%3D'1.05'%20stroke-linecap%3D'round'%3E%3Cpath%20d%3D'M26%2044L94%2026M26%2044L102%2096M26%2044L86%20166M64%20198L102%2096M64%20198L86%20166M94%2026L174%2060M102%2096L174%2060M86%20166L174%2060M102%2096L186%20144M86%20166L186%20144M174%2060L252%2034M174%2060L264%20102M186%20144L264%20102M186%20144L244%20188M252%2034L294%2078M264%20102L294%2078M264%20102L292%20166M244%20188L292%20166'%2F%3E%3C%2Fg%3E%3Cg%20fill%3D'%23bdefff'%20fill-opacity%3D'.46'%3E%3Ccircle%20cx%3D'26'%20cy%3D'44'%20r%3D'2.2'%2F%3E%3Ccircle%20cx%3D'64'%20cy%3D'198'%20r%3D'2'%2F%3E%3Ccircle%20cx%3D'94'%20cy%3D'26'%20r%3D'2.1'%2F%3E%3Ccircle%20cx%3D'102'%20cy%3D'96'%20r%3D'2.5'%2F%3E%3Ccircle%20cx%3D'86'%20cy%3D'166'%20r%3D'2.1'%2F%3E%3Ccircle%20cx%3D'174'%20cy%3D'60'%20r%3D'2.4'%2F%3E%3Ccircle%20cx%3D'186'%20cy%3D'144'%20r%3D'2.2'%2F%3E%3Ccircle%20cx%3D'252'%20cy%3D'34'%20r%3D'2.2'%2F%3E%3Ccircle%20cx%3D'264'%20cy%3D'102'%20r%3D'2.7'%2F%3E%3Ccircle%20cx%3D'244'%20cy%3D'188'%20r%3D'2.1'%2F%3E%3Ccircle%20cx%3D'294'%20cy%3D'78'%20r%3D'2.4'%2F%3E%3Ccircle%20cx%3D'292'%20cy%3D'166'%20r%3D'2.3'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20300%20240'%20fill%3D'none'%3E%3Cg%20stroke%3D'%2344d4ff'%20stroke-opacity%3D'.16'%20stroke-width%3D'1'%20stroke-linecap%3D'round'%3E%3Cpath%20d%3D'M32%2030L110%2072M32%2030L84%20140M60%20210L84%20140M84%20140L110%2072M110%2072L174%2040M110%2072L188%20112M84%20140L188%20112M84%20140L160%20192M174%2040L240%2070M188%20112L240%2070M188%20112L256%20146M160%20192L256%20146M160%20192L228%20216M240%2070L282%2034M256%20146L282%2034M256%20146L284%20198M228%20216L284%20198'%2F%3E%3C%2Fg%3E%3Cg%20fill%3D'%238ee4ff'%20fill-opacity%3D'.35'%3E%3Ccircle%20cx%3D'32'%20cy%3D'30'%20r%3D'2'%2F%3E%3Ccircle%20cx%3D'60'%20cy%3D'210'%20r%3D'2'%2F%3E%3Ccircle%20cx%3D'110'%20cy%3D'72'%20r%3D'2.3'%2F%3E%3Ccircle%20cx%3D'84'%20cy%3D'140'%20r%3D'2.3'%2F%3E%3Ccircle%20cx%3D'174'%20cy%3D'40'%20r%3D'2.1'%2F%3E%3Ccircle%20cx%3D'188'%20cy%3D'112'%20r%3D'2.5'%2F%3E%3Ccircle%20cx%3D'160'%20cy%3D'192'%20r%3D'2.1'%2F%3E%3Ccircle%20cx%3D'240'%20cy%3D'70'%20r%3D'2.3'%2F%3E%3Ccircle%20cx%3D'256'%20cy%3D'146'%20r%3D'2.5'%2F%3E%3Ccircle%20cx%3D'228'%20cy%3D'216'%20r%3D'2'%2F%3E%3Ccircle%20cx%3D'282'%20cy%3D'34'%20r%3D'2.2'%2F%3E%3Ccircle%20cx%3D'284'%20cy%3D'198'%20r%3D'2.2'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20280%20210'%20fill%3D'none'%3E%3Cg%20stroke%3D'%239cd8ff'%20stroke-opacity%3D'.14'%20stroke-width%3D'.95'%20stroke-linecap%3D'round'%3E%3Cpath%20d%3D'M22%20116L70%2054M22%20116L88%20136M22%20116L66%20186M70%2054L138%2032M70%2054L132%2098M88%20136L132%2098M88%20136L134%20174M66%20186L134%20174M132%2098L188%2062M132%2098L194%20118M134%20174L194%20118M134%20174L206%20182M188%2062L246%2086M194%20118L246%2086M194%20118L256%20140M206%20182L256%20140'%2F%3E%3C%2Fg%3E%3Cg%20fill%3D'%23c4f2ff'%20fill-opacity%3D'.28'%3E%3Ccircle%20cx%3D'22'%20cy%3D'116'%20r%3D'1.9'%2F%3E%3Ccircle%20cx%3D'70'%20cy%3D'54'%20r%3D'1.8'%2F%3E%3Ccircle%20cx%3D'88'%20cy%3D'136'%20r%3D'1.8'%2F%3E%3Ccircle%20cx%3D'66'%20cy%3D'186'%20r%3D'1.7'%2F%3E%3Ccircle%20cx%3D'138'%20cy%3D'32'%20r%3D'1.9'%2F%3E%3Ccircle%20cx%3D'132'%20cy%3D'98'%20r%3D'2.2'%2F%3E%3Ccircle%20cx%3D'134'%20cy%3D'174'%20r%3D'1.9'%2F%3E%3Ccircle%20cx%3D'188'%20cy%3D'62'%20r%3D'2'%2F%3E%3Ccircle%20cx%3D'194'%20cy%3D'118'%20r%3D'2.3'%2F%3E%3Ccircle%20cx%3D'206'%20cy%3D'182'%20r%3D'1.9'%2F%3E%3Ccircle%20cx%3D'246'%20cy%3D'86'%20r%3D'2.1'%2F%3E%3Ccircle%20cx%3D'256'%20cy%3D'140'%20r%3D'2.1'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
-    radial-gradient(circle, rgba(145, 228, 255, 0.16) 0 0.7px, transparent 1.4px),
-    radial-gradient(circle at 80% 18%, rgba(83, 161, 255, 0.24), transparent 36%),
-    radial-gradient(circle at 12% 78%, rgba(34, 223, 255, 0.14), transparent 34%),
-    linear-gradient(180deg, transparent 0%, rgba(13, 20, 34, 0.3) 100%);
-  background-repeat: repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 360px 248px, 314px 252px, 278px 208px, 72px 72px, auto, auto, auto;
-  /* The first four positions used to be var(--net1-pos) … var(--net4-pos),
-     animated every frame from JS. Now inlined as their original static
-     defaults so background-position no longer changes at runtime. */
-  background-position:
-    -30px 18px,
-    140px -70px,
-    54px 92px,
-    12px 16px,
-    80% 18%,
-    12% 78%,
-    0 0;
-  filter: saturate(calc(0.9 + var(--morph) * 0.24)) brightness(calc(0.94 + var(--morph) * 0.18));
-  /* Disabled: background-position no longer changes (JS drift is off) and we
-     no longer want to hint a separate compositor layer for this fixed
-     full-viewport pseudo-element — the will-change hint was making the layout
-     more expensive than the (now gone) animation justified. */
-  /* will-change: background-position, transform; */
-  animation: ai-network-float 14s ease-in-out infinite;
-}
-
-@keyframes ai-network-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -4px, 0);
-  }
-}
-
-@media (max-width: 900px) {
-  .group-site::before {
-    background-size: auto, auto;
-    background-position:
-      0 0,
-      20% 10%;
-  }
-
-  .group-site::after {
-    background-size: 230px 160px, 205px 164px, 188px 140px, 52px 52px, auto, auto, auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .group-site::after {
-    animation: none;
-  }
-}
 
 .group-site > * {
   position: relative;
@@ -339,7 +186,7 @@ body {
     0 22px 45px -28px rgba(66, 45, 18, calc(0.28 - var(--morph) * 0.28)),
     0 12px 36px -22px rgba(0, 194, 255, calc(0.02 + var(--morph) * 0.24)),
     0 0 0 1px rgba(78, 158, 235, calc(var(--morph) * 0.34)) inset;
-  backdrop-filter: blur(calc(1px + var(--morph) * 9px));
+  /* backdrop-filter: blur(calc(1px + var(--morph) * 9px)); */
 }
 
 .journal-hero {
@@ -874,7 +721,7 @@ body {
     0 24px 42px -30px rgba(28, 24, 20, calc(0.44 - var(--morph) * 0.16)),
     0 1px 0 0 rgba(198, 172, 128, calc(0.26 - var(--morph) * 0.14)) inset,
     0 0 calc(var(--modern-accent) * 22px) rgba(74, 170, 255, calc(var(--modern-accent) * 0.22));
-  backdrop-filter: blur(calc(3px + var(--morph) * 8px));
+  /* backdrop-filter: blur(calc(3px + var(--morph) * 8px)); */
   padding: 0.78rem 0.92rem;
   transition: border-color 260ms ease, background 260ms ease, box-shadow 260ms ease;
 }
