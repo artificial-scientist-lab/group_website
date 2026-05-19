@@ -405,8 +405,8 @@ const publications: Paper[] = [
   {
     date: "2026",
     title: "Automated Discovery of Non-local Photonic Gates",
-    venue: "Phys. Rev. Research (accepted)",
-    href: "https://journals.aps.org/prresearch/accepted/10.1103/f415-kgwr",
+    venue: "Phys. Rev. Research 8, L022031",
+    href: "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.8.L022031",
   },
   {
     date: "2026",
