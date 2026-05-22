@@ -404,6 +404,12 @@ const publications: Paper[] = [
   },
   {
     date: "2026",
+    title: "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists",
+    venue: "Dædalus 155 (1-2), 335-349",
+    href: "https://www.amacad.org/publication/daedalus/philosophy-autonomous-science-ten-questions-coming-age-artificial-scientists",
+  },
+  {
+    date: "2026",
     title: "Automated Discovery of Non-local Photonic Gates",
     venue: "Phys. Rev. Research 8, L022031",
     href: "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.8.L022031",
@@ -670,6 +676,7 @@ const publicationsByYear = publications.reduce<Array<{ year: string; papers: Pap
 
 const publicationAuthorsByTitle: Record<string, string> = {
   "Automated experimental design for high-probability entanglement generation": "Ruiz-Gonzalez, Krenn, Gu",
+  "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists": "Krenn, Champion",
   "Meta-Designing Quantum Experiments with Language Models": "Arlt, Duan, Li, Xie, Wu, Krenn",
   "Neural surrogates for designing gravitational wave detectors": "Ruiz-Gonzalez, Arlt, Lehner, Berzins, Drori, Adhikari, Brandstetter, Krenn",
   "Analytical Fock Representation of Two-Mode Squeezing for Quantum Interference": "Gu, Ruiz-Gonzalez, Krenn",
@@ -1249,6 +1256,24 @@ const coreChallenges: CoreChallenge[] = [
             Specifically, the paper classifies algorithms into three categories, Computational Microscope,
             Artificial Muse, and Agent of Understanding, and shows how AI can extend scientific understanding.
           </p>
+          <p>
+            Most recently, in{" "}
+            <a
+              href="https://www.amacad.org/publication/daedalus/philosophy-autonomous-science-ten-questions-coming-age-artificial-scientists"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists
+            </a>
+            , we argue that the move from powerful AI tools to autonomous scientists is not only a technical
+            challenge, but also a philosophical and conceptual one. The Philosophy of Autonomous Science (PAS)
+            program asks how core epistemic aims such as understanding, curiosity, surprise, interest, creativity,
+            and novelty can be translated into computable, nonanthropocentric objectives for artificial scientists.
+            Drawing on our research experience, we outline ten questions for PAS and invite philosophers,
+            scientists, and AI researchers to shape the principles for safe and successful autonomous scientific
+            discovery.
+          </p>
         </>
       ),
     },
@@ -1260,6 +1285,10 @@ const coreChallenges: CoreChallenge[] = [
       {
         label: "On scientific understanding with artificial intelligence",
         href: "https://www.nature.com/articles/s42254-022-00518-3",
+      },
+      {
+        label: "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists",
+        href: "https://www.amacad.org/publication/daedalus/philosophy-autonomous-science-ten-questions-coming-age-artificial-scientists",
       },
     ],
   },
@@ -1274,6 +1303,49 @@ const newsDateSortValue = (date: string) => {
 };
 
 const newsItems: NewsItem[] = [
+  {
+    date: "21.05.2026",
+    content: (
+      <>
+        Mario, in collaboration with philosopher{" "}
+        <a
+          href="https://liminal-learner.github.io/champion/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          Heather Champion
+        </a>
+        , has contributed to the Daedalus special issue on{" "}
+        <a
+          href="https://www.amacad.org/daedalus/ai-science-what-is-the-future-of-discovery"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          &quot;AI &amp; Science: What Is the Future of Discovery?&quot;
+        </a>
+        , together with 33 other contributors such as Demis Hassabis, Yann LeCun, Al&aacute;n
+        Aspuru-Guzik, Pushmeet Kohli, Joshua Tenenbaum, Carla Gomes, Shirley Ho, Anima
+        Anandkumar, Hartmut Neven, Eric Topol, and many more. The essay by Mario and Heather is
+        called{" "}
+        <a
+          href="https://www.amacad.org/publication/daedalus/philosophy-autonomous-science-ten-questions-coming-age-artificial-scientists"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>
+            &quot;Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial
+            Scientists&quot;
+          </strong>
+        </a>
+        , dealing with fundamental human traits of scientists such as creativity, curiosity,
+        surprise, interest, and scientific understanding, and how these traits could be translated
+        to artificial scientists.
+      </>
+    ),
+  },
   {
     date: "05.05.2026",
     content: (
