@@ -100,6 +100,7 @@ const teamMembers: TeamMember[] = [
       { label: "GitHub", href: "https://github.com/MarioKrenn6240" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/mario-krenn-813b9512b" },
       { label: "X", href: "https://x.com/MarioKrenn6240" },
+      { label: "CV", href: "/cv/mario-krenn-cv.pdf" },
     ],
   },
   {
