@@ -10,6 +10,10 @@ import {
   type ReactNode,
 } from "react";
 
+// These are used for lazy-loading images if no size is specified (e.g., see core challenges)
+const DEFAULT_IMAGE_WIDTH = 1200;
+const DEFAULT_IMAGE_HEIGHT = 700;
+
 type TeamMember = {
   name: string;
   role: string;
@@ -72,6 +76,8 @@ type CoreChallenge = {
   image?: {
     src: string;
     alt: string;
+    width?: number;
+    height?: number;
     figureClassName?: string;
   };
   researchDetails?: {
@@ -94,7 +100,7 @@ const teamMembers: TeamMember[] = [
     name: "Mario Krenn",
     role: "Professor",
     focus: "Excited about the future of AI-augmented ideas and concepts in science, and in general about the acceleration of science and technology through artificial intelligence.",
-    image: "/team/mario-krenn.png",
+    image: "/team/mario-krenn.webp",
     links: [
       { label: "Website", href: "https://mariokrenn.wordpress.com/" },
       { label: "GitHub", href: "https://github.com/MarioKrenn6240" },
@@ -107,14 +113,14 @@ const teamMembers: TeamMember[] = [
     name: "Michael Mergner",
     role: "Group Admin",
     focus: "",
-    image: "/team/michael-mergner.jpg",
+    image: "/team/michael-mergner.webp",
     links: [],
   },
   {
     name: "Marcello Armezzani",
     role: "PhD student",
     focus: "Fascinated by the innovations that AI can bring to the study of physics, both in its experimental applications and especially in its epistemological foundations. Other more or less related interests include: philosophy of science, postmodern novels, playing and (nowadays mostly) watching rugby.",
-    image: "/team/marcello-armezzani.jpg",
+    image: "/team/marcello-armezzani.webp",
     links: [],
   },
   {
@@ -143,7 +149,7 @@ const teamMembers: TeamMember[] = [
     name: "Tareq Jaouni",
     role: "PhD student",
     focus: "Joint PhD student with Dr. Ebrahim Karimi's Structured Quantum Optics group at the University of Ottawa. Intrigued by what sort of novel ideas in physics can be concocted by an artificial scientist. Primary interests include food, cycling, coding, Pok\u00e9mon, reading out loud, and role-playing.",
-    image: "/team/tareq-jaouni.jpg",
+    image: "/team/tareq-jaouni.webp",
     links: [{ label: "GitHub", href: "https://github.com/TareqJ1000" }],
   },
   {
@@ -162,7 +168,7 @@ const teamMembers: TeamMember[] = [
     role: "PhD student",
     focus:
       "Interested in Differentiable Simulations and diverse AI algorithms for the discovery of novel, but human-understandable concepts for gravitational wave detectors.",
-    image: "/team/jonathan-klimesch.jpg",
+    image: "/team/jonathan-klimesch.webp",
     links: [
       { label: "Website", href: "https://www.phylomatx.com/" },
       { label: "GitHub", href: "https://github.com/PhylomatX" },
@@ -172,28 +178,28 @@ const teamMembers: TeamMember[] = [
     name: "Pontus Lindgren",
     role: "PhD student",
     focus: "Excited about discovering physics concepts using AI. A key challenge is how to turn simulated solutions into understanding. I am particularly interested in broadening the scope of AI discoveries. In my spare time I like to run outdoors, especially orienteering.",
-    image: "/team/pontus-lindgren.jpg",
+    image: "/team/pontus-lindgren.webp",
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/pontus-lindgren" }],
   },
   {
     name: "Carlos Ruiz Gonz\u00e1lez",
     role: "PhD student",
     focus: "Always curious about unexpected phenomena and applications from Quantum Physics. Also interested in Social Sciences, Music, Cooking, Science Fiction, and, of course, Artificial Intelligence. At some point I expect to beat Mario at Go.",
-    image: "/team/carlos-ruiz-gonzalez.jpg",
+    image: "/team/carlos-ruiz-gonzalez.webp",
     links: [],
   },
   {
     name: "Carlo Wenig",
     role: "PhD student",
-    focus: "",
-    image: "/team/carlo-wenig.jpg",
+    focus: "Excited to explore how differentiable simulators and AI optimization methods can help discover new applications for electron beams in science and technology.",
+    image: "/team/carlo-wenig.webp",
     links: [],
   },
   {
     name: "Lalit Chaudhary",
     role: "Master student",
     focus: "",
-    image: "/team/lalit-chaudhary.jpg",
+    image: "/team/lalit-chaudhary.webp",
     links: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/chaudharyl" },
       { label: "GitHub", href: "https://github.com/lalit3c" },
@@ -203,7 +209,7 @@ const teamMembers: TeamMember[] = [
     name: "Raphael Jontofsohn",
     role: "Bachelor student",
     focus: "",
-    image: "/team/raphael-jontofsohn.jpg",
+    image: "/team/raphael-jontofsohn.webp",
     links: [],
   },
   {
@@ -211,7 +217,7 @@ const teamMembers: TeamMember[] = [
     role: "Bachelor student",
     focus:
       "Fascinated by and curious about the unintuitiveness and novelty of machine-designed concepts in AI-driven science discovery. Big fan of music, cooking, handball, my friends, philosophical talks, movies (especially Sci-Fi), and board games!",
-    image: "/team/laurin-sefa.jpg",
+    image: "/team/laurin-sefa.webp",
     links: [
       { label: "GitHub", href: "https://github.com/lohrynn" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/laurin-sefa-39b639315" },
@@ -222,7 +228,7 @@ const teamMembers: TeamMember[] = [
     role: "Research Intern",
     focus:
       "Interested in the intersection of psychology and AI, especially in understanding how humans explore and learn, and how this can help build more autonomous AI systems for scientific discovery. In my free time, I enjoy playing tennis.",
-    image: "/team/felice-huck.jpg",
+    image: "/team/felice-huck.webp",
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/felice-huck-11771b253/" }],
   },
 ];
@@ -376,22 +382,22 @@ const thesisEntries: Omit<ThesisEntry, "completedAt">[] = [...thesisEntriesWithC
 const groupPhotos: GroupPhoto[] = [
   {
     date: "May 2025",
-    image: "/group-pictures/may-2025.jpg",
+    image: "/group-pictures/may-2025.webp",
     names: ["Tareq", "Marcello", "Sören", "Priya", "Jonathan", "Carlos", "Xuemei", "Carla", "Mario"],
   },
   {
     date: "October 2023",
-    image: "/group-pictures/october-2023.jpg",
+    image: "/group-pictures/october-2023.webp",
     names: ["Xuemei", "Sören", "Olek", "Carla", "Carlos", "Philipp", "Mario"],
   },
   {
     date: "July 2022",
-    image: "/group-pictures/july-2022.jpg",
+    image: "/group-pictures/july-2022.webp",
     names: ["Mario", "Carla", "Juilee", "Carlos", "Sören", "Jan", "Burak", "Tareq"],
   },
   {
     date: "March 2022",
-    image: "/group-pictures/march-2022.jpg",
+    image: "/group-pictures/march-2022.webp",
     names: ["Mario", "Carlos", "Juilee", "Sören"],
   },
 ];
@@ -823,8 +829,10 @@ const coreChallenges: CoreChallenge[] = [
     title: "AI-designed experiments",
     text: "Experiments are our windows to the universe. Yet, the space of all possible experiments is enormously large. Did humans already find all useful experiments, or are there yet undiscovered but exceptional experimental ideas that can lead to new ways to explore the world?",
     image: {
-      src: "/research/ai-designed-experiments-workflow.png",
+      src: "/research/ai-designed-experiments-workflow.webp",
       alt: "Diagram showing a workflow for AI-designed experiments with search space, physics simulator, objective function, and AI exploration.",
+      width: 1180,
+      height: 637,
     },
     researchDetails: {
       beforeImage: (
@@ -1018,8 +1026,10 @@ const coreChallenges: CoreChallenge[] = [
     title: "Understanding AI-solutions",
     text: "If an AI discovers solutions that outperform all human solutions, it must contain new tricks and ideas that we could learn from. Here are a few examples where this worked and where we made progress in understanding the underlying principles.",
     image: {
-      src: "/research/understanding-ai-solutions-metadesign.png",
+      src: "/research/understanding-ai-solutions-metadesign.webp",
       alt: "Diagram showing meta-designing a class of experiments with synthetic data, a language model, and generated general rules for designing experiments of arbitrary size.",
+      width: 3060,
+      height: 1020,
     },
     researchDetails: {
       beforeImage: (
@@ -1110,8 +1120,10 @@ const coreChallenges: CoreChallenge[] = [
     title: "Scientific Ideas from AI",
     text: "How can we use millions of scientific papers to create personalized, interesting, and high-impact ideas?",
     image: {
-      src: "/research/scientific-ideas-from-ai-scimuse.png",
+      src: "/research/scientific-ideas-from-ai-scimuse.webp",
       alt: "SciMuse diagram showing contributions from a large-scale knowledge graph, personalized research suggestions, expert evaluation, and scientific-interest prediction.",
+      width: 1094,
+      height: 714,
       figureClassName: "challenge-figure-compact",
     },
     researchDetails: {
@@ -1201,8 +1213,10 @@ const coreChallenges: CoreChallenge[] = [
     title: "Autonomous Science and Philosophical Implications",
     text: "How can we develop curious and creative artificial scientists, and what are the epistemic consequences, for example for scientific understanding?",
     image: {
-      src: "/research/autonomous-science-aimandel.png",
+      src: "/research/autonomous-science-aimandel.webp",
       alt: "Illustration related to autonomous science and philosophical implications in the Artificial Scientist Lab.",
+      width: 961,
+      height: 787,
       figureClassName: "challenge-figure-compact",
     },
     researchDetails: {
@@ -1565,6 +1579,8 @@ const newsItems: NewsItem[] = [
     ),
   },
 ].sort((a, b) => newsDateSortValue(b.date) - newsDateSortValue(a.date));
+
+
 const sectionLinks = [
   { id: "artificial-scientist-lab", label: "Artificial Scientist Lab" },
   { id: "news", label: "News" },
@@ -1582,7 +1598,13 @@ export default function Home() {
   const [activeSectionId, setActiveSectionId] = useState<SectionLinkId | null>(null);
   const [monthYear, setMonthYear] = useState("");
   const [showCookieBanner, setShowCookieBanner] = useState(false);
-  const siteRef = useRef<HTMLDivElement | null>(null);
+  // Tracks a nav-click scroll-in-progress so the scroll listener doesn't flicker the active item.
+  const scrollingToRef = useRef<string | null>(null);
+  // Disabled: this ref was only used by the JS-driven background-drift effect (commented out
+  // further down). The drift wasn't visible anyway, and writing four CSS variables every animation
+  // frame was forcing a full-viewport repaint of the .group-site::after pseudo-element on every
+  // frame, which was a major source of scroll lag.
+  // const siteRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const formatter = new Intl.DateTimeFormat("en-US", {
@@ -1634,83 +1656,100 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    const root = siteRef.current;
-    if (!root) {
-      return;
-    }
-
-    const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
-    const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
-
-    const layers = [
-      { key: "--net1-pos", baseX: -30, baseY: 18, jitterX: 140, jitterY: 110 },
-      { key: "--net2-pos", baseX: 140, baseY: -70, jitterX: 170, jitterY: 130 },
-      { key: "--net3-pos", baseX: 54, baseY: 92, jitterX: 150, jitterY: 120 },
-      { key: "--net4-pos", baseX: 12, baseY: 16, jitterX: 90, jitterY: 80 },
-    ].map((layer) => ({
-      ...layer,
-      x: layer.baseX + randomInRange(-layer.jitterX * 0.45, layer.jitterX * 0.45),
-      y: layer.baseY + randomInRange(-layer.jitterY * 0.45, layer.jitterY * 0.45),
-      angle: randomInRange(0, Math.PI * 2),
-      speed: randomInRange(5, 11),
-      minSpeed: randomInRange(3, 5),
-      maxSpeed: randomInRange(10, 14),
-      turnRate: randomInRange(0.7, 1.5),
-    }));
-
-    const writePositions = () => {
-      for (const layer of layers) {
-        root.style.setProperty(layer.key, `${layer.x.toFixed(1)}px ${layer.y.toFixed(1)}px`);
-      }
-    };
-
-    writePositions();
-
-    let frameId = 0;
-    let lastFrameTime = performance.now();
-
-    const step = (now: number) => {
-      const dt = Math.min((now - lastFrameTime) / 1000, 0.045);
-      lastFrameTime = now;
-
-      for (const layer of layers) {
-        layer.angle += randomInRange(-1, 1) * layer.turnRate * dt;
-        layer.speed = clamp(layer.speed + randomInRange(-2.2, 2.2) * dt, layer.minSpeed, layer.maxSpeed);
-
-        layer.x += Math.cos(layer.angle) * layer.speed * dt;
-        layer.y += Math.sin(layer.angle) * layer.speed * dt;
-
-        const minX = layer.baseX - layer.jitterX;
-        const maxX = layer.baseX + layer.jitterX;
-        const minY = layer.baseY - layer.jitterY;
-        const maxY = layer.baseY + layer.jitterY;
-
-        if (layer.x < minX || layer.x > maxX) {
-          layer.x = clamp(layer.x, minX, maxX);
-          layer.angle = Math.PI - layer.angle + randomInRange(-0.28, 0.28);
-        }
-
-        if (layer.y < minY || layer.y > maxY) {
-          layer.y = clamp(layer.y, minY, maxY);
-          layer.angle = -layer.angle + randomInRange(-0.28, 0.28);
-        }
-      }
-
-      writePositions();
-      frameId = window.requestAnimationFrame(step);
-    };
-
-    frameId = window.requestAnimationFrame(step);
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-    };
-  }, []);
+  // ---------------------------------------------------------------------------
+  // DISABLED: JS-driven background drift effect.
+  //
+  // This useEffect ran a continuous requestAnimationFrame loop that updated four
+  // CSS variables (--net1-pos … --net4-pos) every frame. Those variables drove
+  // the background-position of .group-site::after — a fixed, full-viewport
+  // pseudo-element with seven stacked background layers, a CSS keyframe float,
+  // and a saturate/brightness filter. Writing CSS variables on every animation
+  // frame forced a full-viewport repaint of that pseudo-element, which was the
+  // single biggest source of scroll lag.
+  //
+  // The visual "drift" was barely perceptible (and Carlo confirmed he never
+  // noticed it), so the whole effect — together with the supporting CSS
+  // variables (see globals.css) and the siteRef/useRef plumbing — has been
+  // turned off. The static initial values for --net1-pos…--net4-pos have been
+  // inlined directly into the background-position list in globals.css.
+  // ---------------------------------------------------------------------------
+  // useEffect(() => {
+  //   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  //     return;
+  //   }
+  //
+  //   const root = siteRef.current;
+  //   if (!root) {
+  //     return;
+  //   }
+  //
+  //   const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
+  //   const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
+  //
+  //   const layers = [
+  //     { key: "--net1-pos", baseX: -30, baseY: 18, jitterX: 140, jitterY: 110 },
+  //     { key: "--net2-pos", baseX: 140, baseY: -70, jitterX: 170, jitterY: 130 },
+  //     { key: "--net3-pos", baseX: 54, baseY: 92, jitterX: 150, jitterY: 120 },
+  //     { key: "--net4-pos", baseX: 12, baseY: 16, jitterX: 90, jitterY: 80 },
+  //   ].map((layer) => ({
+  //     ...layer,
+  //     x: layer.baseX + randomInRange(-layer.jitterX * 0.45, layer.jitterX * 0.45),
+  //     y: layer.baseY + randomInRange(-layer.jitterY * 0.45, layer.jitterY * 0.45),
+  //     angle: randomInRange(0, Math.PI * 2),
+  //     speed: randomInRange(5, 11),
+  //     minSpeed: randomInRange(3, 5),
+  //     maxSpeed: randomInRange(10, 14),
+  //     turnRate: randomInRange(0.7, 1.5),
+  //   }));
+  //
+  //   const writePositions = () => {
+  //     for (const layer of layers) {
+  //       root.style.setProperty(layer.key, `${layer.x.toFixed(1)}px ${layer.y.toFixed(1)}px`);
+  //     }
+  //   };
+  //
+  //   writePositions();
+  //
+  //   let frameId = 0;
+  //   let lastFrameTime = performance.now();
+  //
+  //   const step = (now: number) => {
+  //     const dt = Math.min((now - lastFrameTime) / 1000, 0.045);
+  //     lastFrameTime = now;
+  //
+  //     for (const layer of layers) {
+  //       layer.angle += randomInRange(-1, 1) * layer.turnRate * dt;
+  //       layer.speed = clamp(layer.speed + randomInRange(-2.2, 2.2) * dt, layer.minSpeed, layer.maxSpeed);
+  //
+  //       layer.x += Math.cos(layer.angle) * layer.speed * dt;
+  //       layer.y += Math.sin(layer.angle) * layer.speed * dt;
+  //
+  //       const minX = layer.baseX - layer.jitterX;
+  //       const maxX = layer.baseX + layer.jitterX;
+  //       const minY = layer.baseY - layer.jitterY;
+  //       const maxY = layer.baseY + layer.jitterY;
+  //
+  //       if (layer.x < minX || layer.x > maxX) {
+  //         layer.x = clamp(layer.x, minX, maxX);
+  //         layer.angle = Math.PI - layer.angle + randomInRange(-0.28, 0.28);
+  //       }
+  //
+  //       if (layer.y < minY || layer.y > maxY) {
+  //         layer.y = clamp(layer.y, minY, maxY);
+  //         layer.angle = -layer.angle + randomInRange(-0.28, 0.28);
+  //       }
+  //     }
+  //
+  //     writePositions();
+  //     frameId = window.requestAnimationFrame(step);
+  //   };
+  //
+  //   frameId = window.requestAnimationFrame(step);
+  //
+  //   return () => {
+  //     window.cancelAnimationFrame(frameId);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const sections = sectionLinks
@@ -1739,9 +1778,10 @@ export default function Home() {
     };
 
     let frameId = 0;
+    let scrollEndTimer = 0;
 
     const updateActiveSection = () => {
-      const marker = window.scrollY + readScrollOffsetPx() + 24;
+      const marker = window.scrollY + window.innerHeight / 2; //readScrollOffsetPx() + 24;
       const firstSectionTop = sections[0].getBoundingClientRect().top + window.scrollY;
 
       if (marker < firstSectionTop) {
@@ -1766,6 +1806,17 @@ export default function Home() {
     };
 
     const queueUpdate = () => {
+      if (scrollingToRef.current !== null) {
+        // Suppress position-based updates during a nav-click scroll.
+        // Reset a short debounce timer; when scroll settles we do one final update.
+        window.clearTimeout(scrollEndTimer);
+        scrollEndTimer = window.setTimeout(() => {
+          scrollingToRef.current = null;
+          frameId = window.requestAnimationFrame(updateActiveSection);
+        }, 1500);
+        return;
+      }
+
       if (frameId !== 0) {
         return;
       }
@@ -1782,6 +1833,7 @@ export default function Home() {
       if (frameId !== 0) {
         window.cancelAnimationFrame(frameId);
       }
+      window.clearTimeout(scrollEndTimer);
       window.removeEventListener("scroll", queueUpdate);
       window.removeEventListener("resize", queueUpdate);
       window.removeEventListener("hashchange", queueUpdate);
@@ -1806,9 +1858,12 @@ export default function Home() {
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // If the section is shorter than the viewport, center it vertically. Otherwise, align to the top.
+    const block = target.offsetHeight < window.innerHeight ? "center" : "start";
     target.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
-      block: "start",
+      block,
     });
     window.history.replaceState(null, "", `#${sectionId}`);
   };
@@ -1831,7 +1886,9 @@ export default function Home() {
   };
 
   return (
-    <div ref={siteRef} className="group-site">
+    // Originally: <div ref={siteRef} className="group-site">. The ref is no longer attached
+    // because the JS-driven background-drift effect that consumed it is disabled above.
+    <div className="group-site">
       <div className="mx-auto w-full max-w-6xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
         <div className="page-layout">
           <aside className="section-nav-shell">
@@ -1843,7 +1900,10 @@ export default function Home() {
                       href={`#${link.id}`}
                       className={`section-nav-link${activeSectionId === link.id ? " is-active" : ""}`}
                       aria-current={activeSectionId === link.id ? "location" : undefined}
-                      onClick={() => setActiveSectionId(link.id)}
+                      onClick={() => {
+                        scrollingToRef.current = link.id;
+                        setActiveSectionId(link.id);
+                      }}
                     >
                       {link.label}
                     </a>
@@ -1855,461 +1915,464 @@ export default function Home() {
 
           <div className="page-layout-main">
             <header id="artificial-scientist-lab" className="journal-surface journal-hero site-section">
-          <p className="hero-kicker text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
-            Proceedings of Machine Learning in Science II • Tübingen
-            {monthYear ? ` • ${monthYear}` : ""}
-          </p>
-          <h1 className="hero-title mt-4 text-center font-journal text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
-            <span>Artificial</span>{" "}
-            <span>Scientist</span>{" "}
-            <span>Lab</span>
-          </h1>
-          <p className="hero-subtitle mt-4 text-center font-journal text-xl italic sm:text-2xl">
-            AI for Conceptual Advances in Physics
-          </p>
-          <div className="hero-focus mt-8">
-            <div className="mt-6 space-y-4">
-              <p className="section-lede">
-                The Artificial Scientist Lab is part of the{" "}
-                <a
-                  href="https://uni-tuebingen.de/en/faculties/faculty-of-science/departments/computer-science/department/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  Department for Computer Science at the University of Tübingen
-                </a>{" "}
-                since June 2025. We are part of the{" "}
-                <a
-                  href="https://uni-tuebingen.de/en/research/core-research/cluster-of-excellence-machine-learning/home/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  Excellence Cluster for Machine Learning in Science in Tübingen
-                </a>
-                .
+              <p className="hero-kicker text-center text-[10px] font-medium uppercase tracking-[0.3em] sm:text-xs">
+                Proceedings of Machine Learning in Science II • Tübingen
+                {monthYear ? ` • ${monthYear}` : ""}
               </p>
-              <p className="section-lede">
-                We are excited about the potential of artificial intelligence-inspired and -augmented
-                science, and how we can use algorithms in a more &quot;creative&quot; way. We are convinced that
-                intelligence is not sufficient to be a great scientist. There, to make progress, it will be
-                important to learn what humans mean by crucial scientific concepts such as{" "}
-                <strong>surprise</strong>, <strong>creativity</strong>, <strong>understanding</strong>, and{" "}
-                <strong>interest</strong>. We have created AIs for designing physics
-                experiments and hardware, several of which were actually built in laboratories, as well as
-                systems for inspiring novel ideas for quantum technologies.
+              <h1 className="hero-title mt-4 text-center font-journal text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">
+                <span>Artificial</span>{" "}
+                <span>Scientist</span>{" "}
+                <span>Lab</span>
+              </h1>
+              <p className="hero-subtitle mt-4 text-center font-journal text-xl italic sm:text-2xl">
+                AI for Conceptual Advances in Physics
               </p>
-              <p className="section-lede">
-                Part of this research has recently been summarized in an article in{" "}
-                <a
-                  href="https://www.scientificamerican.com/article/ai-designs-quantum-physics-experiments-beyond-what-any-human-has-conceived/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  Scientific American
-                </a>{" "}
-                (July 2021), a feature by the{" "}
-                <a
-                  href="https://www.nationalacademies.org/news/how-ai-is-shaping-scientific-discovery"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  National Academies
-                </a>{" "}
-                (Nov 2023), a video interview with{" "}
-                <a
-                  href="https://www.youtube.com/watch?v=T_2ZoMNzqHQ"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  Quanta Magazine
-                </a>{" "}
-                (March 2025) and in German in{" "}
-                <a
-                  href="https://www.derstandard.at/story/3000000215912/wie-die-ki-die-forschung-revolutioniert"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  derStandard
-                </a>{" "}
-                (May 2024),{" "}
-                <a
-                  href="https://www.spiegel.de/wissenschaft/technik/kuenstliche-intelligenz-in-der-forschung-physiker-mario-krenn-baut-kuenstliche-wissenschaftler-a-18b1be08-941e-4870-83e1-e38ddc06c1ca"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  SPIEGEL
-                </a>{" "}
-                (Nov 2025) or{" "}
-                <a
-                  href="https://oe1.orf.at/programm/20260429/829692/Stumme-Entdeckerin"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="challenge-inline-link"
-                >
-                  ORF Ö1
-                </a>{" "}
-                (April 2026). We were awarded an ERC StG 2024 called <strong>ArtDisQ</strong>{" "}
-                (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance Simulators).
-              </p>
-              <p className="section-lede">Our work is organized around four pillars:</p>
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {coreChallenges.map((challenge) => (
-                <article
-                  key={challenge.title}
-                  role="link"
-                  tabIndex={0}
-                  aria-label={`Jump to ${challenge.title} in the research section`}
-                  className="modern-card frontier-card frontier-card-jump flex h-full flex-col p-5"
-                  onClick={(event) => handleChallengeCardClick(event, challenge.sectionId)}
-                  onKeyDown={(event) => handleChallengeCardKeyDown(event, challenge.sectionId)}
-                >
-                  <h3 className="text-center text-lg font-semibold">{challenge.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
-                  {challenge.links?.length ? (
-                    <ul className="frontier-link-list text-xs">
-                      {challenge.links.map((link) => (
-                        <li key={link.href}>
-                          <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="frontier-link"
-                          >
-                            {link.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </article>
-              ))}
-            </div>
-          </div>
+              <div className="hero-focus mt-8">
+                <div className="mt-6 space-y-4">
+                  <p className="section-lede">
+                    The Artificial Scientist Lab is part of the{" "}
+                    <a
+                      href="https://uni-tuebingen.de/en/faculties/faculty-of-science/departments/computer-science/department/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      Department for Computer Science at the University of Tübingen
+                    </a>{" "}
+                    since June 2025. We are part of the{" "}
+                    <a
+                      href="https://uni-tuebingen.de/en/research/core-research/cluster-of-excellence-machine-learning/home/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      Excellence Cluster for Machine Learning in Science in Tübingen
+                    </a>
+                    .
+                  </p>
+                  <p className="section-lede">
+                    We are excited about the potential of artificial intelligence-inspired and -augmented
+                    science, and how we can use algorithms in a more &quot;creative&quot; way. We are convinced that
+                    intelligence is not sufficient to be a great scientist. There, to make progress, it will be
+                    important to learn what humans mean by crucial scientific concepts such as{" "}
+                    <strong>surprise</strong>, <strong>creativity</strong>, <strong>understanding</strong>, and{" "}
+                    <strong>interest</strong>. We have created AIs for designing physics
+                    experiments and hardware, several of which were actually built in laboratories, as well as
+                    systems for inspiring novel ideas for quantum technologies.
+                  </p>
+                  <p className="section-lede">
+                    Part of this research has recently been summarized in an article in{" "}
+                    <a
+                      href="https://www.scientificamerican.com/article/ai-designs-quantum-physics-experiments-beyond-what-any-human-has-conceived/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      Scientific American
+                    </a>{" "}
+                    (July 2021), a feature by the{" "}
+                    <a
+                      href="https://www.nationalacademies.org/news/how-ai-is-shaping-scientific-discovery"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      National Academies
+                    </a>{" "}
+                    (Nov 2023), a video interview with{" "}
+                    <a
+                      href="https://www.youtube.com/watch?v=T_2ZoMNzqHQ"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      Quanta Magazine
+                    </a>{" "}
+                    (March 2025) and in German in{" "}
+                    <a
+                      href="https://www.derstandard.at/story/3000000215912/wie-die-ki-die-forschung-revolutioniert"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      derStandard
+                    </a>{" "}
+                    (May 2024),{" "}
+                    <a
+                      href="https://www.spiegel.de/wissenschaft/technik/kuenstliche-intelligenz-in-der-forschung-physiker-mario-krenn-baut-kuenstliche-wissenschaftler-a-18b1be08-941e-4870-83e1-e38ddc06c1ca"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      SPIEGEL
+                    </a>{" "}
+                    (Nov 2025) or{" "}
+                    <a
+                      href="https://oe1.orf.at/programm/20260429/829692/Stumme-Entdeckerin"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      ORF Ö1
+                    </a>{" "}
+                    (April 2026). We were awarded an ERC StG 2024 called <strong>ArtDisQ</strong>{" "}
+                    (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance Simulators).
+                  </p>
+                  <p className="section-lede">Our work is organized around four pillars:</p>
+                </div>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {coreChallenges.map((challenge) => (
+                    <article
+                      key={challenge.title}
+                      role="link"
+                      tabIndex={0}
+                      aria-label={`Jump to ${challenge.title} in the research section`}
+                      className="modern-card frontier-card frontier-card-jump flex h-full flex-col p-5"
+                      onClick={(event) => handleChallengeCardClick(event, challenge.sectionId)}
+                      onKeyDown={(event) => handleChallengeCardKeyDown(event, challenge.sectionId)}
+                    >
+                      <h3 className="text-center text-lg font-semibold">{challenge.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                      {challenge.links?.length ? (
+                        <ul className="frontier-link-list text-xs">
+                          {challenge.links.map((link) => (
+                            <li key={link.href}>
+                              <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="frontier-link"
+                              >
+                                {link.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </article>
+                  ))}
+                </div>
+              </div>
             </header>
 
             <main className="mt-10 space-y-10">
               <section className="journal-surface site-section p-6 sm:p-8" id="news">
-            <div>
-              <p className="section-kicker">News</p>
-              <h2 className="section-title">News from the Lab</h2>
-            </div>
-            <ul className="mt-6 space-y-4">
-              {newsItems.map((item) => (
-                <li key={`${item.date}-${typeof item.content === "string" ? item.content : "entry"}`} className="modern-card p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-70">{item.date}:</p>
-                  <p className="mt-3 text-sm leading-relaxed opacity-95">{item.content}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-              <section className="journal-surface site-section p-6 sm:p-8" id="team">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="section-kicker">Who are we?</p>
-                <h2 className="section-title">Team Members</h2>
-              </div>
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {teamMembers.map((member) => (
-                <article key={member.name} className="modern-card team-card flex h-full flex-col overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    loading="lazy"
-                    className={`team-card-image h-56 w-full ${
-                      member.image.endsWith(".svg")
-                        ? "team-card-image-placeholder object-contain p-5"
-                        : "object-cover"
-                    }`}
-                  />
-                  <div className="flex grow flex-col p-4">
-                    <h3 className="text-base font-semibold leading-tight">{member.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-[0.18em] opacity-70">{member.role}</p>
-                    {member.focus ? (
-                      <p className="mt-3 text-sm leading-relaxed opacity-90">{member.focus}</p>
-                    ) : null}
-                    {member.links.length > 0 ? (
-                      <div className="mt-auto flex flex-wrap gap-2 pt-3 text-xs">
-                        {member.links.map((link) => (
-                          <a
-                            key={link.href}
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="chip-link"
-                          >
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    ) : null}
-                  </div>
-                </article>
-              ))}
-            </div>
-            <div className="mt-8 border-t border-current/15 pt-6">
-              <p className="section-kicker">Former Members</p>
-              <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Alumni</h3>
-              <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                {[...alumniMembers]
-                  .sort((a, b) => b.leftAt.localeCompare(a.leftAt) || a.name.localeCompare(b.name))
-                  .map((alumnus) => (
-                    <li key={alumnus.name} className="modern-card p-4">
-                      <p className="text-sm font-semibold leading-relaxed">{alumnus.name}</p>
-                      <p className="mt-2 text-xs uppercase tracking-[0.18em] opacity-70">{alumnus.role}</p>
-                      <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
-                      {alumnus.current ? (
-                        <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
-                      ) : null}
-                      {alumnus.thesis ? (
-                        <a
-                          href={alumnus.thesis.href}
-                          download={alumnus.thesis.downloadName}
-                          className="chip-link mt-3 inline-flex text-xs leading-relaxed"
-                        >
-                          Download Thesis
-                        </a>
-                      ) : null}
-                      {alumnus.links?.length ? (
-                        <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                          {alumnus.links.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="chip-link"
-                            >
-                              {link.label}
-                            </a>
-                          ))}
-                        </div>
-                      ) : null}
-                    </li>
-                  ))}
-              </ul>
-              <div className="mt-6">
-                <p className="section-kicker">Former Members</p>
-                <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Thesis</h3>
-                <ul className="mt-3 space-y-2">
-                  {thesisEntries.map((entry) => (
-                    <li key={`${entry.monthYear}-${entry.name}`} className="text-sm leading-relaxed opacity-90">
-                      <strong>{entry.monthYear}:</strong> {entry.name} ({entry.thesisLevel} thesis):{" "}
-                      <a
-                        href={entry.thesis.href}
-                        download={entry.thesis.downloadName}
-                        className="challenge-inline-link"
-                      >
-                        {entry.thesis.title}
-                      </a>
+                <div>
+                  <p className="section-kicker">News</p>
+                  <h2 className="section-title">News from the Lab</h2>
+                </div>
+                <ul className="mt-6 space-y-4">
+                  {newsItems.map((item) => (
+                    <li key={`${item.date}-${typeof item.content === "string" ? item.content : "entry"}`} className="modern-card p-5">
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-70">{item.date}:</p>
+                      <p className="mt-3 text-sm leading-relaxed opacity-95">{item.content}</p>
                     </li>
                   ))}
                 </ul>
-              </div>
-            </div>
-            <div className="mt-8 border-t border-current/15 pt-6">
-              <p className="section-kicker">Archive</p>
-              <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Group Pictures</h3>
-              <div className="mt-5 grid gap-4 lg:grid-cols-2">
-                {groupPhotos.map((photo) => (
-                  <article key={photo.date} className="modern-card overflow-hidden">
-                    <a
-                      href={photo.image}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open full-size group picture from ${photo.date}`}
-                      className="block"
-                    >
-                      <img
-                        src={photo.image}
-                        alt={`Artificial Scientist Lab group picture from ${photo.date}`}
-                        loading="lazy"
-                        className="h-64 w-full object-cover sm:h-72"
-                      />
-                    </a>
-                    <div className="p-4">
-                      <p className="text-xs uppercase tracking-[0.18em] opacity-70">{photo.date}</p>
-                      <p className="mt-3 text-sm leading-relaxed opacity-90">{photo.names.join(", ")}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </section>
+              </section>
 
-              <section className="journal-surface site-section p-6 sm:p-8" id="research">
-            <p className="section-kicker">Research</p>
-            <h2 className="section-title">The Science in the Artificial Scientist Lab</h2>
-            <div className="mt-5 space-y-4">
-              {coreChallenges.map((challenge) => (
-                <article
-                  key={challenge.title}
-                  id={challenge.sectionId}
-                  className="modern-card frontier-card research-card-anchor flex flex-col p-5"
-                >
-                  <h3 className="text-lg font-semibold">{challenge.title}</h3>
-                  {challenge.researchDetails?.beforeImage ? (
-                    <div className="challenge-detail-copy mt-3">{challenge.researchDetails.beforeImage}</div>
-                  ) : (
-                    <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
-                  )}
-                  {challenge.image ? (
-                    <figure className={`challenge-figure mt-4 ${challenge.image.figureClassName ?? ""}`.trim()}>
+              <section className="journal-surface site-section p-6 sm:p-8" id="team">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="section-kicker">Who are we?</p>
+                    <h2 className="section-title">Team Members</h2>
+                  </div>
+                </div>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {teamMembers.map((member) => (
+                    <article key={member.name} className="modern-card team-card flex h-full flex-col overflow-hidden">
                       <img
-                        src={challenge.image.src}
-                        alt={challenge.image.alt}
+                        src={member.image}
+                        alt={member.name}
                         loading="lazy"
-                        className="challenge-figure-image"
+                        className={`team-card-image h-56 w-full ${member.image.endsWith(".svg")
+                          ? "team-card-image-placeholder object-contain p-5"
+                          : "object-cover"
+                          }`}
                       />
-                    </figure>
-                  ) : null}
-                  {challenge.researchDetails?.afterImage ? (
-                    <div className="challenge-detail-copy mt-4">{challenge.researchDetails.afterImage}</div>
-                  ) : null}
-                  {challenge.links?.length ? (
-                    <ul className="frontier-link-list text-xs">
-                      {challenge.links.map((link) => (
-                        <li key={link.href}>
+                      <div className="flex grow flex-col p-4">
+                        <h3 className="text-base font-semibold leading-tight">{member.name}</h3>
+                        <p className="mt-1 text-xs uppercase tracking-[0.18em] opacity-70">{member.role}</p>
+                        {member.focus ? (
+                          <p className="mt-3 text-sm leading-relaxed opacity-90">{member.focus}</p>
+                        ) : null}
+                        {member.links.length > 0 ? (
+                          <div className="mt-auto flex flex-wrap gap-2 pt-3 text-xs">
+                            {member.links.map((link) => (
+                              <a
+                                key={link.href}
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="chip-link"
+                              >
+                                {link.label}
+                              </a>
+                            ))}
+                          </div>
+                        ) : null}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+                <div className="mt-8 border-t border-current/15 pt-6">
+                  <p className="section-kicker">Former Members</p>
+                  <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Alumni</h3>
+                  <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    {[...alumniMembers]
+                      .sort((a, b) => b.leftAt.localeCompare(a.leftAt) || a.name.localeCompare(b.name))
+                      .map((alumnus) => (
+                        <li key={alumnus.name} className="modern-card p-4">
+                          <p className="text-sm font-semibold leading-relaxed">{alumnus.name}</p>
+                          <p className="mt-2 text-xs uppercase tracking-[0.18em] opacity-70">{alumnus.role}</p>
+                          <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.period}</p>
+                          {alumnus.current ? (
+                            <p className="mt-3 text-sm leading-relaxed opacity-90">{alumnus.current}</p>
+                          ) : null}
+                          {alumnus.thesis ? (
+                            <a
+                              href={alumnus.thesis.href}
+                              download={alumnus.thesis.downloadName}
+                              className="chip-link mt-3 inline-flex text-xs leading-relaxed"
+                            >
+                              Download Thesis
+                            </a>
+                          ) : null}
+                          {alumnus.links?.length ? (
+                            <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                              {alumnus.links.map((link) => (
+                                <a
+                                  key={link.href}
+                                  href={link.href}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="chip-link"
+                                >
+                                  {link.label}
+                                </a>
+                              ))}
+                            </div>
+                          ) : null}
+                        </li>
+                      ))}
+                  </ul>
+                  <div className="mt-6">
+                    <p className="section-kicker">Former Members</p>
+                    <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Thesis</h3>
+                    <ul className="mt-3 space-y-2">
+                      {thesisEntries.map((entry) => (
+                        <li key={`${entry.monthYear}-${entry.name}`} className="text-sm leading-relaxed opacity-90">
+                          <strong>{entry.monthYear}:</strong> {entry.name} ({entry.thesisLevel} thesis):{" "}
                           <a
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="frontier-link"
+                            href={entry.thesis.href}
+                            download={entry.thesis.downloadName}
+                            className="challenge-inline-link"
                           >
-                            {link.label}
+                            {entry.thesis.title}
                           </a>
                         </li>
                       ))}
                     </ul>
-                  ) : null}
-                </article>
-              ))}
-            </div>
-          </section>
+                  </div>
+                </div>
+                <div className="mt-8 border-t border-current/15 pt-6">
+                  <p className="section-kicker">Archive</p>
+                  <h3 className="mt-1 font-journal text-3xl leading-none sm:text-4xl">Group Pictures</h3>
+                  <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                    {groupPhotos.map((photo) => (
+                      <article key={photo.date} className="modern-card overflow-hidden">
+                        <a
+                          href={photo.image}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Open full-size group picture from ${photo.date}`}
+                          className="block"
+                        >
+                          <img
+                            src={photo.image}
+                            alt={`Artificial Scientist Lab group picture from ${photo.date}`}
+                            loading="lazy"
+                            className="h-64 w-full object-cover sm:h-72"
+                          />
+                        </a>
+                        <div className="p-4">
+                          <p className="text-xs uppercase tracking-[0.18em] opacity-70">{photo.date}</p>
+                          <p className="mt-3 text-sm leading-relaxed opacity-90">{photo.names.join(", ")}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <section className="journal-surface site-section p-6 sm:p-8" id="research">
+                <p className="section-kicker">Research</p>
+                <h2 className="section-title">The Science in the Artificial Scientist Lab</h2>
+                <div className="mt-5 space-y-4">
+                  {coreChallenges.map((challenge) => (
+                    <article
+                      key={challenge.title}
+                      id={challenge.sectionId}
+                      className="modern-card frontier-card research-card-anchor flex flex-col p-5"
+                    >
+                      <h3 className="text-lg font-semibold">{challenge.title}</h3>
+                      {challenge.researchDetails?.beforeImage ? (
+                        <div className="challenge-detail-copy mt-3">{challenge.researchDetails.beforeImage}</div>
+                      ) : (
+                        <p className="mt-3 text-sm leading-relaxed opacity-90">{challenge.text}</p>
+                      )}
+                      {challenge.image ? (
+                        <figure className={`challenge-figure mt-4 ${challenge.image.figureClassName ?? ""}`.trim()}>
+                          <img
+                            src={challenge.image.src}
+                            alt={challenge.image.alt}
+                            width={challenge.image.width ?? DEFAULT_IMAGE_WIDTH}
+                            height={challenge.image.height ?? DEFAULT_IMAGE_HEIGHT}
+                            loading="lazy"
+                            className="challenge-figure-image"
+                          />
+                        </figure>
+                      ) : null}
+                      {challenge.researchDetails?.afterImage ? (
+                        <div className="challenge-detail-copy mt-4">{challenge.researchDetails.afterImage}</div>
+                      ) : null}
+                      {challenge.links?.length ? (
+                        <ul className="frontier-link-list text-xs">
+                          {challenge.links.map((link) => (
+                            <li key={link.href}>
+                              <a
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="frontier-link"
+                              >
+                                {link.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </article>
+                  ))}
+                </div>
+              </section>
 
               <section className="journal-surface site-section p-6 sm:p-8" id="publications">
-            <p className="section-kicker">Papers</p>
-            <h2 className="section-title">Publications</h2>
-            <div className="mt-5 space-y-8">
-              {publicationsByYear.map((yearGroup) => (
-                <section
-                  key={yearGroup.year}
-                  className="border-t border-current/15 pt-6 first:border-t-0 first:pt-0"
-                  aria-labelledby={`publications-${yearGroup.year}`}
-                >
-                  <h3 id={`publications-${yearGroup.year}`} className="font-journal text-3xl leading-none sm:text-4xl">
-                    {yearGroup.year}
-                  </h3>
-                  <ul className="publication-list mt-5">
-                    {yearGroup.papers.map((paper) => (
-                      <li key={`${paper.date}-${paper.title}`} className="publication-item">
-                        <a href={paper.href} target="_blank" rel="noreferrer" className="publication-link">
-                          <p className="publication-title">{paper.title}</p>
-                          <p className="publication-authors">{publicationAuthorsByTitle[paper.title]}</p>
-                          <p className="publication-venue">{renderPublicationVenue(paper)}</p>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          </section>
+                <p className="section-kicker">Papers</p>
+                <h2 className="section-title">Publications</h2>
+                <div className="mt-5 space-y-8">
+                  {publicationsByYear.map((yearGroup) => (
+                    <section
+                      key={yearGroup.year}
+                      className="border-t border-current/15 pt-6 first:border-t-0 first:pt-0"
+                      aria-labelledby={`publications-${yearGroup.year}`}
+                    >
+                      <h3 id={`publications-${yearGroup.year}`} className="font-journal text-3xl leading-none sm:text-4xl">
+                        {yearGroup.year}
+                      </h3>
+                      <ul className="publication-list mt-5">
+                        {yearGroup.papers.map((paper) => (
+                          <li key={`${paper.date}-${paper.title}`} className="publication-item">
+                            <a href={paper.href} target="_blank" rel="noreferrer" className="publication-link">
+                              <p className="publication-title">{paper.title}</p>
+                              <p className="publication-authors">{publicationAuthorsByTitle[paper.title]}</p>
+                              <p className="publication-venue">{renderPublicationVenue(paper)}</p>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ))}
+                </div>
+              </section>
 
               <section className="journal-surface site-section p-6 sm:p-8" id="repositories">
-            <p className="section-kicker">Code</p>
-            <h2 className="section-title">Open-Source Repositories</h2>
-            <ul className="mt-5 space-y-3">
-              {githubProjects.map((project) => (
-                <li key={project.name} className="modern-card interactive-card overflow-hidden">
-                  <a href={project.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="interactive-card-title text-base font-semibold underline-offset-4">{project.name}</p>
-                      <span className="rounded-full border border-current/25 px-2 py-0.5 font-mono text-xs">* {project.stars}</span>
-                    </div>
-                    <p className="mt-2 text-sm leading-relaxed opacity-90">{project.description}</p>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+                <p className="section-kicker">Code</p>
+                <h2 className="section-title">Open-Source Repositories</h2>
+                <ul className="mt-5 space-y-3">
+                  {githubProjects.map((project) => (
+                    <li key={project.name} className="modern-card interactive-card overflow-hidden">
+                      <a href={project.href} target="_blank" rel="noreferrer" className="interactive-card-link block p-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="interactive-card-title text-base font-semibold underline-offset-4">{project.name}</p>
+                          <span className="rounded-full border border-current/25 px-2 py-0.5 font-mono text-xs">* {project.stars}</span>
+                        </div>
+                        <p className="mt-2 text-sm leading-relaxed opacity-90">{project.description}</p>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
 
               <section className="journal-surface site-section p-6 sm:p-8" id="positions">
-            <div>
-              <p className="section-kicker">Join Us</p>
-              <h2 className="section-title">Join the Team</h2>
-            </div>
-            <div className="mt-4 space-y-4">
-              <p className="section-lede">
-                We welcome applicants and students who want to work on AI for physics discovery. We have open
-                postdoc and PhD positions (see call below).
-              </p>
-              <p className="section-lede">
-                For the students at the <strong>University of T&uuml;bingen</strong>, we are happy to supervise Master and
-                Bachelor thesis and interships. Reach out to{" "}
-                <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
-                  Mario
+                <div>
+                  <p className="section-kicker">Join Us</p>
+                  <h2 className="section-title">Join the Team</h2>
+                </div>
+                <div className="mt-4 space-y-4">
+                  <p className="section-lede">
+                    We welcome applicants and students who want to work on AI for physics discovery. We have open
+                    postdoc and PhD positions (see call below).
+                  </p>
+                  <p className="section-lede">
+                    For the students at the <strong>University of T&uuml;bingen</strong>, we are happy to supervise Master and
+                    Bachelor thesis and interships. Reach out to{" "}
+                    <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
+                      Mario
+                    </a>
+                    .
+                  </p>
+                </div>
+                <a
+                  href={positionCallUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="chip-link mt-4 inline-flex text-xs font-semibold uppercase tracking-[0.14em]"
+                >
+                  Open Position Call
                 </a>
-                .
-              </p>
-            </div>
-            <a
-              href={positionCallUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="chip-link mt-4 inline-flex text-xs font-semibold uppercase tracking-[0.14em]"
-            >
-              Open Position Call
-            </a>
-          </section>
+              </section>
 
               <section className="journal-surface site-section p-6 sm:p-8" id="contact">
-            <div>
-              <p className="section-kicker">Contact</p>
-              <h2 className="section-title">Contact</h2>
-            </div>
-            <div className="mt-4 space-y-4">
-              <p className="section-lede">
-                You can reach Mario via{" "}
-                <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
-                  e-Mail
-                </a>
-                .
-                For organisational requests (or if Mario is slow in replying), please reach out to{" "}
-                <a href="mailto:michael.mergner@uni-tuebingen.de" className="underline underline-offset-4">
-                  Michael
-                </a>
-                .
-              </p>
-            </div>
-          </section>
+                <div>
+                  <p className="section-kicker">Contact</p>
+                  <h2 className="section-title">Contact</h2>
+                </div>
+                <div className="mt-4 space-y-4">
+                  <p className="section-lede">
+                    You can reach Mario via{" "}
+                    <a href="mailto:mario.krenn@uni-tuebingen.de" className="underline underline-offset-4">
+                      e-Mail
+                    </a>
+                    .
+                    For organisational requests (or if Mario is slow in replying), please reach out to{" "}
+                    <a href="mailto:michael.mergner@uni-tuebingen.de" className="underline underline-offset-4">
+                      Michael
+                    </a>
+                    .
+                  </p>
+                </div>
+              </section>
 
               <section className="journal-surface site-section p-6 sm:p-8" id="funding">
-            <h2 className="section-title">Funding</h2>
-            <p className="section-lede">
-              We acknowledge the European Research Council for awarding us an ERC Starting Grant in 2024 called
-              ArtDisQ (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance
-              Simulators), and we acknowledge the German Research Foundation (DFG) for funding through the
-              Excellence Cluster &quot;Machine Learning in Science&quot; at the University of Tübingen.
-            </p>
-            <figure className="challenge-figure challenge-figure-compact mt-5">
-              <img
-                src="/funding/funding.png"
-                alt="Funding logos and acknowledgements for the Artificial Scientist Lab."
-                loading="lazy"
-                className="challenge-figure-image"
-              />
-            </figure>
-          </section>
+                <h2 className="section-title">Funding</h2>
+                <p className="section-lede">
+                  We acknowledge the European Research Council for awarding us an ERC Starting Grant in 2024 called
+                  ArtDisQ (Artificial Scientific Discovery of Advanced Quantum Hardware with high-performance
+                  Simulators), and we acknowledge the German Research Foundation (DFG) for funding through the
+                  Excellence Cluster &quot;Machine Learning in Science&quot; at the University of Tübingen.
+                </p>
+                <figure className="challenge-figure challenge-figure-compact mt-5">
+                  <img
+                    src="/funding/funding.webp"
+                    alt="Funding logos and acknowledgements for the Artificial Scientist Lab."
+                    width={2823}
+                    height={839}
+                    loading="lazy"
+                    className="challenge-figure-image"
+                  />
+                </figure>
+              </section>
             </main>
           </div>
         </div>

@@ -92,7 +92,7 @@ Each member has this structure:
   name: "Full Name",
   role: "Role",
   focus: "Short research description.",
-  image: "/team/file-name.jpg",
+  image: "/team/file-name.webp",
   links: [
     { label: "Website", href: "https://..." },
     { label: "GitHub", href: "https://..." }
@@ -111,8 +111,9 @@ Edit these keys inside the member object:
 
 ### Replace a Team Image
 
-1. Add the new image file to `public/team/` (for example: `public/team/jane-doe.jpg`).
-2. Update that person’s `image` field in `app/page.tsx`:
+1. (Recommended) Convert the image to the WebP format to reduce the file size. There are many online converters available.
+2. Add the new image file to `public/team/` (for example: `public/team/jane-doe.webp`).
+3. Update that person’s `image` field in `app/page.tsx`:
 
 ```ts
 image: "/team/jane-doe.jpg"
