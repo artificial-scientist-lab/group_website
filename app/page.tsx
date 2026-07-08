@@ -1948,6 +1948,16 @@ export default function Home() {
                     >
                       Excellence Cluster for Machine Learning in Science in Tübingen
                     </a>
+                    {" "}
+                    and member of the{" "}
+                    <a
+                      href="https://tuebingen.ai/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="challenge-inline-link"
+                    >
+                      Tübingen AI Center
+                    </a>
                     .
                   </p>
                   <p className="section-lede">
