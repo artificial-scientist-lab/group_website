@@ -1319,6 +1319,120 @@ const newsDateSortValue = (date: string) => {
 
 const newsItems: NewsItem[] = [
   {
+    date: "20.07.2026",
+    content: (
+      <>
+        <span className="block">
+          We founded{" "}
+          <a
+            href="https://www.linkedin.com/company/feyer/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>Feyer</strong>
+          </a>{" "}
+          (
+          <a
+            href="https://www.feyer.ai/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            feyer.ai
+          </a>
+          ), an AI lab for automated innovation in crazy new industrial hardware, together with my
+          former group members{" "}
+          <a
+            href="https://www.linkedin.com/in/jonathan-klimesch-bb78a0136/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>Jonathan Klimesch</strong>
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.linkedin.com/in/s%C3%B6ren-arlt-862348186/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>S&ouml;ren Arlt</strong>
+          </a>
+          , and received &euro;3 million in non-dilutive funding through the Next Frontier AI
+          Challenge by{" "}
+          <a
+            href="https://www.linkedin.com/company/sprind/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>SPRIND &ndash; Bundesagentur f&uuml;r Sprunginnovationen</strong>
+          </a>{" "}
+          (Stage 1: one of 10 teams selected from 530 competitors, &euro;3M/6 months; next: Stage 2:
+          &euro;8M/8 months and Stage 3: &euro;15.5M/9 months. SPRIND&apos;s goal: several unicorns in
+          24 months).
+        </span>
+        <span className="mt-3 block">
+          For more than ten years, we have been developing AI systems that autonomously design new
+          physical experiments and technologies for basic research&mdash;ranging from quantum
+          systems and novel microscopes to gravitational-wave detectors. With Feyer, we are
+          bringing this technology into industrial applications. We aim to become a key driver of
+          unexpected hardware innovations in the European high-tech sector&mdash;spanning
+          everything from laser, quantum, and microscopy technologies to microchip production and
+          new solutions for the energy sector.
+        </span>
+        <span className="mt-3 block">
+          This is especially exciting for me as a group leader and supervisor. S&ouml;ren (our CTO)
+          was my first PhD student, and even before his defense, he co-founded a company. Jonathan
+          (our CEO) decided after just one year of his PhD that this AI technology could have an
+          enormous impact on society and the economy&mdash;and that it was time to get things done.
+        </span>
+        <span className="mt-3 block">
+          Very thankful to{" "}
+          <a
+            href="https://www.linkedin.com/company/sprind/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>SPRIND</strong>
+          </a>{" "}
+          for organizing this wild competition aimed at creating European unicorn-level frontier
+          AI labs, and to{" "}
+          <a
+            href="https://www.linkedin.com/company/cybervalley/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>Cyber Valley</strong>
+          </a>
+          ,{" "}
+          <a
+            href="https://www.linkedin.com/company/tuebingen-ai/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>T&uuml;bingen AI Center</strong>
+          </a>
+          , and{" "}
+          <a
+            href="https://www.linkedin.com/company/eberhard-karls-universit-t-t-bingen/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>University of T&uuml;bingen</strong>
+          </a>{" "}
+          for their support.
+        </span>
+      </>
+    ),
+  },
+  {
     date: "21.05.2026",
     content: (
       <>
