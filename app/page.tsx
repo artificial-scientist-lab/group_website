@@ -1323,7 +1323,25 @@ const newsItems: NewsItem[] = [
     content: (
       <>
         <span className="block">
-          We founded{" "}
+          We &mdash;{" "}
+          <a
+            href="https://www.linkedin.com/in/jonathan-klimesch-bb78a0136/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>Jonathan</strong>
+          </a>
+          ,{" "}
+          <a
+            href="https://www.linkedin.com/in/s%C3%B6ren-arlt-862348186/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>S&ouml;ren</strong>
+          </a>
+          {" "}and Mario &mdash; created a Spin-Off from the Artificial Scientist Lab:{" "}
           <a
             href="https://www.linkedin.com/company/feyer/"
             target="_blank"
@@ -1341,27 +1359,8 @@ const newsItems: NewsItem[] = [
           >
             feyer.ai
           </a>
-          ), an AI lab for automated innovation in crazy new industrial hardware, together with my
-          former group members{" "}
-          <a
-            href="https://www.linkedin.com/in/jonathan-klimesch-bb78a0136/"
-            target="_blank"
-            rel="noreferrer"
-            className="challenge-inline-link"
-          >
-            <strong>Jonathan Klimesch</strong>
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://www.linkedin.com/in/s%C3%B6ren-arlt-862348186/"
-            target="_blank"
-            rel="noreferrer"
-            className="challenge-inline-link"
-          >
-            <strong>S&ouml;ren Arlt</strong>
-          </a>
-          , and received &euro;3 million in non-dilutive funding through the Next Frontier AI
-          Challenge by{" "}
+          ), an AI lab for automated innovation in crazy new industrial hardware, and received
+          &euro;3 million in non-dilutive funding through the Next Frontier AI Challenge by{" "}
           <a
             href="https://www.linkedin.com/company/sprind/"
             target="_blank"
