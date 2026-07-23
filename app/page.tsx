@@ -1319,6 +1319,126 @@ const newsDateSortValue = (date: string) => {
 
 const newsItems: NewsItem[] = [
   {
+    date: "23.07.2026",
+    content: (
+      <>
+        We are very excited that our NeurIPS competition{" "}
+        <a
+          href="https://www.learn2design2026.com/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Learn2Design</strong>
+        </a>{" "}
+        has been accepted! The goal: develop new optimization and exploration algorithms for
+        extremely complex search spaces in physics. The solutions will likely be immediately
+        applicable to many questions in the design of new physics experiments&mdash;and will help
+        us find new questions to ask the Universe. We thank{" "}
+        <a
+          href="https://www.sprind.org/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>SPRIND</strong>
+        </a>{" "}
+        for sponsoring the competition with &euro;25,000 in prize money. It is great to work on
+        this with{" "}
+        <a
+          href="https://www.linkedin.com/in/jonathan-klimesch-bb78a0136/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Jonathan Klimesch</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/laurin-sefa-39b639315/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Laurin Sefa</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/sohambasu07/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Soham Basu</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/shanmugapriya-ks-634990199/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Shanmugapriya KS</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/s%C3%B6ren-arlt-862348186/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>S&ouml;ren Arlt</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/xuemei-gu-11a51888/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Xuemei Gu</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/thomas-christie-07a6a6147/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Thomas Christie</strong>
+        </a>
+        ,{" "}
+        <a
+          href="https://www.linkedin.com/in/colin-doumont/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Colin Doumont</strong>
+        </a>
+        , Andreas Freise,{" "}
+        <a
+          href="https://www.linkedin.com/in/rana-adhikari-26bb73165/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Rana Adhikari</strong>
+        </a>
+        , and{" "}
+        <a
+          href="https://www.linkedin.com/in/philipp-hennig-635832278/"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Philipp Hennig</strong>
+        </a>
+        .
+      </>
+    ),
+  },
+  {
     date: "20.07.2026",
     content: (
       <>
