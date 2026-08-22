@@ -1319,6 +1319,64 @@ const newsDateSortValue = (date: string) => {
 
 const newsItems: NewsItem[] = [
   {
+    date: "15.08.2026",
+    content: (
+      <>
+        New paper preprint{" "}
+        <a
+          href="https://arxiv.org/abs/2608.10663"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Photonic realization of a subgraph extraction in a quantum random network</strong>
+        </a>
+        , an experimental work by the group of Xiaosong Ma. The paper history goes back to 2019,
+        when Xiaosong was excited about quantum networks, and we have seen that our very first{" "}
+        <a
+          href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          AI-design algorithm Melvin
+        </a>{" "}
+        has produced an experimental setup that has precisely the properties Xiaosong wanted to
+        see. It took then an astonishing seven years to build the setup and see these interesting
+        properties of{" "}
+        <a
+          href="https://www.nature.com/articles/nphys1665"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          quantum random networks
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    date: "30.07.2026",
+    content: (
+      <>
+        New paper preprint{" "}
+        <a
+          href="https://arxiv.org/abs/2607.25501"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>Automated discovery of high-probability heralded schemes for path-entangled states</strong>
+        </a>
+        , where we present several experimental schemes for the generation of NOON states with
+        exponentially larger heralding efficiency. This is the first paper of our new PhD student
+        in our group, Marcello Armezzani, and was a collaboration with the group of the pioneering
+        quantum experimentalist Paul Kwiat.
+      </>
+    ),
+  },
+  {
     date: "23.07.2026",
     content: (
       <>
