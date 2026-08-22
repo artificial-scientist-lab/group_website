@@ -231,6 +231,14 @@ const teamMembers: TeamMember[] = [
     image: "/team/felice-huck.webp",
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/felice-huck-11771b253/" }],
   },
+  {
+    name: "Andrei Raduc",
+    role: "Research Intern",
+    focus:
+      "Investigating connections between unitary-group geometry and overparameterized loss landscapes. I am also interested in the interpretability of neural networks through a physics-inspired lens, and in mathematical questions in quantum computing, particularly quantum compilation.",
+    image: "/team/andrei-raduc.jpeg",
+    links: [],
+  },
 ];
 
 const alumniMembers: AlumniMember[] = [
