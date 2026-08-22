@@ -413,6 +413,24 @@ const groupPhotos: GroupPhoto[] = [
 const publications: Paper[] = [
   {
     date: "2026",
+    title: "Photonic realization of a subgraph extraction in a quantum random network",
+    venue: "arXiv:2608.10663",
+    href: "https://arxiv.org/abs/2608.10663",
+  },
+  {
+    date: "2026",
+    title: "Automated discovery of high-probability heralded schemes for path-entangled states",
+    venue: "arXiv:2607.25501",
+    href: "https://arxiv.org/abs/2607.25501",
+  },
+  {
+    date: "2026",
+    title: "Publishing Physical Sciences in the Era of AI",
+    venue: "PRX Intelligence 1, 010001",
+    href: "https://journals.aps.org/prxintelligence/abstract/10.1103/PRXINTELL.1.010001",
+  },
+  {
+    date: "2026",
     title: "Automated experimental design for high-probability entanglement generation",
     venue: "arXiv:2605.02721",
     href: "https://arxiv.org/abs/2605.02721",
@@ -690,6 +708,9 @@ const publicationsByYear = publications.reduce<Array<{ year: string; papers: Pap
 }, []);
 
 const publicationAuthorsByTitle: Record<string, string> = {
+  "Photonic realization of a subgraph extraction in a quantum random network": "Xia, Gu, Wang, Chen, Krenn, Lu, Zhu, Ma",
+  "Automated discovery of high-probability heralded schemes for path-entangled states": "Armezzani, Lualdi, Gu, Kwiat, Krenn",
+  "Publishing Physical Sciences in the Era of AI": "Ceriotti, Krenn, Lee, Marzari, Nachman, Pettee, von Lilienfeld",
   "Automated experimental design for high-probability entanglement generation": "Ruiz-Gonzalez, Krenn, Gu",
   "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists": "Krenn, Champion",
   "Meta-Designing Quantum Experiments with Language Models": "Arlt, Duan, Li, Xie, Wu, Krenn",
