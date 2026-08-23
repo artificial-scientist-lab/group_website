@@ -695,17 +695,26 @@ const publications: Paper[] = [
   },
 ];
 
-const publicationsByYear = publications.reduce<Array<{ year: string; papers: Paper[] }>>((groups, paper) => {
-  const previousGroup = groups[groups.length - 1];
+const isArxivPreprint = (paper: Paper) => paper.venue.startsWith("arXiv:");
 
-  if (!previousGroup || previousGroup.year !== paper.date) {
-    groups.push({ year: paper.date, papers: [paper] });
+const publicationsByYear = publications
+  .reduce<Array<{ year: string; papers: Paper[] }>>((groups, paper) => {
+    const previousGroup = groups[groups.length - 1];
+
+    if (!previousGroup || previousGroup.year !== paper.date) {
+      groups.push({ year: paper.date, papers: [paper] });
+      return groups;
+    }
+
+    previousGroup.papers.push(paper);
     return groups;
-  }
-
-  previousGroup.papers.push(paper);
-  return groups;
-}, []);
+  }, [])
+  .map((group) => ({
+    ...group,
+    papers: [...group.papers].sort(
+      (firstPaper, secondPaper) => Number(isArxivPreprint(secondPaper)) - Number(isArxivPreprint(firstPaper)),
+    ),
+  }));
 
 const publicationAuthorsByTitle: Record<string, string> = {
   "Photonic realization of a subgraph extraction in a quantum random network": "Xia, Gu, Wang, Chen, Krenn, Lu, Zhu, Ma",
