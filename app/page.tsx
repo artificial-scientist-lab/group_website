@@ -425,6 +425,12 @@ const publications: Paper[] = [
   },
   {
     date: "2026",
+    title: "Designing physics experiments with artificial intelligence",
+    venue: "Nature 657, 47–58",
+    href: "https://www.nature.com/articles/s41586-026-10898-6",
+  },
+  {
+    date: "2026",
     title: "Publishing Physical Sciences in the Era of AI",
     venue: "PRX Intelligence 1, 010001",
     href: "https://journals.aps.org/prxintelligence/abstract/10.1103/PRXINTELL.1.010001",
@@ -719,6 +725,7 @@ const publicationsByYear = publications
 const publicationAuthorsByTitle: Record<string, string> = {
   "Photonic realization of a subgraph extraction in a quantum random network": "Xia, Gu, Wang, Chen, Krenn, Lu, Zhu, Ma",
   "Automated discovery of high-probability heralded schemes for path-entangled states": "Armezzani, Lualdi, Gu, Kwiat, Krenn",
+  "Designing physics experiments with artificial intelligence": "Klimesch, Arlt, Ruiz-Gonzalez, Rodríguez, Gu, Haslinger, Vischia, Haack, Drori, Adhikari, Arndt, Kagan, Heinrich, Krenn",
   "Publishing Physical Sciences in the Era of AI": "Ceriotti, Krenn, Lee, Marzari, Nachman, Pettee, von Lilienfeld",
   "Automated experimental design for high-probability entanglement generation": "Ruiz-Gonzalez, Krenn, Gu",
   "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists": "Krenn, Champion",
@@ -1356,6 +1363,71 @@ const newsDateSortValue = (date: string) => {
 };
 
 const newsItems: NewsItem[] = [
+  {
+    date: "07.09.2026",
+    content: (
+      <>
+        <span className="block">
+          <strong>!!!</strong> Our Review in <strong><em>Nature</em></strong> just got published on{" "}
+          <a
+            href="https://www.nature.com/articles/s41586-026-10898-6"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            &quot;Designing physics experiments with artificial intelligence&quot;
+          </a>
+          .
+        </span>
+        <span className="mt-3 block">
+          Experiments are <strong>our way to ask questions to the Universe</strong>. Using AI, we
+          have now enormously powerful techniques to find new questions that are too unintuitive
+          and &quot;weird&quot; for humans to find based on their experience and intuition. AI,
+          however, can explore the space of all possibilities in a completely different way, and
+          thus can discover very different solutions. We overview this ability in vastly diverse
+          fields of physics: <strong>quantum optics</strong>,{" "}
+          <strong>light &amp; electron microscopy</strong>,{" "}
+          <strong>gravitational wave physics</strong>, <strong>plasma physics</strong>,{" "}
+          <strong>high-energy physics</strong>, <strong>neutrino physics</strong>,{" "}
+          <strong>matter wave physics</strong>.
+        </span>
+        <span className="mt-3 block">
+          For me this is very special:{" "}
+          <a
+            href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.090405"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            12 years after building the first automated design algorithms in quantum experiments
+          </a>
+          , being able to overview the development of the field with my group and friends was an
+          exciting opportunity.
+        </span>
+        <span className="mt-3 block">
+          Thank you so much to <strong>Jonathan Klimesch</strong> for spearheading this! Thanks a
+          lot to Sören Arlt, Carlos Ruiz-Gonzalez, Carla Rodríguez, Xuemei Gu, Philipp Haslinger,
+          Pietro Vischia, Christian Haack, Yehonathan Drori, Rana Adhikari, Markus Arndt, Michael
+          Kagan, Lukas Heinrich for helping develop this Review, bringing insights from so many
+          different directions of physics. So excited about what will happen in the next years!
+        </span>
+        <span className="mt-3 block">
+          This Nature Review also describes precisely what our next-frontier AI-startup{" "}
+          <a
+            href="https://feyer.ai/"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <strong>Feyer</strong>
+          </a>{" "}
+          aims for: <strong>Using advanced AI to discover new hardware in the high-tech domain</strong>{" "}
+          (optics, electronics, chips, advanced measurements) &mdash; basically AI for industrial
+          inventions!
+        </span>
+      </>
+    ),
+  },
   {
     date: "15.08.2026",
     content: (
