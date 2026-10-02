@@ -256,7 +256,7 @@ const alumniMembers: AlumniMember[] = [
   {
     name: "Carlos Ruiz Gonz\u00e1lez",
     role: "PhD student",
-    period: "Graduated September 2026",
+    period: "September 2021 - September 2026",
     leftAt: "2026-09",
     current: "Currently: Postdoc at JKU Linz (Brandstetter/Hochreiter)",
     thesis: {
@@ -971,6 +971,18 @@ const coreChallenges: CoreChallenge[] = [
             We can split this question into four pillars: extremely large and complex search spaces, fast and
             reliable simulators, meaningful objective functions, and clever AI-exploration algorithms.
           </p>
+          <p>
+            We discuss these pillars in our Nature review:{" "}
+            <a
+              href="https://www.nature.com/articles/s41586-026-10898-6"
+              target="_blank"
+              rel="noreferrer"
+              className="challenge-inline-link"
+            >
+              Designing physics experiments with artificial intelligence
+            </a>
+            .
+          </p>
         </>
       ),
       afterImage: (
@@ -1143,6 +1155,10 @@ const coreChallenges: CoreChallenge[] = [
       {
         label: "Digital Discovery of Interferometric Gravitational Wave Detectors",
         href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
+      },
+      {
+        label: "Designing physics experiments with artificial intelligence",
+        href: "https://www.nature.com/articles/s41586-026-10898-6",
       },
     ],
   },
