@@ -40,7 +40,7 @@ type ThesisEntry = {
   completedAt: string;
   monthYear: string;
   name: string;
-  thesisLevel: "Master" | "Bachelor";
+  thesisLevel: "PhD" | "Master" | "Bachelor";
   thesis: NonNullable<AlumniMember["thesis"]>;
 };
 
@@ -56,7 +56,10 @@ type NewsItem = {
 };
 
 type Paper = {
+  // Journal citation year, or first submission year for preprints.
   date: string;
+  // First online journal publication or arXiv submission date (YYYY-MM-DD).
+  publishedOn: string;
   title: string;
   venue: string;
   href: string;
@@ -182,13 +185,6 @@ const teamMembers: TeamMember[] = [
     links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/pontus-lindgren" }],
   },
   {
-    name: "Carlos Ruiz Gonz\u00e1lez",
-    role: "PhD student",
-    focus: "Always curious about unexpected phenomena and applications from Quantum Physics. Also interested in Social Sciences, Music, Cooking, Science Fiction, and, of course, Artificial Intelligence. At some point I expect to beat Mario at Go.",
-    image: "/team/carlos-ruiz-gonzalez.webp",
-    links: [],
-  },
-  {
     name: "Carlo Wenig",
     role: "PhD student",
     focus: "Excited to explore how differentiable simulators and AI optimization methods can help discover new applications for electron beams in science and technology.",
@@ -204,6 +200,14 @@ const teamMembers: TeamMember[] = [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/chaudharyl" },
       { label: "GitHub", href: "https://github.com/lalit3c" },
     ],
+  },
+  {
+    name: "Hanna Knecht",
+    role: "Master student",
+    focus:
+      "I am interested in bringing a computer science perspective to exciting problems in other areas of research. In my free time I enjoy bouldering, growing and taking care of interesting plants, reading and playing video and board games.",
+    image: "/team/hanna-knecht.jpg",
+    links: [],
   },
   {
     name: "Raphael Jontofsohn",
@@ -224,6 +228,13 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
+    name: "Yuliya Barko",
+    role: "Research Intern",
+    focus: "",
+    image: "/team/yuliya-barko.png",
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/yuliya-barko-16bb411b3/" }],
+  },
+  {
     name: "Felice Huck",
     role: "Research Intern",
     focus:
@@ -242,6 +253,18 @@ const teamMembers: TeamMember[] = [
 ];
 
 const alumniMembers: AlumniMember[] = [
+  {
+    name: "Carlos Ruiz Gonz\u00e1lez",
+    role: "PhD student",
+    period: "Graduated September 2026",
+    leftAt: "2026-09",
+    current: "Currently: Postdoc at JKU Linz (Brandstetter/Hochreiter)",
+    thesis: {
+      title: "Automated experimental design with highly parameterized ansätze",
+      href: "/theses/carlos-ruiz-gonzalez-phd-thesis.pdf",
+      downloadName: "carlos-ruiz-gonzalez-phd-thesis.pdf",
+    },
+  },
   {
     name: "Carla Rodriguez",
     role: "Postdoctoral researcher",
@@ -328,11 +351,12 @@ const thesisEntriesWithCompletion: ThesisEntry[] = [
     )
     .map((member): ThesisEntry => {
       const [year, month] = member.leftAt.split("-");
-      const thesisLevel: ThesisEntry["thesisLevel"] = member.role
-        .toLowerCase()
-        .includes("master")
-        ? "Master"
-        : "Bachelor";
+      const role = member.role.toLowerCase();
+      const thesisLevel: ThesisEntry["thesisLevel"] = role.includes("phd")
+        ? "PhD"
+        : role.includes("master")
+          ? "Master"
+          : "Bachelor";
 
       return {
         completedAt: member.leftAt,
@@ -413,288 +437,343 @@ const groupPhotos: GroupPhoto[] = [
 const publications: Paper[] = [
   {
     date: "2026",
+    publishedOn: "2026-09-30",
+    title: "esQueranto: Differentiable Structured Quantum Light for Automated Scientific Discovery",
+    venue: "arXiv:2610.00750",
+    href: "https://arxiv.org/abs/2610.00750",
+  },
+  {
+    date: "2026",
+    publishedOn: "2026-08-11",
     title: "Photonic realization of a subgraph extraction in a quantum random network",
     venue: "arXiv:2608.10663",
     href: "https://arxiv.org/abs/2608.10663",
   },
   {
     date: "2026",
+    publishedOn: "2026-07-28",
     title: "Automated discovery of high-probability heralded schemes for path-entangled states",
     venue: "arXiv:2607.25501",
     href: "https://arxiv.org/abs/2607.25501",
   },
   {
     date: "2026",
-    title: "Designing physics experiments with artificial intelligence",
-    venue: "Nature 657, 47–58",
-    href: "https://www.nature.com/articles/s41586-026-10898-6",
-  },
-  {
-    date: "2026",
-    title: "Publishing Physical Sciences in the Era of AI",
-    venue: "PRX Intelligence 1, 010001",
-    href: "https://journals.aps.org/prxintelligence/abstract/10.1103/PRXINTELL.1.010001",
-  },
-  {
-    date: "2026",
+    publishedOn: "2026-05-04",
     title: "Automated experimental design for high-probability entanglement generation",
     venue: "arXiv:2605.02721",
     href: "https://arxiv.org/abs/2605.02721",
   },
   {
     date: "2026",
+    publishedOn: "2026-09-11",
+    title: "Neural surrogates for designing gravitational wave detectors",
+    venue: "Machine Learning: Science and Technology 7 (5), 055010",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ae9de9/meta",
+  },
+  {
+    date: "2026",
+    publishedOn: "2026-09-02",
+    title: "Designing physics experiments with artificial intelligence",
+    venue: "Nature 657, 47–58",
+    href: "https://www.nature.com/articles/s41586-026-10898-6",
+  },
+  {
+    date: "2026",
+    publishedOn: "2026-07-28",
+    title: "Publishing Physical Sciences in the Era of AI",
+    venue: "PRX Intelligence 1, 010001",
+    href: "https://journals.aps.org/prxintelligence/abstract/10.1103/PRXINTELL.1.010001",
+  },
+  {
+    date: "2026",
+    publishedOn: "2026-06-10",
     title: "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists",
     venue: "Dædalus 155 (1-2), 335-349",
     href: "https://www.amacad.org/publication/daedalus/philosophy-autonomous-science-ten-questions-coming-age-artificial-scientists",
   },
   {
     date: "2026",
+    publishedOn: "2026-05-18",
     title: "Automated Discovery of Non-local Photonic Gates",
     venue: "Phys. Rev. Research 8, L022031",
-    href: "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.8.L022031",
+    href: "https://journals.aps.org/prresearch/abstract/10.1103/f415-kgwr",
   },
   {
     date: "2026",
+    publishedOn: "2026-02-19",
     title: "Meta-Designing Quantum Experiments with Language Models",
-    venue: "Nature Machine Intelligence 8, 148",
+    venue: "Nature Machine Intelligence 8, 148–157",
     href: "https://www.nature.com/articles/s42256-025-01153-0",
   },
   {
     date: "2025",
-    title: "Neural surrogates for designing gravitational wave detectors",
-    venue: "arXiv:2511.19364",
-    href: "https://arxiv.org/abs/2511.19364",
-  },
-  {
-    date: "2025",
+    publishedOn: "2025-11-20",
     title: "Analytical Fock Representation of Two-Mode Squeezing for Quantum Interference",
     venue: "arXiv:2511.16529",
     href: "https://arxiv.org/abs/2511.16529",
   },
   {
     date: "2025",
+    publishedOn: "2025-11-13",
     title: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
     venue: "arXiv:2511.11752",
     href: "https://arxiv.org/abs/2511.11752",
   },
   {
     date: "2025",
+    publishedOn: "2025-10-12",
     title: "Automated discovery of high-dimensional multipartite entanglement with photons that never interacted",
     venue: "arXiv:2510.10707",
     href: "https://arxiv.org/abs/2510.10707",
   },
   {
     date: "2025",
+    publishedOn: "2025-05-29",
     title: "Quantum computing and artificial intelligence: status and perspectives",
     venue: "arXiv:2505.23860",
     href: "https://arxiv.org/abs/2505.23860",
   },
   {
     date: "2025",
-    title: "Tutorial: Hong-Ou-Mandel interference with Structured Photons",
-    venue: "Nanophotonics 14 (23), 4163",
-    href: "https://www.degruyterbrill.com/document/doi/10.1515/nanoph-2025-0034/html",
-  },
-  {
-    date: "2025",
+    publishedOn: "2025-08-01",
     title: "Violation of Bell inequality with unentangled photons",
     venue: "Science Advances 11, eadr1794",
     href: "https://www.science.org/doi/10.1126/sciadv.adr1794",
   },
   {
     date: "2025",
+    publishedOn: "2025-05-26",
+    title: "Tutorial: Hong-Ou-Mandel interference with Structured Photons",
+    venue: "Nanophotonics 14 (23), 4163–4175",
+    href: "https://www.degruyterbrill.com/document/doi/10.1515/nanoph-2025-0034/html",
+  },
+  {
+    date: "2025",
+    publishedOn: "2025-05-23",
     title: "Forecasting high-impact research topics via machine learning on evolving knowledge graphs",
     venue: "Machine Learning: Science and Technology 6 (2), 025041",
     href: "https://iopscience.iop.org/article/10.1088/2632-2153/add6ef",
   },
   {
     date: "2025",
+    publishedOn: "2025-04-11",
     title: "Digital Discovery of Interferometric Gravitational Wave Detectors",
     venue: "Phys. Rev. X 15, 021012",
     href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
   },
   {
     date: "2025",
+    publishedOn: "2025-03-03",
+    title: "Predicting atmospheric turbulence for secure quantum communications in free space",
+    venue: "Optics Express 33 (5), 10759–10776",
+    href: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-33-5-10759&id=568775",
+  },
+  {
+    date: "2025",
+    publishedOn: "2025-02-07",
     title: "Discovering emergent connections in quantum physics research via dynamic word embeddings",
     venue: "Machine Learning: Science and Technology 6, 015029",
     href: "https://iopscience.iop.org/article/10.1088/2632-2153/adb00a",
   },
   {
     date: "2025",
-    title: "Predicting atmospheric turbulence for secure quantum communications in free space",
-    venue: "Optics Express 33 (5), 10759",
-    href: "https://opg.optica.org/oe/fulltext.cfm?uri=oe-33-5-10759&id=568775",
-  },
-  {
-    date: "2024",
-    title: "Generation and human-expert evaluation of interesting research ideas using knowledge graphs and large language models",
-    venue: "arXiv:2405.17044",
-    href: "https://arxiv.org/abs/2405.17044",
-  },
-  {
-    date: "2024",
-    title: "Automated discovery of experimental designs in super-resolution microscopy with XLuminA",
-    venue: "Nature Comm. 15, 10658",
-    href: "https://www.nature.com/articles/s41467-024-54696-y",
-  },
-  {
-    date: "2024",
-    title: "Entangling Independent Particles by Path Identity",
-    venue: "Phys. Rev. Lett. 133, 233601",
-    href: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.233601",
-  },
-  {
-    date: "2024",
+    publishedOn: "2024-12-05",
     title: "Emulating Multiparticle Emitters with Pair-Sources: Digital Discovery of a Quantum Optics Building Block",
     venue: "Quantum Science and Technology 10 (1), 015042",
     href: "https://iopscience.iop.org/article/10.1088/2058-9565/ad904f",
   },
   {
     date: "2024",
+    publishedOn: "2024-05-27",
+    title: "Generating Interesting Scientific Ideas using Knowledge Graphs and LLMs: Evaluations with 100 Research Group Leaders",
+    venue: "arXiv:2405.17044",
+    href: "https://arxiv.org/abs/2405.17044",
+  },
+  {
+    date: "2024",
+    publishedOn: "2024-12-10",
+    title: "Automated discovery of experimental designs in super-resolution microscopy with XLuminA",
+    venue: "Nature Comm. 15, 10658",
+    href: "https://www.nature.com/articles/s41467-024-54696-y",
+  },
+  {
+    date: "2024",
+    publishedOn: "2024-12-02",
+    title: "Entangling Independent Particles by Path Identity",
+    venue: "Phys. Rev. Lett. 133, 233601",
+    href: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.133.233601",
+  },
+  {
+    date: "2024",
+    publishedOn: "2024-08-13",
     title: "Virtual Reality for Understanding Artificial-Intelligence-driven Scientific Discovery with an Application in Quantum Optics",
     venue: "Machine Learning: Science and Technology 5 (3), 035045",
     href: "https://iopscience.iop.org/article/10.1088/2632-2153/ad5fdb",
   },
   {
     date: "2024",
+    publishedOn: "2024-03-18",
     title: "Quantum interference between distant creation processes",
     venue: "Phys. Rev. Research 6, 013294",
     href: "https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.6.013294",
   },
   {
     date: "2024",
+    publishedOn: "2024-02-15",
     title: "Deep Quantum Graph Dreaming: Deciphering Neural Network Insights into Quantum Experiments",
     venue: "Machine Learning: Science and Technology 5 (1), 015029",
     href: "https://iopscience.iop.org/article/10.1088/2632-2153/ad2628",
   },
   {
     date: "2023",
+    publishedOn: "2023-12-13",
     title: "Experimental Solutions to the High-Dimensional Mean King's Problem",
-    venue: "Optica Quantum 1 (2), 49",
+    venue: "Optica Quantum 1 (2), 49–54",
     href: "https://doi.org/10.1364/OPTICAQ.502451",
   },
   {
     date: "2023",
+    publishedOn: "2023-12-12",
     title: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
     venue: "Quantum 7, 1204",
     href: "https://quantum-journal.org/papers/q-2023-12-12-1204/",
   },
   {
     date: "2023",
+    publishedOn: "2023-10-16",
     title: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network",
-    venue: "Nature Machine Intelligence 5 (11), 1326",
+    venue: "Nature Machine Intelligence 5 (11), 1326–1335",
     href: "https://www.nature.com/articles/s42256-023-00735-0",
   },
   {
     date: "2023",
+    publishedOn: "2023-08-30",
     title: "Roadmap on structured waves",
     venue: "Journal of Optics 25, 103001",
     href: "https://iopscience.iop.org/article/10.1088/2040-8986/acea92/meta",
   },
   {
     date: "2023",
-    title: "Recent advances in the Self-Referencing Embedding Strings (SELFIES) library",
-    venue: "Digital Discovery 2, 897",
+    publishedOn: "2023-07-01",
+    title: "Recent advances in the self-referencing embedded strings (SELFIES) library",
+    venue: "Digital Discovery 2, 897–908",
     href: "https://pubs.rsc.org/en/content/articlelanding/2023/DD/D3DD00044C",
   },
   {
     date: "2023",
+    publishedOn: "2023-03-17",
     title: "Multiphoton non-local quantum interference controlled by an undetected photon",
     venue: "Nature Communications 14, 1480",
     href: "https://www.nature.com/articles/s41467-023-37228-y",
   },
   {
     date: "2023",
+    publishedOn: "2023-01-13",
     title: "On-chip quantum interference between the origins of a multi-photon state",
     venue: "Optica 10 (1), 105-109",
     href: "https://doi.org/10.1364/OPTICA.474750",
   },
   {
     date: "2023",
+    publishedOn: "2023-01-03",
     title: "Artificial Intelligence and Machine Learning for Quantum Technologies",
     venue: "Phys. Rev. A 107, 010101",
     href: "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.010101",
   },
   {
     date: "2022",
+    publishedOn: "2022-10-14",
     title: "SELFIES and the future of molecular string representations",
-    venue: "Cell Patterns 3 (10), 100588",
+    venue: "Patterns 3 (10), 100588",
     href: "https://www.cell.com/patterns/fulltext/S2666-3899(22)00206-9",
   },
   {
     date: "2022",
-    title: "On scientific understanding with artificial intelligence",
-    venue: "Nature Review Physics 4, 761",
-    href: "https://www.nature.com/articles/s42254-022-00518-3",
-  },
-  {
-    date: "2022",
+    publishedOn: "2022-10-13",
     title: "Design of quantum optical experiments with logic artificial intelligence",
     venue: "Quantum 6, 836",
     href: "https://quantum-journal.org/papers/q-2022-10-13-836/",
   },
   {
     date: "2022",
+    publishedOn: "2022-10-11",
+    title: "On scientific understanding with artificial intelligence",
+    venue: "Nature Reviews Physics 4, 761–769",
+    href: "https://www.nature.com/articles/s42254-022-00518-3",
+  },
+  {
+    date: "2022",
+    publishedOn: "2022-07-25",
     title: "Curiosity in exploring chemical spaces: intrinsic rewards for molecular reinforcement learning",
     venue: "Machine Learning: Science and Technology 3 (3), 035008",
     href: "https://iopscience.iop.org/article/10.1088/2632-2153/ac7ddc",
   },
   {
     date: "2022",
+    publishedOn: "2022-06-21",
     title: "Quantum indistinguishability by path identity and with undetected photons",
     venue: "Rev. Mod. Phys. 94, 025007",
     href: "https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.94.025007",
   },
   {
     date: "2022",
+    publishedOn: "2022-06-16",
     title: "Learning interpretable representations of entanglement in quantum optics experiments using deep generative models",
-    venue: "Nature Machine Intelligence 4, 544",
+    venue: "Nature Machine Intelligence 4, 544–554",
     href: "https://www.nature.com/articles/s42256-022-00493-5",
   },
   {
     date: "2022",
+    publishedOn: "2022-02-23",
     title: "Experimental high-dimensional Greenberger-Horne-Zeilinger entanglement with superconducting transmon qutrits",
     venue: "Phys. Rev. Applied 17, 024062",
     href: "https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.17.024062",
   },
   {
     date: "2021",
+    publishedOn: "2021-11-26",
     title: "Quantum Optical Experiments Modeled by Long Short-Term Memory",
     venue: "Photonics 8 (12), 535",
     href: "https://www.mdpi.com/2304-6732/8/12/535",
   },
   {
     date: "2021",
+    publishedOn: "2021-08-26",
     title: "Conceptual understanding through efficient automated design of quantum optical experiments",
     venue: "Phys. Rev. X 11 (3), 031044",
     href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.11.031044",
   },
   {
     date: "2021",
-    title: "Deep Molecular Dreaming: Inverse machine learning for de-novo molecular design and interpretability with surjective representations",
-    venue: "Machine Learning: Science and Technology 2 (3), 03LT02",
-    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ac09d6",
-  },
-  {
-    date: "2021",
+    publishedOn: "2021-08-03",
     title: "Quantum Computer-Aided design of Quantum Optics Hardware",
     venue: "Quantum Science and Technology 6 (3), 035010",
     href: "https://iopscience.iop.org/article/10.1088/2058-9565/abfc94",
   },
   {
     date: "2021",
+    publishedOn: "2021-07-13",
+    title: "Deep Molecular Dreaming: Inverse machine learning for de-novo molecular design and interpretability with surjective representations",
+    venue: "Machine Learning: Science and Technology 2 (3), 03LT02",
+    href: "https://iopscience.iop.org/article/10.1088/2632-2153/ac09d6",
+  },
+  {
+    date: "2021",
+    publishedOn: "2021-04-20",
+    title: "Beyond generative models: superfast traversal, optimization, novelty, exploration and discovery (STONED) algorithm for molecules using SELFIES",
+    venue: "Chemical Science 12 (20), 7079–7090",
+    href: "https://pubs.rsc.org/en/content/articlelanding/2021/SC/D1SC00231G#!divAbstract",
+  },
+  {
+    date: "2021",
+    publishedOn: "2021-04-14",
     title: "Scientific intuition inspired by machine learning-generated hypotheses",
     venue: "Machine Learning: Science and Technology 2 (2), 025027",
     href: "https://iopscience.iop.org/article/10.1088/2632-2153/abda08/meta",
   },
   {
     date: "2021",
-    title: "Beyond generative models: superfast traversal, optimization, novelty, exploration and discovery (STONED) algorithm for molecules using SELFIES",
-    venue: "Chemical Sciences 12 (20), 7079",
-    href: "https://pubs.rsc.org/en/content/articlelanding/2021/SC/D1SC00231G#!divAbstract",
-  },
-  {
-    date: "2021",
+    publishedOn: "2021-02-02",
     title: "Data-Driven Strategies for Accelerated Materials Design",
     venue: "Accounts of Chemical Research 54 (4), 849-860",
     href: "https://pubs.acs.org/doi/10.1021/acs.accounts.0c00785",
@@ -703,7 +782,13 @@ const publications: Paper[] = [
 
 const isArxivPreprint = (paper: Paper) => paper.venue.startsWith("arXiv:");
 
-const publicationsByYear = publications
+const comparePublications = (firstPaper: Paper, secondPaper: Paper) =>
+  Number(secondPaper.date) - Number(firstPaper.date) ||
+  Number(isArxivPreprint(secondPaper)) - Number(isArxivPreprint(firstPaper)) ||
+  secondPaper.publishedOn.localeCompare(firstPaper.publishedOn);
+
+const publicationsByYear = [...publications]
+  .sort(comparePublications)
   .reduce<Array<{ year: string; papers: Paper[] }>>((groups, paper) => {
     const previousGroup = groups[groups.length - 1];
 
@@ -714,15 +799,10 @@ const publicationsByYear = publications
 
     previousGroup.papers.push(paper);
     return groups;
-  }, [])
-  .map((group) => ({
-    ...group,
-    papers: [...group.papers].sort(
-      (firstPaper, secondPaper) => Number(isArxivPreprint(secondPaper)) - Number(isArxivPreprint(firstPaper)),
-    ),
-  }));
+  }, []);
 
 const publicationAuthorsByTitle: Record<string, string> = {
+  "esQueranto: Differentiable Structured Quantum Light for Automated Scientific Discovery": "Armezzani, Jaouni, Lindgren, Arlt, Krenn, Gu",
   "Photonic realization of a subgraph extraction in a quantum random network": "Xia, Gu, Wang, Chen, Krenn, Lu, Zhu, Ma",
   "Automated discovery of high-probability heralded schemes for path-entangled states": "Armezzani, Lualdi, Gu, Kwiat, Krenn",
   "Designing physics experiments with artificial intelligence": "Klimesch, Arlt, Ruiz-Gonzalez, Rodríguez, Gu, Haslinger, Vischia, Haack, Drori, Adhikari, Arndt, Kagan, Heinrich, Krenn",
@@ -742,7 +822,7 @@ const publicationAuthorsByTitle: Record<string, string> = {
   "Digital Discovery of Interferometric Gravitational Wave Detectors": "Krenn, Drori, Adhikari",
   "Discovering emergent connections in quantum physics research via dynamic word embeddings": "Frohnert, Gu, Krenn, van Nieuwenburg",
   "Predicting atmospheric turbulence for secure quantum communications in free space": "Jaouni, Scarfe, Bouchard, Krenn, Heshami, Di Colandrea, Karimi",
-  "Generation and human-expert evaluation of interesting research ideas using knowledge graphs and large language models": "Gu, Krenn",
+  "Generating Interesting Scientific Ideas using Knowledge Graphs and LLMs: Evaluations with 100 Research Group Leaders": "Gu, Krenn",
   "Automated discovery of experimental designs in super-resolution microscopy with XLuminA": "Rodriguez, Arlt, Moeckl, Krenn",
   "Entangling Independent Particles by Path Identity": "Wang, Hou, Qian, Chen, Krenn, Zhu, Ma",
   "Emulating Multiparticle Emitters with Pair-Sources: Digital Discovery of a Quantum Optics Building Block": "Arlt, Ruiz-Gonzalez, Krenn",
@@ -753,7 +833,7 @@ const publicationAuthorsByTitle: Record<string, string> = {
   "Digital Discovery of 100 diverse Quantum Experiments with PyTheus": "Ruiz-Gonzalez, Arlt, Petermann, Sayyad, Jaouni, Karimi, Tischler, Gu, Krenn",
   "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network": "Krenn, Buffoni, Coutinho, Eppel, Foster, Gritsevskiy, Lee, Lu, Moutinho, Sanjabi, Sonthalia, Tran, Valente, Xie, Yu, Kopp",
   "Roadmap on structured waves": "Bliokh, Karimi, Padgett, Alonso, Dennis, Dudley, Forbes, Zahedpour, Hancock, Milchberg, Rotter, Nori, Ozdemir, Bender, Cao, Corkum, Hernandez-Garcia, Ren, Kivshar, Silveirinha, Engheta, Rauschenbeutel, Schneeweiss, Volz, Leykam, Smirnova, Rong, Wang, Hasman, Picardi, Zayats, Rodriguez-Fortuno, Yang, Ren, Khanikaev, Alu, Brasselet, Shats, Verbeeck, Schattschneider, Sarenac, Cory, Pushin, Birk, Gorlach, Kaminer, Cardano, Marrucci, Krenn, Marquardt",
-  "Recent advances in the Self-Referencing Embedding Strings (SELFIES) library": "Lo, Pollice, Nigam, White, Krenn, Aspuru-Guzik",
+  "Recent advances in the self-referencing embedded strings (SELFIES) library": "Lo, Pollice, Nigam, White, Krenn, Aspuru-Guzik",
   "Multiphoton non-local quantum interference controlled by an undetected photon": "Qian, Wang, Chen, Hou, Krenn, Zhu, Ma",
   "On-chip quantum interference between the origins of a multi-photon state": "Feng, Zhang, Liu, Cheng, Guo, Dai, Guo, Krenn, Ren",
   "Artificial Intelligence and Machine Learning for Quantum Technologies": "Krenn, Landgraf, Foesel, Marquardt",
@@ -1363,6 +1443,85 @@ const newsDateSortValue = (date: string) => {
 };
 
 const newsItems: NewsItem[] = [
+  {
+    date: "02.10.2026",
+    content: (
+      <>
+        <span className="block">
+          New preprint:{" "}
+          <a
+            href="https://arxiv.org/abs/2610.00750"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            esQueranto: Differentiable Structured Quantum Light for Automated Scientific Discovery
+          </a>{" "}
+          by Marcello, Tareq, Pontus, Sören, and Xuemei.
+        </span>
+        <span className="mt-3 block">
+          It moves towards the idea of foundational simulators described in our{" "}
+          <a
+            href="https://www.nature.com/articles/s41586-026-10898-6"
+            target="_blank"
+            rel="noreferrer"
+            className="challenge-inline-link"
+          >
+            <em>Nature</em> manuscript
+          </a>
+          . In this case, we created a simulator that combines quantum optics in the Fock
+          representation with spatial mode beam propagation. While this seems like a trivial
+          connection, it turns out to be quite tricky.
+        </span>
+        <span className="mt-3 block">
+          Spatial modes change during propagation (e.g., through lenses or free space; think of
+          the ABCD formalism), which means that photons that occupy orthogonal modes at the
+          beginning can end up in partially indistinguishable modes, with dramatic consequences
+          for quantum interference.
+        </span>
+        <span className="mt-3 block">
+          For me, this showed that even combining rather standard optical physics requires new,
+          nontrivial physical representations. If one succeeds, AI exploration models can
+          discover new inventions that combine effects from two worlds simultaneously. In the
+          outlook, we already hint at what comes next.
+        </span>
+      </>
+    ),
+  },
+  {
+    date: "16.09.2026",
+    content: (
+      <>
+        Congratulations Dr. Carlos Ruiz-Gonzales for successfully defending the PhD and thereby
+        being the first PhD graduate from the Artificial Scientist Lab!! His thesis:{" "}
+        <a
+          href="/theses/carlos-ruiz-gonzalez-phd-thesis.pdf"
+          download="carlos-ruiz-gonzalez-phd-thesis.pdf"
+          className="challenge-inline-link"
+        >
+          Automated experimental design with highly parameterized ansätze
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    date: "11.09.2026",
+    content: (
+      <>
+        Our work on surrogate models for gravitational wave detector design has been published in{" "}
+        <a
+          href="https://iopscience.iop.org/article/10.1088/2632-2153/ae9de9/meta"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <em>Machine Learning: Science and Technology</em>
+        </a>
+        . Congratulations, Carlos!
+      </>
+    ),
+  },
   {
     date: "07.09.2026",
     content: (
