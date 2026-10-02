@@ -1145,19 +1145,19 @@ const coreChallenges: CoreChallenge[] = [
     },
     links: [
       {
-        label: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus",
+        label: "Digital Discovery of 100 diverse Quantum Experiments with PyTheus (2023)",
         href: "https://quantum-journal.org/papers/q-2023-12-12-1204/",
       },
       {
-        label: "Automated discovery of experimental designs in super-resolution microscopy with XLuminA",
+        label: "Automated discovery of experimental designs in super-resolution microscopy with XLuminA (2024)",
         href: "https://www.nature.com/articles/s41467-024-54696-y",
       },
       {
-        label: "Digital Discovery of Interferometric Gravitational Wave Detectors",
+        label: "Digital Discovery of Interferometric Gravitational Wave Detectors (2025)",
         href: "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.15.021012",
       },
       {
-        label: "Designing physics experiments with artificial intelligence",
+        label: "Designing physics experiments with artificial intelligence (2026)",
         href: "https://www.nature.com/articles/s41586-026-10898-6",
       },
     ],
@@ -1247,11 +1247,11 @@ const coreChallenges: CoreChallenge[] = [
     },
     links: [
       {
-        label: "Meta-designing quantum experiments with language models",
+        label: "Meta-designing quantum experiments with language models (2026)",
         href: "https://www.nature.com/articles/s42256-025-01153-0",
       },
       {
-        label: "Emulating multiparticle emitters with pair-sources: digital discovery of a quantum optics building block",
+        label: "Emulating multiparticle emitters with pair-sources: digital discovery of a quantum optics building block (2025)",
         href: "https://iopscience.iop.org/article/10.1088/2058-9565/ad904f/meta",
       },
     ],
@@ -1336,15 +1336,15 @@ const coreChallenges: CoreChallenge[] = [
     },
     links: [
       {
-        label: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network",
+        label: "Forecasting the future of artificial intelligence with machine learning-based link prediction in an exponentially growing knowledge network (2023)",
         href: "https://www.nature.com/articles/s42256-023-00735-0",
       },
       {
-        label: "Forecasting high-impact research topics via machine learning on evolving knowledge graphs",
+        label: "Forecasting high-impact research topics via machine learning on evolving knowledge graphs (2025)",
         href: "https://iopscience.iop.org/article/10.1088/2632-2153/add6ef",
       },
       {
-        label: "Interesting Scientific Idea Generation using Knowledge Graphs and LLMs: Evaluations with 100 Research Group Leaders",
+        label: "Interesting Scientific Idea Generation using Knowledge Graphs and LLMs: Evaluations with 100 Research Group Leaders (2024)",
         href: "https://arxiv.org/abs/2405.17044",
       },
     ],
@@ -1435,15 +1435,15 @@ const coreChallenges: CoreChallenge[] = [
     },
     links: [
       {
-        label: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools",
+        label: "Towards autonomous quantum physics research using LLM agents with access to intelligent tools (2025)",
         href: "https://arxiv.org/abs/2511.11752",
       },
       {
-        label: "On scientific understanding with artificial intelligence",
+        label: "On scientific understanding with artificial intelligence (2022)",
         href: "https://www.nature.com/articles/s42254-022-00518-3",
       },
       {
-        label: "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists",
+        label: "Philosophy of Autonomous Science: Ten Questions for the Coming Age of Artificial Scientists (2026)",
         href: "https://www.amacad.org/publication/daedalus/philosophy-autonomous-science-ten-questions-coming-age-artificial-scientists",
       },
     ],
