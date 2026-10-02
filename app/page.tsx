@@ -1460,7 +1460,7 @@ const newsItems: NewsItem[] = [
           by Marcello, Tareq, Pontus, Sören, and Xuemei.
         </span>
         <span className="mt-3 block">
-          It moves towards the idea of foundational simulators described in our{" "}
+          It moves towards the idea of <strong>foundational simulators</strong> described in our{" "}
           <a
             href="https://www.nature.com/articles/s41586-026-10898-6"
             target="_blank"
@@ -1481,7 +1481,7 @@ const newsItems: NewsItem[] = [
         </span>
         <span className="mt-3 block">
           For me, this showed that even combining rather standard optical physics requires new,
-          nontrivial physical representations. If one succeeds, AI exploration models can
+          <strong>nontrivial physical representations</strong>. If one succeeds, AI exploration models can
           discover new inventions that combine effects from two worlds simultaneously. In the
           outlook, we already hint at what comes next.
         </span>
