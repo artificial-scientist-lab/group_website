@@ -210,13 +210,6 @@ const teamMembers: TeamMember[] = [
     links: [],
   },
   {
-    name: "Raphael Jontofsohn",
-    role: "Bachelor student",
-    focus: "",
-    image: "/team/raphael-jontofsohn.webp",
-    links: [],
-  },
-  {
     name: "Laurin Sefa",
     role: "Bachelor student",
     focus:
@@ -253,6 +246,17 @@ const teamMembers: TeamMember[] = [
 ];
 
 const alumniMembers: AlumniMember[] = [
+  {
+    name: "Raphael Jontofsohn",
+    role: "Bachelor student",
+    period: "February 2026 - July 2026",
+    leftAt: "2026-07",
+    thesis: {
+      title: "Topological Pattern Recognition in Experimental Configurations for the Detection of Gravitational Waves",
+      href: "/theses/raphael-jontofsohn-bachelor-thesis.pdf",
+      downloadName: "raphael-jontofsohn-bachelor-thesis.pdf",
+    },
+  },
   {
     name: "Carlos Ruiz Gonz\u00e1lez",
     role: "PhD student",
