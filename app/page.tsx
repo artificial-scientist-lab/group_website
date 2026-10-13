@@ -167,17 +167,6 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
-    name: "Jonathan Klimesch",
-    role: "PhD student",
-    focus:
-      "Interested in Differentiable Simulations and diverse AI algorithms for the discovery of novel, but human-understandable concepts for gravitational wave detectors.",
-    image: "/team/jonathan-klimesch.webp",
-    links: [
-      { label: "Website", href: "https://www.phylomatx.com/" },
-      { label: "GitHub", href: "https://github.com/PhylomatX" },
-    ],
-  },
-  {
     name: "Pontus Lindgren",
     role: "PhD student",
     focus: "Excited about discovering physics concepts using AI. A key challenge is how to turn simulated solutions into understanding. I am particularly interested in broadening the scope of AI discoveries. In my spare time I like to run outdoors, especially orienteering.",
@@ -246,6 +235,18 @@ const teamMembers: TeamMember[] = [
 ];
 
 const alumniMembers: AlumniMember[] = [
+  {
+    name: "Jonathan Klimesch",
+    role: "Master and PhD student",
+    period: "May 2024 - July 2026",
+    leftAt: "2026-07",
+    current: "Currently: Co-founder and CEO of Feyer",
+    links: [
+      { label: "Feyer", href: "https://feyer.ai/" },
+      { label: "Website", href: "https://www.phylomatx.com/" },
+      { label: "GitHub", href: "https://github.com/PhylomatX" },
+    ],
+  },
   {
     name: "Raphael Jontofsohn",
     role: "Bachelor student",
