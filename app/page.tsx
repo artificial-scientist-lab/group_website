@@ -149,6 +149,13 @@ const teamMembers: TeamMember[] = [
     ],
   },
   {
+    name: "Shubhang Dadhich",
+    role: "PhD student",
+    focus: "",
+    image: "/team/shubhang-dadhich.svg",
+    links: [],
+  },
+  {
     name: "Tareq Jaouni",
     role: "PhD student",
     focus: "Joint PhD student with Dr. Ebrahim Karimi's Structured Quantum Optics group at the University of Ottawa. Intrigued by what sort of novel ideas in physics can be concocted by an artificial scientist. Primary interests include food, cycling, coding, Pok\u00e9mon, reading out loud, and role-playing.",
@@ -1605,6 +1612,14 @@ const newsItems: NewsItem[] = [
           (optics, electronics, chips, advanced measurements) &mdash; basically AI for industrial
           inventions!
         </span>
+      </>
+    ),
+  },
+  {
+    date: "01.09.2026",
+    content: (
+      <>
+        Welcome Shubhang Dadhich to the Artificial Scientist Lab, and much success with your PhD!
       </>
     ),
   },
