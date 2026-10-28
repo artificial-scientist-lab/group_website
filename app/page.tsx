@@ -151,9 +151,10 @@ const teamMembers: TeamMember[] = [
   {
     name: "Shubhang Dadhich",
     role: "PhD student",
-    focus: "",
-    image: "/team/shubhang-dadhich.svg",
-    links: [],
+    focus:
+      "I am interested in the use of AI to explore experiments on the intersection of quantum physics and general relativity that potentially lie beyond intuition-led human explorations in a laboratory. Outside of that: super excited about gaming, all sorts of musical instruments and analog synthesisers.",
+    image: "/team/shubhang-dadhich.png",
+    links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/shubhang-dadhich2" }],
   },
   {
     name: "Tareq Jaouni",
