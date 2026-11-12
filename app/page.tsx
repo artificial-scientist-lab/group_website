@@ -1331,7 +1331,7 @@ const coreChallenges: CoreChallenge[] = [
             Ultimately, we are interested in whether these predictions could actually be useful. For that, we
             launched the project{" "}
             <a
-              href="https://arxiv.org/abs/2405.17044"
+              href="https://www.pnas.org/doi/10.1073/pnas.2611349123"
               target="_blank"
               rel="noreferrer"
               className="challenge-inline-link"
