@@ -1473,6 +1473,30 @@ const newsDateSortValue = (date: string) => {
 
 const newsItems: NewsItem[] = [
   {
+    date: "12.11.2026",
+    content: (
+      <>
+        Very happy that{" "}
+        <a
+          href="https://www.pnas.org/doi/10.1073/pnas.2611349123"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>SciMuse</strong>
+        </a>{" "}
+        is finally out in <em>PNAS</em>. Spearheaded by Xuemei Gu, we developed a method to
+        generate new personalized scientific ideas and evaluated them with more than 100 research
+        group leaders at Max Planck Institutes in Germany, across fields from physics, chemistry,
+        and biology to the humanities. To the best of our knowledge, this is by far the largest
+        evaluation of AI-generated ideas by top scientific experts. In addition, we showed that
+        scientific interest can be predicted by supervised neural networks and ranked zero-shot by
+        LLMs. Personally, this is an important contribution to the interplay of{" "}
+        <strong>AI and scientific creativity</strong>.
+      </>
+    ),
+  },
+  {
     date: "02.10.2026",
     content: (
       <>
