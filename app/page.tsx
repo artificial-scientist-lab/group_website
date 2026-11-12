@@ -1357,8 +1357,8 @@ const coreChallenges: CoreChallenge[] = [
         href: "https://iopscience.iop.org/article/10.1088/2632-2153/add6ef",
       },
       {
-        label: "Interesting Scientific Idea Generation using Knowledge Graphs and LLMs: Evaluations with 100 Research Group Leaders (2024)",
-        href: "https://arxiv.org/abs/2405.17044",
+        label: "Generating interesting scientific ideas using knowledge graphs and LLMs: Evaluations with 100 research group leaders (2026)",
+        href: "https://www.pnas.org/doi/10.1073/pnas.2611349123",
       },
     ],
   },
