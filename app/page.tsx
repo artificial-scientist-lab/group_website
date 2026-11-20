@@ -450,6 +450,13 @@ const groupPhotos: GroupPhoto[] = [
 const publications: Paper[] = [
   {
     date: "2026",
+    publishedOn: "2026-11-19",
+    title: "A Tensor-Algebraic No-Go Theorem for High-Dimensional Photonic Greenberger-Horne-Zeilinger States Discovered with AlphaProof Nexus",
+    venue: "arXiv:2611.26300",
+    href: "https://arxiv.org/abs/2611.26300",
+  },
+  {
+    date: "2026",
     publishedOn: "2026-09-30",
     title: "esQueranto: Differentiable Structured Quantum Light for Automated Scientific Discovery",
     venue: "arXiv:2610.00750",
@@ -815,6 +822,7 @@ const publicationsByYear = [...publications]
   }, []);
 
 const publicationAuthorsByTitle: Record<string, string> = {
+  "A Tensor-Algebraic No-Go Theorem for High-Dimensional Photonic Greenberger-Horne-Zeilinger States Discovered with AlphaProof Nexus": "Krenn, Firsching, Tsoukalas, Gajjala, Gu, Chaudhuri",
   "esQueranto: Differentiable Structured Quantum Light for Automated Scientific Discovery": "Armezzani, Jaouni, Lindgren, Arlt, Krenn, Gu",
   "Photonic realization of a subgraph extraction in a quantum random network": "Xia, Gu, Wang, Chen, Krenn, Lu, Zhu, Ma",
   "Automated discovery of high-probability heralded schemes for path-entangled states": "Armezzani, Lualdi, Gu, Kwiat, Krenn",
@@ -1472,6 +1480,29 @@ const newsDateSortValue = (date: string) => {
 };
 
 const newsItems: NewsItem[] = [
+  {
+    date: "20.11.2026",
+    content: (
+      <>
+        New preprint published:{" "}
+        <a
+          href="https://arxiv.org/abs/2611.26300"
+          target="_blank"
+          rel="noreferrer"
+          className="challenge-inline-link"
+        >
+          <strong>
+            A Tensor-Algebraic No-Go Theorem for High-Dimensional Photonic
+            Greenberger-Horne-Zeilinger States Discovered with AlphaProof Nexus
+          </strong>
+        </a>
+        . In collaboration with researchers at DeepMind, we formulated a question in quantum
+        physics about the generation of high-dimensional GHZ states and solved the first large
+        special case with AlphaProof Nexus. We digested the machine-generated Lean proof and
+        explain its background, the proof itself, and its connection to quantum physics.
+      </>
+    ),
+  },
   {
     date: "12.11.2026",
     content: (
